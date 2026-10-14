@@ -1,7 +1,7 @@
 # System Design Handbook
 ### A Layer-by-Layer Guide Following the Request Flow
 
-> Based on the *System Design Blueprint: The Ultimate Guide* diagram. The blueprint uses colour-coded sticky notes: **Metrics** (yellow), **Security** (orange), **Options / Algorithms** (blue). This handbook mirrors that convention with the tags **[Metrics]**, **[Security]**, and **[Options]**.
+> Based on the *System Design Blueprint: The Ultimate Guide* diagram. The blueprint's sticky notes group extra details by type (yellow = what to measure, orange = security, blue = options and algorithms). In this handbook, each layer follows the same pattern in plain labels: **Design options** (the choices you can make), **Key metrics to monitor** (how you know it is healthy), and **Security considerations** (how you protect it).
 
 ---
 
@@ -169,11 +169,11 @@ The journey starts on a **mobile or web client** (for example, a login screen on
 - **Idempotency key**: client-generated unique key so retries of non-idempotent calls (like payments) don't repeat the side effect. The server stores the key with the result and returns the stored result on replay.
 - **Many more**: user-agent, locale, API version, correlation IDs, content negotiation, etc.
 
-**[Options / Algorithms]**: choice of REST vs gRPC vs GraphQL; retry with exponential backoff and jitter; client-side caching; connection reuse (HTTP/2, keep-alive).
+**Design options:** choice of REST vs gRPC vs GraphQL; retry with exponential backoff and jitter; client-side caching; connection reuse (HTTP/2, keep-alive).
 
-**[Security]**: TLS everywhere, token-based auth (`Bearer` JWT / OAuth access token), CSRF protection for cookie-based sessions, CORS policy, no secrets in query strings, certificate pinning on mobile.
+**Security considerations:** TLS everywhere, token-based auth (`Bearer` JWT / OAuth access token), CSRF protection for cookie-based sessions, CORS policy, no secrets in query strings, certificate pinning on mobile.
 
-**[Metrics]**: client-observed latency, request success rate, retry count, payload size.
+**Key metrics to monitor:** client-observed latency, request success rate, retry count, payload size.
 
 ### 1.2 Response & Error Handling
 
@@ -207,7 +207,7 @@ The journey starts on a **mobile or web client** (for example, a login screen on
 }
 ```
 
-**[Metrics]**: response time (p50 / p95 / p99), failed status code counts, error-code distribution, error budget burn.
+**Key metrics to monitor:** response time (p50 / p95 / p99), failed status code counts, error-code distribution, error budget burn.
 
 ### 1.3 DNS Infrastructure
 
@@ -231,11 +231,11 @@ Client ─► ISP / Recursive Resolver
 | **TLD nameserver** | Manages `.com`, `.net`, `.org`, etc.; points to the authoritative server for the domain. |
 | **Authoritative nameserver** | Holds the actual records (A, AAAA, CNAME, MX, TXT) and answers with the final IP, e.g. `12.34.56.78`. |
 
-**[Options]**: DNS-based load balancing (round robin, weighted, latency-based, geo-routing), Anycast, low TTL for fast failover vs high TTL for fewer lookups.
+**Design options:** DNS-based load balancing (round robin, weighted, latency-based, geo-routing), Anycast, low TTL for fast failover vs high TTL for fewer lookups.
 
-**[Security]**: DNSSEC, DNS over HTTPS/TLS, protection from cache poisoning and DDoS on DNS.
+**Security considerations:** DNSSEC, DNS over HTTPS/TLS, protection from cache poisoning and DDoS on DNS.
 
-**[Metrics]**: resolution time, cache hit ratio at the resolver, query volume, SERVFAIL rate.
+**Key metrics to monitor:** resolution time, cache hit ratio at the resolver, query volume, SERVFAIL rate.
 
 ### 1.4 API Design Deep Dive
 
@@ -354,14 +354,14 @@ A **CDN** places servers close to users so static and streaming content is serve
 
 **Invalidation**: TTL expiry, explicit purge by URL or tag, versioned URLs.
 
-**[Metrics]** (from the blueprint)
+**Key metrics to monitor** (from the blueprint):
 
 - **Cache miss count** and cache hit ratio
 - **Active resources**
 - **Total resources** tracked
 - Edge bandwidth, origin offload percentage, time-to-first-byte
 
-**[Security]**: signed URLs/cookies for private content, WAF, DDoS absorption, hotlink protection.
+**Security considerations:** signed URLs/cookies for private content, WAF, DDoS absorption, hotlink protection.
 
 ---
 
@@ -386,7 +386,7 @@ The **API Gateway** is the single entry point for client traffic. It centralizes
 | **Metering / usage data collection** | Records usage per client for billing, quotas, and analytics. |
 | **Request dispatching** | Routes to the right upstream (path/host/header-based routing, version routing). |
 
-**Rate limiting algorithms [Options]**
+**Rate limiting algorithms**
 
 | Algorithm | Idea | Trade-off |
 |---|---|---|
@@ -398,9 +398,9 @@ The **API Gateway** is the single entry point for client traffic. It centralizes
 
 Rate-limit state is typically kept in a shared store such as Redis so every gateway node sees the same counters. Respond with `429` plus `Retry-After`.
 
-**[Security]**: the gateway is the main trust boundary. Combine WAF rules, bot detection, schema validation, mTLS to upstreams, and secrets kept out of logs.
+**Security considerations:** the gateway is the main trust boundary. Combine WAF rules, bot detection, schema validation, mTLS to upstreams, and secrets kept out of logs.
 
-**[Metrics]**: requests per second per route/client, auth failure rate, throttled request count, gateway latency overhead.
+**Key metrics to monitor:** requests per second per route/client, auth failure rate, throttled request count, gateway latency overhead.
 
 ---
 
@@ -420,7 +420,7 @@ A **load balancer (LB)** distributes traffic across multiple servers to improve 
 | Speed | Faster, simpler | Smarter routing, more CPU |
 | Features | TCP/UDP balancing | Path routing, TLS termination, sticky sessions, retries |
 
-**Balancing algorithms [Options]**
+**Balancing algorithms**
 
 - **Round robin**: rotate through servers in order.
 - **Weighted round robin**: more traffic to higher-capacity servers.
@@ -430,7 +430,7 @@ A **load balancer (LB)** distributes traffic across multiple servers to improve 
 
 **Health checking**: active (probe `/health`) and passive (observe errors/timeouts). Unhealthy nodes are removed and slowly reintroduced (slow start, connection draining).
 
-**[Metrics]** (from the blueprint)
+**Key metrics to monitor** (from the blueprint):
 
 - **Access logs**
 - **Status codes**
@@ -438,7 +438,7 @@ A **load balancer (LB)** distributes traffic across multiple servers to improve 
 - **Active connections**
 - Also useful: backend response time, unhealthy host count, connection errors.
 
-**[Security]**: DDoS protection, connection limits, TLS policy, hiding backend topology.
+**Security considerations:** DDoS protection, connection limits, TLS policy, hiding backend topology.
 
 ---
 
@@ -456,7 +456,7 @@ The **frontend servers** terminate client connections and manage session state f
 |---|---|
 | `user_1` | `ada_inst_obj` |
 
-**Real-time and delivery protocols [Options]**
+**Real-time and delivery protocols**
 
 | Protocol | Direction | Typical use |
 |---|---|---|
@@ -482,9 +482,9 @@ Sender ─► FE Server A ─► Message Dispatcher ─► FE Server B ─► Re
 
 **Scaling**: horizontal scaling by adding servers; connection counts per server are bounded by memory and file descriptors.
 
-**[Metrics]** (from the blueprint): **bandwidth** and **topics** (subscriptions) per server; also concurrent connections, message latency, reconnect rate.
+**Key metrics to monitor** (from the blueprint): **bandwidth** and **topics** (subscriptions) per server; also concurrent connections, message latency, reconnect rate.
 
-**[Security]**: authenticate at handshake, validate origin, per-message authorization, limit message size.
+**Security considerations:** authenticate at handshake, validate origin, per-message authorization, limit message size.
 
 ---
 
@@ -515,7 +515,7 @@ In a distributed system, multiple nodes need to create **unique IDs** without a 
 - **Sequence**: up to 4096 IDs per millisecond per machine.
 - **Clock skew**: protect against clocks moving backwards (refuse to generate, wait, or use logical clocks).
 
-**[Metrics]**: ID generation rate, collisions (should be zero), clock drift.
+**Key metrics to monitor:** ID generation rate, collisions (should be zero), clock drift.
 
 ### 6.2 Distributed Resource Locking
 
@@ -538,7 +538,7 @@ Locks ensure only one process modifies a shared resource at a time across many n
 
 **Best practices**: always set a TTL/lease, use unique lock owner tokens, use **fencing tokens** (monotonic) to reject stale holders, keep critical sections short, and prefer idempotent operations over locking when possible.
 
-**[Metrics]**: lock wait time, lock hold time, contention rate, timeouts/lease expirations.
+**Key metrics to monitor:** lock wait time, lock hold time, contention rate, timeouts/lease expirations.
 
 ---
 
@@ -565,7 +565,7 @@ The **backend servers** run business logic and are tagged **#ClusterOfServers** 
 
 **Microservice considerations**: service discovery, API versioning, contract testing, per-service data ownership, saga pattern for distributed transactions.
 
-**[Metrics]** (from the blueprint): **disk I/O (if buffering)**, **CPU**, **memory**, **latency**, **bandwidth**.
+**Key metrics to monitor** (from the blueprint): **disk I/O (if buffering)**, **CPU**, **memory**, **latency**, **bandwidth**.
 
 ### 7.2 Message Dispatcher
 
@@ -588,7 +588,7 @@ The **Message Dispatcher** routes messages between frontend servers using a look
 
 **Design notes**: at-most-once vs at-least-once delivery, ordering per topic/partition, message IDs for deduplication, handling dead servers (TTL on subscription entries).
 
-**[Metrics]**: dispatch latency, fan-out factor, undeliverable messages, subscription count.
+**Key metrics to monitor:** dispatch latency, fan-out factor, undeliverable messages, subscription count.
 
 ---
 
@@ -598,7 +598,7 @@ The **Message Dispatcher** routes messages between frontend servers using a look
 
 An **in-memory cache** (tagged **#Fast**) holds hot data in RAM (e.g. Redis, Memcached) to cut latency and database load. A **distributed cache** spreads data across nodes for capacity and availability.
 
-**Caching patterns [Options]**
+**Caching patterns**
 
 | Pattern | Read path | Write path | Notes |
 |---|---|---|---|
@@ -623,7 +623,7 @@ An **in-memory cache** (tagged **#Fast**) holds hot data in RAM (e.g. Redis, Mem
 
 **Distributed cache design**: partitioning via **consistent hashing**, replication for failover, client-side or proxy-based routing (e.g. Redis Cluster hash slots).
 
-**[Metrics]** (from the blueprint): number of items, **cache hit and miss** ratio, **disk and memory usage**; also eviction count, latency, replication lag.
+**Key metrics to monitor** (from the blueprint): number of items, **cache hit and miss** ratio, **disk and memory usage**; also eviction count, latency, replication lag.
 
 ### 8.2 Eviction Policies & Garbage Collection
 
@@ -793,7 +793,7 @@ Challenges: **hot nodes** (celebrity keys), cross-shard joins and transactions, 
 
 **Database access control**: RBAC (see §9.2), least privilege, encryption in transit and at rest, audit trails.
 
-**[Metrics]** (from the blueprint): query response time, CPU and disk usage, network throughput, active connections, storage used; also replication lag, slow query count, lock waits.
+**Key metrics to monitor** (from the blueprint): query response time, CPU and disk usage, network throughput, active connections, storage used; also replication lag, slow query count, lock waits.
 
 ### 9.2 Cold Storage & Archival
 
@@ -813,7 +813,7 @@ Hot (DB / cache)  ─►  Warm (cheaper tier)  ─►  Cold / Archive
 - **RBAC (Role-Based Access Control)**: restrict who can read or restore archives.
 - **Audit trail**: log every access and restore for compliance.
 
-**[Security]** (from the blueprint): **RBAC, data encryption, audit trail**.
+**Security considerations** (from the blueprint): **RBAC, data encryption, audit trail**.
 
 ### 9.3 Media Upload & Processing
 
@@ -847,7 +847,7 @@ This table tracks each chunk's integrity and ordering so the system can verify, 
 
 **Message queue semantics**: at-least-once delivery (make workers **idempotent**), visibility timeouts, retry with backoff, **dead-letter queue** for poison messages.
 
-**[Metrics]** (from the blueprint)
+**Key metrics to monitor** (from the blueprint):
 
 - *Queue*: count of messages, consumption rate, in-transit (waiting for ack) count, queue limit
 - *Workers*: compute time, failed count, CPU / disk usage
@@ -977,7 +977,7 @@ Event ─► Pub/Sub Queue ───┼─► Search Service (indexing)
 - **Spam and abuse controls (from the blueprint)**: **spamming** protection, **stop words** filtering, **dedup**, and **retry with idempotent key** to prevent duplicate sends.
 - **Features**: templates, user preferences and opt-outs, rate limits per user, quiet hours, priority queues, delivery receipts.
 
-**[Metrics]**: delivery rate, open/click rate, bounce rate, queue lag, per-channel latency.
+**Key metrics to monitor:** delivery rate, open/click rate, bounce rate, queue lag, per-channel latency.
 
 ### 10.2 Specialized Microservices
 
@@ -985,32 +985,32 @@ Event ─► Pub/Sub Queue ───┼─► Search Service (indexing)
 - Suggests items (videos, products, people) personalised to a user.
 - **Filtering approaches (from the blueprint)**: **content-based** (similar item attributes) and **collaborative** (similar users' behaviour). Modern systems combine both with embeddings and ranking models.
 - Pipeline: candidate generation → ranking → re-ranking (diversity, business rules).
-- **[Metrics]**: click-through rate, conversion, coverage, latency.
+- **Key metrics:** click-through rate, conversion, coverage, latency.
 
 #### ML Processing Service
 - Runs model inference and (offline) training or feature pipelines triggered by events: moderation, tagging, transcription, ranking features, fraud scoring.
 - Considerations: batch vs real-time inference, feature store, model versioning, A/B testing, GPU capacity, fallbacks when a model is unavailable.
-- **[Metrics]**: inference latency, throughput, model accuracy/drift, resource utilisation.
+- **Key metrics:** inference latency, throughput, model accuracy/drift, resource utilisation.
 
 #### Search Service
 - Powers full-text and faceted search via an **inverted index** (Elasticsearch, OpenSearch, Solr).
 - Fed asynchronously from the pub/sub stream so the index stays near real-time.
 - Features: tokenization, stemming, stop words, typo tolerance, relevance ranking (BM25 + signals), autocomplete.
-- **[Metrics]**: query latency, indexing lag, zero-result rate.
+- **Key metrics:** query latency, indexing lag, zero-result rate.
 
 #### Analytics Service (Event Logging, Metrics, Usage Tracking)
 - Includes the blueprint's **Log Processing Service**: collects events and logs, parses and enriches them, and stores them for dashboards and reporting.
 - Pipeline: collectors → stream processing (Flink/Spark) → data lake/warehouse (OLAP / column store) → BI dashboards.
 - Supports usage tracking and metering that feeds billing and quotas.
-- **[Metrics]**: ingestion rate, end-to-end data freshness, event loss rate.
+- **Key metrics:** ingestion rate, end-to-end data freshness, event loss rate.
 
 #### Payment Charge Service (Third-Party Integrations & Gateway Processing)
 - Charges customers through **third-party banking / payment providers**.
 - **Idempotency is essential**: every charge request carries an **idempotency key** so retries never double-charge.
 - **Typical failure reasons (from the blueprint)**: expired, blocked, or invalid card; service down; insufficient balance.
 - Reliability patterns: state machine for payment status (`created → authorized → captured → settled / failed / refunded`), retries with backoff for transient errors, **reconciliation** jobs against provider reports, webhooks for async status updates, saga/compensation for multi-step flows.
-- **[Security]**: PCI-DSS scope reduction (use tokenization, never store raw card data), encryption, strict RBAC, full audit trail, fraud checks.
-- **[Metrics]**: authorisation success rate, decline reasons, latency to provider, reconciliation mismatches.
+- **Security:** PCI-DSS scope reduction (use tokenization, never store raw card data), encryption, strict RBAC, full audit trail, fraud checks.
+- **Key metrics:** authorisation success rate, decline reasons, latency to provider, reconciliation mismatches.
 
 
 ### 10.3 Messaging & Event-Driven Architecture Deep Dive
