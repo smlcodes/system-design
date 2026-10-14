@@ -7,6 +7,7 @@
 
 ## Table of Contents
 
+0. [Foundations: Requirements, Estimation & Thinking Framework](#0-foundations-requirements-estimation--thinking-framework)
 1. [Client & DNS Resolution Layer](#1-client--dns-resolution-layer)
 2. [Edge & Content Delivery Network (CDN) Layer](#2-edge--content-delivery-network-cdn-layer)
 3. [API Gateway & Security Layer](#3-api-gateway--security-layer)
@@ -17,7 +18,14 @@
 8. [Caching & Memory Management Layer](#8-caching--memory-management-layer)
 9. [Storage, Databases & Media Pipeline Layer](#9-storage-databases--media-pipeline-layer)
 10. [Common Fan-Out & Microservices Layer](#10-common-fan-out--microservices-layer)
-11. [Appendix: End-to-End Request Flow & Quick Reference](#appendix-end-to-end-request-flow--quick-reference)
+11. [Distributed Systems Fundamentals](#11-distributed-systems-fundamentals)
+12. [Scalability](#12-scalability)
+13. [Reliability & Availability](#13-reliability--availability)
+14. [Observability](#14-observability)
+15. [Security (System-Level)](#15-security-system-level)
+16. [Infrastructure, Deployment & Cost](#16-infrastructure-deployment--cost)
+17. [Worked Example: Movie Website for 1M Users](#17-worked-example-movie-website-for-1m-users)
+18. [Appendix: End-to-End Request Flow & Quick Reference](#appendix-end-to-end-request-flow--quick-reference)
 
 ---
 
@@ -34,6 +42,107 @@ Client ─► DNS ─► CDN/Edge ─► API Gateway ─► Load Balancer ─►
                                              ID Gen /   Caches  Databases  Upload    Pub/Sub ─► Fan-out
                                              Locking                       Media               Services
 ```
+
+---
+
+## 0. Foundations: Requirements, Estimation & Thinking Framework
+
+### 0.1 What Is System Design?
+
+> Given a business problem and an expected scale, how do you design the complete software system so that it is **scalable, reliable, secure, maintainable, and cost-effective**?
+
+**Use case: "Build a movie website that can handle 1 million users."**
+
+A junior view of the solution:
+
+```
+React  ->  Spring Boot  ->  PostgreSQL
+```
+
+A system designer's view:
+
+```
+                    ┌── CDN
+                    │
+Users ──► Load Balancer ──► API Gateway
+                                 │
+                       ┌─────────┴─────────┐
+                       ▼                   ▼
+                 Movie Service        User Service
+                       │                   │
+                       ▼                   ▼
+                     Redis             PostgreSQL
+                       │
+                       ▼
+                  PostgreSQL
+                       │
+                       ▼
+                     Kafka ──► Background Workers ──► Notifications / Analytics / Search
+```
+
+…and then asks the hard questions (answered in [Section 17](#17-worked-example-movie-website-for-1m-users)):
+
+- What happens if PostgreSQL goes down?
+- What happens if 100,000 users request the same movie?
+- Should we cache movie data, and where should the cache live?
+- What happens if Kafka is unavailable?
+- How do we prevent duplicate processing?
+- How do we scale the API?
+- How do we authenticate users?
+- How do we monitor the system?
+- How do we deploy without downtime?
+- How much will it cost?
+
+### 0.2 Requirements
+
+Always clarify requirements **before** drawing boxes.
+
+| Type | Question | Movie website example |
+|---|---|---|
+| **Functional** | What should the system *do*? | Search movies; open a movie; read reviews; submit a review; admin approves reviews |
+| **Non-functional** | How should it *behave*? | 1M users; 99.9% availability; < 200 ms response time; secure; scalable; low cost |
+
+Other non-functional dimensions to ask about: consistency needs (can a review appear 5 s late?), durability, data retention, compliance (GDPR, PCI), geographic spread, read/write ratio, and budget.
+
+**Why it matters:** "99.9% availability" and "< 200 ms" directly drive decisions such as caching, replicas, multi-AZ deployment, and CDN usage. Without them you cannot justify any component.
+
+### 0.3 Back-of-the-Envelope Estimation
+
+**Use case: 1M daily active users on the movie site.**
+
+| Quantity | Assumption | Result |
+|---|---|---|
+| Requests per day | 1M users × 20 requests | 20M / day |
+| Average RPS | 20,000,000 / 86,400 s | ~230 RPS |
+| Peak RPS (×5) | Evening spike | ~1,150 RPS |
+| Metadata storage | 100K movies × 5 KB | ~500 MB (fits in memory!) |
+| Review storage | 50K reviews/day × 1 KB | ~50 MB/day, ~18 GB/year |
+| Image bandwidth | 10M poster views × 200 KB | ~2 TB/day, so a **CDN is mandatory** |
+
+**Takeaways:** the working set is tiny (cache everything hot), the read:write ratio is heavily read-biased (cache + read replicas), and images dominate bandwidth (CDN + object storage). A single well-tuned PostgreSQL could handle the writes. The architecture should be *justified by numbers*, not by buzzwords.
+
+### 0.4 The Mental Model: A Repeatable Checklist
+
+Every system design problem can be attacked in this order:
+
+```
+Requirements ─► APIs ─► Data ─► Scale ─► Cache ─► Async ─► Reliability ─► Security ─► Observability ─► Cost
+```
+
+| Step | Key question | Covered in |
+|---|---|---|
+| Requirements | What and how well? | §0.2 |
+| APIs | What is the contract? | §1.4 |
+| Data | Which store, which schema, which keys? | §9 |
+| Scale | How do we handle 10× load? | §12 |
+| Cache | What can we avoid recomputing? | §8 |
+| Async | What doesn't need to block the user? | §10 |
+| Reliability | What happens when parts fail? | §11, §13 |
+| Security | Who can do what? | §15 |
+| Observability | How do we know it's working? | §14 |
+| Cost | Is it affordable? | §16 |
+
+**Practice habit:** after drawing any design, pick each component and ask, *"What happens when this fails?"*
 
 ---
 
@@ -127,6 +236,94 @@ Client ─► ISP / Recursive Resolver
 **[Security]**: DNSSEC, DNS over HTTPS/TLS, protection from cache poisoning and DDoS on DNS.
 
 **[Metrics]**: resolution time, cache hit ratio at the resolver, query volume, SERVFAIL rate.
+
+### 1.4 API Design Deep Dive
+
+#### REST and HTTP method semantics
+
+| Method | Purpose | Safe | Idempotent |
+|---|---|---|---|
+| `GET` | Read | Yes | Yes |
+| `POST` | Create / trigger action | No | **No** (unless you add an idempotency key) |
+| `PUT` | Replace a resource | No | Yes |
+| `PATCH` | Partial update | No | Depends on the operation |
+| `DELETE` | Remove | No | Yes |
+
+#### Filtering, sorting, pagination
+
+```
+GET /v1/movies?genre=thriller&year=2024&sort=-rating&page[size]=20&page[cursor]=eyJpZCI6MTIzfQ
+```
+
+| Pagination | Pros | Cons |
+|---|---|---|
+| **Offset/limit** (`?page=5&size=20`) | Simple, random page access | Slow on deep pages (`OFFSET 1000000`), inconsistent if data changes |
+| **Cursor / keyset** (`WHERE id > :last ORDER BY id LIMIT 20`) | Fast at any depth, stable | No random page jumps |
+
+#### Versioning
+
+| Style | Example | Notes |
+|---|---|---|
+| URI | `/v1/movies` | Most common, easy to route |
+| Header | `Accept: application/vnd.app.v2+json` | Cleaner URLs, harder to test |
+| Query | `?version=2` | Rarely recommended |
+
+Rules: only break compatibility in a new major version, support N-1 for a deprecation window, and publish a sunset date (`Sunset` header).
+
+#### Use case: duplicate payments, solved with idempotency
+
+```
+POST /payments
+Idempotency-Key: abc123
+{ "amount": 10000, "currency": "INR" }
+```
+
+**Problem:** the network drops the response, so the client retries:
+
+```
+Without idempotency:   ₹10,000 charged, ₹10,000 charged, ₹10,000 charged
+With idempotency:      ₹10,000 charged once; retries return the stored result
+```
+
+**Solution flow**
+
+1. Client generates a unique key (UUID) per *logical* operation and reuses it on retries.
+2. Server atomically **claims** the key (unique constraint), executes the operation, stores the response against the key.
+3. A retry with the same key returns the stored response instead of re-executing.
+4. A concurrent duplicate sees the key as `IN_PROGRESS` and gets `409 Conflict` (or waits).
+5. Keys expire after a window (e.g. 24 h).
+
+```java
+@PostMapping("/payments")
+public ResponseEntity<PaymentResponse> create(
+        @RequestHeader("Idempotency-Key") String key,
+        @RequestBody @Valid PaymentRequest req) {
+
+    // Atomic claim: INSERT ... with UNIQUE(idempotency_key). Loser of a race gets a duplicate-key exception.
+    IdempotencyRecord rec = idempotencyService.claimOrGet(key, hash(req));
+
+    if (rec.isCompleted()) {                       // retry after success
+        return ResponseEntity.status(rec.getStatus()).body(rec.getResponse());
+    }
+    if (rec.isInProgress() && !rec.isOwnedByThisCall()) {   // concurrent duplicate
+        return ResponseEntity.status(HttpStatus.CONFLICT).build();
+    }
+    if (!rec.requestHashMatches(hash(req))) {      // same key, different payload: client bug
+        return ResponseEntity.unprocessableEntity().build();
+    }
+
+    PaymentResponse response = paymentService.charge(req);     // do the real work once
+    idempotencyService.complete(key, 201, response);
+    return ResponseEntity.status(HttpStatus.CREATED).body(response);
+}
+```
+
+Idempotency matters equally for **message consumers** (§10.3) and **webhooks**.
+
+#### Rate limiting and security at the API level
+
+Rate limiting algorithms are in §3.1. Remember to return `429 Too Many Requests` with `Retry-After`, and use per-user, per-IP, and per-API-key buckets. Authentication/authorization specifics are in §15.
+
 
 ---
 
@@ -468,6 +665,79 @@ class LRUCache:
 
 **Invalidation** (tagged **#Invalidation** in the blueprint): TTL, explicit delete on write, publish/subscribe invalidation events, versioned keys. Remember the classic quote: invalidation is one of the two hard problems in computer science.
 
+### 8.3 Caching Use Cases & Where the Cache Lives
+
+#### Use case: 100,000 users request the same movie
+
+```
+Without cache:   100,000 requests ──► PostgreSQL   (connection pool exhausted, latency spikes, possible outage)
+
+With cache:      100,000 requests ──► Redis ──► PostgreSQL (1 query on the first miss)
+```
+
+At a 99.9% hit ratio, the database sees ~100 queries instead of 100,000. For a viral movie, also add a **CDN** for the poster/trailer and a **local in-process cache** (Caffeine) for the hottest keys.
+
+#### Cache layers: where should the cache live?
+
+| Layer | Example | Latency | Best for |
+|---|---|---|---|
+| **Browser / client** | `Cache-Control`, `ETag` | 0 ms | Static assets, rarely changing responses |
+| **CDN** | CloudFront, Akamai | ~10-50 ms | Images, video segments, public GET responses |
+| **Application (local) cache** | Caffeine, Guava | ~µs | Tiny, hot, read-mostly data; per-instance copies |
+| **Distributed cache** | Redis, Memcached | ~1 ms | Shared hot data across all instances |
+| **Database cache** | PostgreSQL shared buffers, query cache | n/a | Automatic; tune memory sizing |
+
+Rule of thumb: put the cache **as close to the user as the data's freshness allows**. Local caches are fastest but can become inconsistent between instances; use short TTLs or pub/sub invalidation.
+
+#### Cache-aside in Spring Boot
+
+```java
+@Cacheable(cacheNames = "movies", key = "#id", sync = true)   // sync=true => single loader on a stampede
+public MovieDto getMovie(long id) {
+    return movieRepository.findById(id).map(mapper::toDto).orElseThrow();
+}
+
+@CacheEvict(cacheNames = "movies", key = "#movie.id")
+public void updateMovie(Movie movie) { movieRepository.save(movie); }
+```
+
+```yaml
+spring:
+  cache:
+    type: redis
+    redis:
+      time-to-live: 10m        # always set a TTL
+```
+
+#### Use case: cache stampede on a popular key
+
+**Problem:** the hot key `movie:42` expires and 10,000 concurrent requests all miss and hit PostgreSQL at once.
+
+**Fixes (combine as needed)**
+
+1. **Single-flight / request coalescing**: only one request loads, the others wait (`sync = true`, or a per-key mutex).
+2. **Distributed lock** (Redis `SET key value NX PX 5000`) for cross-instance coalescing.
+3. **Refresh-ahead**: refresh before expiry.
+4. **TTL jitter**: `ttl = base + random(0..20%)`.
+5. **Serve stale while revalidating** for non-critical data.
+
+#### Distributed locking with Redis (basic form)
+
+```
+SET lock:movie:42 <unique-owner-token> NX PX 5000     # acquire, auto-expires in 5 s
+... do the work ...
+DEL lock:movie:42 only if value == <unique-owner-token>   # release safely (Lua script)
+```
+
+Use a unique token (so you never release someone else's lock), a TTL (so a crashed holder doesn't deadlock), and fencing tokens when correctness is critical (§6.2).
+
+#### Write strategies: summary of when to pick each
+
+- **Cache-aside**: default for read-heavy data like movie catalogue.
+- **Write-through**: when reads must always see fresh data (user profile).
+- **Write-behind**: counters, view counts, analytics where small loss is acceptable.
+
+
 ---
 
 ## 9. Storage, Databases & Media Pipeline Layer
@@ -584,6 +854,102 @@ This table tracks each chunk's integrity and ordering so the system can verify, 
 - *Storage*: compression ratio, storage consumed, object count
 - *Broker*: Pub/Sub throughput
 
+### 9.4 Database Deep Dive (Architecture-Level)
+
+#### Indexes and query plans
+
+| Index type | Use |
+|---|---|
+| **B-tree** (default) | Equality and range queries, sorting |
+| **Composite** `(genre, year)` | Queries filtering on a left-prefix of the columns |
+| **Covering** (`INCLUDE`) | Index-only scans, no table lookup |
+| **Partial** | Index only a subset (`WHERE status='PENDING'`) |
+| **Hash / GIN / GiST** | Equality / JSONB & full-text / geospatial |
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT id, title FROM movies WHERE genre = 'thriller' AND year = 2024 ORDER BY rating DESC LIMIT 20;
+-- Seq Scan on movies  => add an index
+CREATE INDEX idx_movies_genre_year_rating ON movies (genre, year, rating DESC);
+-- Index Scan using idx_movies_genre_year_rating  => fast
+```
+
+Things to check: sequential scan vs index scan, estimated vs actual rows (stale statistics), sort spills to disk, and the N+1 query problem (JPA lazy loading; fix with `JOIN FETCH` or batch fetching). Every index speeds reads but slows writes and uses storage.
+
+#### Transactions and isolation levels
+
+| Level | Dirty read | Non-repeatable read | Phantom read |
+|---|---|---|---|
+| Read Uncommitted | Possible | Possible | Possible |
+| **Read Committed** (PostgreSQL default) | No | Possible | Possible |
+| Repeatable Read | No | No | Possible in the SQL standard (PostgreSQL's snapshot isolation prevents it, but allows *write skew*) |
+| Serializable | No | No | No (may abort with serialization failure; retry) |
+
+**Use case: overselling the last ticket.** Two users buy the last seat simultaneously. Fix with one of:
+
+```sql
+-- Pessimistic: lock the row
+SELECT * FROM seats WHERE id = 7 FOR UPDATE;
+
+-- Optimistic: version check (JPA @Version)
+UPDATE seats SET status='SOLD', version=version+1 WHERE id=7 AND version=3;   -- 0 rows updated => retry/fail
+
+-- Atomic conditional update
+UPDATE seats SET status='SOLD' WHERE id=7 AND status='AVAILABLE';
+```
+
+Also know about deadlocks (always acquire locks in a consistent order), lock timeouts, and long transactions that bloat MVCC and block vacuum.
+
+#### Connection pooling
+
+Each DB connection is expensive (a process + memory in PostgreSQL). Use a pool (HikariCP), and never size it by "number of threads."
+
+```
+pool size ≈ (cpu_cores × 2) + effective_spindle_count     # rule of thumb starting point
+```
+
+**Use case: 50 API pods × 50 connections = 2,500 connections** against a database that supports ~200. Fix: smaller pools (e.g. 10 per pod), **PgBouncer** in transaction mode, and shorter transactions.
+
+#### Read replicas and replication lag
+
+```
+Writes ──► Primary ══(async replication)══► Replica 1, Replica 2 ◄── Reads
+```
+
+**Problem (read-your-writes):** a user posts a review, then immediately reloads and doesn't see it because the replica lags.
+**Fixes:** route that user's reads to the primary for a few seconds after a write; use session/sticky routing; track the write's LSN and read from a replica that has caught up; or return the created object from the write response.
+
+#### Partitioning vs sharding
+
+| | Partitioning | Sharding |
+|---|---|---|
+| Scope | Split a table inside **one** database server | Split data across **multiple** servers |
+| Purpose | Query pruning, easier archival/deletion (e.g. monthly partitions of `events`) | Scale writes and storage beyond one machine |
+| Complexity | Low | High (cross-shard joins, transactions, rebalancing) |
+
+Exhaust vertical scaling, caching, replicas, and partitioning **before** sharding.
+
+#### Choosing a database: "Why PostgreSQL here instead of Cassandra?"
+
+| Database | Choose when | Avoid when |
+|---|---|---|
+| **PostgreSQL / MySQL** | Strong consistency, joins, transactions, moderate scale, complex queries (users, orders, payments, reviews) | Multi-million writes/sec across regions |
+| **MongoDB** | Flexible/nested documents, rapidly evolving schema (movie metadata, catalogs, CMS) | Heavy multi-document transactions and relational integrity |
+| **DynamoDB** | Predictable low-latency key-value access at massive scale, serverless ops, known access patterns | Ad-hoc queries and joins; access patterns unknown |
+| **Cassandra** | Huge write throughput, multi-region active-active, time-series/event data, query-by-partition-key | Strong consistency, joins, ad-hoc queries, small teams |
+| **Redis** | Caching, sessions, counters, leaderboards, rate limits | Primary store for critical data (unless persistence is carefully designed) |
+
+**Example reasoning:** for the movie site, *reviews and users* → PostgreSQL (relational, transactional, moderate volume); *movie metadata* → PostgreSQL + Redis (or MongoDB); *view-event firehose* → Kafka → Cassandra or a column store; *search* → Elasticsearch.
+
+#### Use case: what happens if PostgreSQL goes down?
+
+1. **Detect:** health checks and monitoring fail; alert fires.
+2. **Fail over:** with a managed HA setup (Multi-AZ, Patroni, RDS), a synchronous/async standby is promoted (typically 30-120 s). Applications reconnect via a stable endpoint/DNS or proxy.
+3. **Degrade gracefully:** serve reads from cache and replicas; queue writes (e.g. reviews) to Kafka for later processing; show a friendly "temporarily read-only" mode.
+4. **Protect:** circuit breakers prevent connection storms; pool timeouts fail fast.
+5. **Recover:** restore from backup/PITR if data is corrupted; validate RPO (see §13).
+
+
 ---
 
 ## 10. Common Fan-Out & Microservices Layer
@@ -646,6 +1012,607 @@ Event ─► Pub/Sub Queue ───┼─► Search Service (indexing)
 - **[Security]**: PCI-DSS scope reduction (use tokenization, never store raw card data), encryption, strict RBAC, full audit trail, fraud checks.
 - **[Metrics]**: authorisation success rate, decline reasons, latency to provider, reconciliation mismatches.
 
+
+### 10.3 Messaging & Event-Driven Architecture Deep Dive
+
+#### Why asynchronous messaging
+
+```
+Order Service ──► Kafka ──┬──► Email Service
+                          ├──► Inventory Service
+                          └──► Analytics Service
+```
+
+The Order Service publishes `OrderPlaced` once. Consumers react independently, so services no longer call each other synchronously for everything. A slow email provider no longer slows checkout.
+
+#### Core Kafka concepts
+
+| Concept | Meaning |
+|---|---|
+| **Producer** | Publishes records to a topic |
+| **Topic** | Named, append-only log of records |
+| **Partition** | Unit of parallelism and ordering; a topic is split into N partitions |
+| **Offset** | Position of a record within a partition; consumers track it |
+| **Consumer group** | Set of consumers sharing a topic; each partition is read by exactly one consumer in the group |
+| **Broker / replication** | Servers storing partitions; each partition has a leader and follower replicas |
+
+```
+Topic "orders" (3 partitions)
+P0: [0][1][2][3]...  ──┐
+P1: [0][1][2]...     ──┼── Consumer Group A: C1←P0, C2←P1, C3←P2  (scale up to #partitions)
+P2: [0][1][2][3]...  ──┘── Consumer Group B (analytics): reads all independently
+```
+
+**Ordering:** guaranteed only **within a partition**. Use the entity ID as the key (`key = orderId`) so all events for one order go to the same partition. Maximum parallelism equals the partition count.
+
+#### Delivery semantics
+
+| Semantics | Meaning | How |
+|---|---|---|
+| **At-most-once** | May lose, never duplicate | Commit offset before processing |
+| **At-least-once** | Never lose, may duplicate | Process, then commit offset (default choice) |
+| **Exactly-once (effect)** | Processed effect happens once | Idempotent producer + transactions in Kafka, **plus idempotent consumers/DB constraints** for external side effects |
+
+Exactly-once delivery across systems is not truly achievable; you get **exactly-once *processing effect*** through idempotency.
+
+#### Use case: preventing duplicate processing
+
+**Problem:** the consumer processes `OrderPlaced` (sends email), crashes before committing the offset, and receives the message again, so the customer gets two emails or is charged twice.
+
+**Solution: idempotent consumer**
+
+```java
+@KafkaListener(topics = "orders", groupId = "email-service")
+@Transactional
+public void onOrderPlaced(OrderPlaced event) {
+    // INSERT into processed_events(event_id) with a UNIQUE constraint
+    if (!processedEvents.markProcessedIfNew(event.eventId())) {
+        return;                                  // duplicate: skip safely
+    }
+    emailService.sendConfirmation(event);
+}
+```
+
+Other options: natural idempotent operations (`SET status='SHIPPED'`), version checks, and upserts.
+
+#### Retry and dead-letter queue (DLQ)
+
+```
+orders ──► Consumer ──fails──► orders.retry.5s ──► orders.retry.1m ──► orders.DLQ
+```
+
+- **Transient failures** (timeout, deadlock): retry with exponential backoff.
+- **Poison messages** (malformed, bug): after N attempts, route to the DLQ with error metadata, alert, and replay after the fix.
+- Never block the whole partition on one bad message; use non-blocking retry topics.
+
+#### Reliable publishing: the Transactional Outbox pattern
+
+**Problem (dual write):** save the order in PostgreSQL *and* publish to Kafka. If the app crashes between the two, the DB says "placed" but no event is ever sent (or the reverse).
+
+**Solution:**
+
+```
+BEGIN;
+  INSERT INTO orders ...;
+  INSERT INTO outbox (event_id, topic, payload) ...;   -- same transaction
+COMMIT;
+
+Relay / CDC (Debezium) reads the outbox ──► publishes to Kafka ──► marks sent
+```
+
+Atomicity comes from the DB transaction; delivery is at-least-once, so consumers must be idempotent.
+
+#### Use case: what if Kafka is unavailable?
+
+- **Producer side:** buffer in the outbox table (events are safe in the DB and are published when Kafka returns); use producer retries, `acks=all`, `enable.idempotence=true`, and timeouts.
+- **Core user flow stays up:** checkout succeeds because publishing is decoupled via the outbox; non-critical features (email, analytics) are delayed, not lost.
+- **Broker side:** replication factor 3, `min.insync.replicas=2`, multi-AZ brokers.
+- **Consumer side:** consumers pause and retry; lag alerts fire.
+- **Back-pressure:** monitor outbox size; shed non-critical events if it grows without bound.
+
+#### Choosing a broker
+
+| Broker | Model | Strengths | Typical use |
+|---|---|---|---|
+| **Kafka** | Distributed commit log, pull-based | Huge throughput, replay, retention, partition ordering, stream processing | Event streaming, analytics, event sourcing, CDC |
+| **RabbitMQ** | Smart broker, push-based, exchanges/queues | Flexible routing, per-message ack, priorities, low latency | Task queues, RPC-style workflows |
+| **ActiveMQ** (Classic / Artemis) | JMS broker | JMS compatibility, enterprise Java integration, durable subscriptions | Legacy / JMS-based enterprise integration |
+| **Azure Service Bus** | Managed queues & topics | Sessions (ordered per key), dead-lettering, scheduled messages, transactions, managed ops | Azure-native enterprise workflows |
+
+Rule of thumb: **Kafka** when you need a replayable event log at scale; **queue-style brokers** (RabbitMQ, ActiveMQ, Service Bus) for work distribution with per-message handling and rich routing.
+
+---
+
+## 11. Distributed Systems Fundamentals
+
+### 11.1 CAP Theorem and Consistency Models
+
+During a **network partition**, a system must choose between:
+
+- **Consistency (C):** every read sees the latest write.
+- **Availability (A):** every request gets a (non-error) response.
+- **Partition tolerance (P):** the system keeps working despite lost messages between nodes (unavoidable in real networks).
+
+So the real choice is **CP vs AP** when a partition occurs.
+
+| Type | Behaviour in a partition | Examples | Use for |
+|---|---|---|---|
+| **CP** | Rejects some requests to stay consistent | ZooKeeper, etcd, HBase, PostgreSQL primary-only writes | Payments, inventory, locks, config |
+| **AP** | Keeps serving, may return stale data, reconciles later | Cassandra, DynamoDB (eventual), DNS | Feeds, likes, catalogues, shopping carts |
+
+**PACELC extension:** even without partitions there is a trade-off between **L**atency and **C**onsistency.
+
+**Consistency spectrum:** strong (linearizable) → sequential → causal → read-your-writes → **eventual**.
+
+**Use case: "like" counter vs bank balance.** A like count can be eventually consistent (AP; a few seconds stale is fine). A bank balance needs strong consistency (CP; a stale balance allows overdraft).
+
+### 11.2 Eventual Consistency in Practice
+
+- Replicas converge via anti-entropy, read repair, and hinted handoff.
+- Conflict resolution: last-write-wins (LWW), vector clocks, CRDTs, or application-level merge.
+- Design UX around it: optimistic UI updates, "processing" states, idempotent operations.
+
+### 11.3 Distributed Transactions
+
+A single DB transaction cannot span multiple services. Options:
+
+| Approach | How | Trade-off |
+|---|---|---|
+| **Two-Phase Commit (2PC / XA)** | Coordinator asks all to *prepare*, then *commit* | Strong atomicity, but blocking, slow, coordinator is a risk; rarely used across microservices |
+| **Saga (choreography)** | Each service does a local transaction and emits an event; compensating actions undo on failure | Eventually consistent, no locks; harder to reason about |
+| **Saga (orchestration)** | A central orchestrator drives the steps and compensations | Clear flow, single place to monitor; orchestrator logic to maintain |
+| **Outbox + idempotent consumers** | Reliable event publication | Foundation for sagas (§10.3) |
+
+**Use case: order placement saga**
+
+```
+1. Order Service      : create order (PENDING)
+2. Payment Service    : charge card                 ── fails ──► 5. Order: cancel (compensate)
+3. Inventory Service  : reserve stock               ── fails ──► refund payment, then cancel order
+4. Shipping Service   : schedule shipment
+5. Order Service      : mark CONFIRMED
+```
+
+Each step needs an **idempotent** action and a **compensating action** (refund, release stock).
+
+### 11.4 Leader Election, Consensus & Replication
+
+- **Leader election** picks a single coordinator (to avoid split-brain). Implemented with ZooKeeper/etcd/Consul leases or built-in Raft.
+- **Consensus (Raft, Paxos, ZAB)**: nodes agree on a value/log order as long as a **majority (quorum)** is alive. A 3-node cluster tolerates 1 failure; 5 nodes tolerate 2.
+- **Split-brain** (two leaders) is prevented with quorums, fencing tokens, and lease expiry.
+- **Replication:** single-leader, multi-leader, leaderless (quorum `R + W > N`). See §9.1.
+
+### 11.5 Resilience Patterns
+
+| Pattern | Purpose | Notes |
+|---|---|---|
+| **Timeout** | Never wait forever | Set on every network call; budget timeouts down the call chain |
+| **Retry with exponential backoff + jitter** | Survive transient errors | Only retry idempotent operations; cap attempts |
+| **Circuit breaker** | Stop calling a failing dependency | States: Closed → Open → Half-Open |
+| **Bulkhead** | Isolate resources per dependency | Separate thread pools/semaphores so one slow service can't exhaust all threads |
+| **Fallback** | Provide a degraded result | Cached/default data |
+| **Rate limiter / load shedding** | Protect capacity | Reject early rather than collapse |
+| **Backpressure** | Slow producers when consumers can't keep up | Bounded queues, reactive streams, consumer lag alerts |
+
+#### Use case: Service A → B → C, and C takes 30 seconds
+
+```
+Client ─► A ─► B ─► C (slow: 30 s)
+```
+
+**What goes wrong:** B's threads wait on C, B's thread pool fills, A's threads wait on B, the whole chain stalls (a **cascading failure**), retries then amplify the load (**retry storm**).
+
+**Defence in depth**
+
+1. **Timeout** on A→B and B→C (e.g. 2 s for C, 3 s for B, so the caller times out *after* the callee).
+2. **Retry** at most once or twice with backoff and jitter, for idempotent calls only.
+3. **Circuit breaker** around C: after 50% failures in a window, open and fail fast.
+4. **Bulkhead** so C's slowness only consumes C's allotted threads.
+5. **Fallback** (cached data, default value, partial response).
+6. **Async processing** if the operation is inherently slow: return `202 Accepted` with a job ID; process via queue; client polls or receives a webhook/SSE.
+
+```java
+@Service
+public class CClient {
+
+    @CircuitBreaker(name = "serviceC", fallbackMethod = "fallback")
+    @Bulkhead(name = "serviceC", type = Bulkhead.Type.THREADPOOL)
+    @TimeLimiter(name = "serviceC")
+    @Retry(name = "serviceC")
+    public CompletableFuture<Result> call(Request r) {
+        return CompletableFuture.supplyAsync(() -> restClient.post(r));
+    }
+
+    private CompletableFuture<Result> fallback(Request r, Throwable t) {
+        return CompletableFuture.completedFuture(Result.degraded());
+    }
+}
+```
+
+```yaml
+resilience4j:
+  timelimiter.instances.serviceC.timeoutDuration: 2s
+  retry.instances.serviceC: { maxAttempts: 2, waitDuration: 200ms, enableExponentialBackoff: true }
+  circuitbreaker.instances.serviceC: { slidingWindowSize: 20, failureRateThreshold: 50, waitDurationInOpenState: 30s }
+```
+
+### 11.6 Race Conditions in Distributed Systems
+
+| Problem | Example | Fix |
+|---|---|---|
+| **Lost update** | Two admins edit the same review; the last write silently wins | Optimistic locking (`@Version`), ETag + `If-Match` |
+| **Double processing** | Two workers pick the same job | Row lock `SELECT ... FOR UPDATE SKIP LOCKED`, lease with TTL, idempotency |
+| **Check-then-act** | `if (stock>0) stock--` run concurrently | Atomic conditional update, `UPDATE ... WHERE stock > 0` |
+| **Duplicate request** | Retry from the client | Idempotency key |
+| **Stale lock holder** | A paused JVM (GC) resumes after the lock expired | Fencing tokens |
+| **Clock skew** | Ordering by wall-clock timestamps | Logical clocks, DB sequences, Snowflake with safeguards |
+
+---
+
+## 12. Scalability
+
+### 12.1 Vertical vs Horizontal Scaling
+
+| | Vertical (scale up) | Horizontal (scale out) |
+|---|---|---|
+| What | 4 CPU → 16 CPU, more RAM | More instances behind a load balancer |
+| Pros | Simple, no code change | Near-linear capacity, fault tolerance |
+| Cons | Hardware ceiling, downtime, single point of failure, expensive | Needs statelessness, distributed-system complexity |
+
+```
+              Load Balancer
+             /      |       \
+          API       API       API      (identical, stateless)
+```
+
+### 12.2 Stateless Services
+
+A service is **stateless** when any instance can serve any request. To get there:
+
+- Keep sessions in Redis or in signed tokens (JWT), **not** in server memory.
+- Store uploads in object storage, not local disk.
+- Avoid in-memory-only state that matters (or treat it as cache).
+- Externalise configuration.
+
+**Use case:** the shopping cart lives in the JVM session. A deploy or autoscale event kills it. Move it to Redis (key = `cart:{userId}`) and any instance can serve the user.
+
+### 12.3 Autoscaling
+
+- **Horizontal Pod Autoscaler (Kubernetes)** or cloud autoscaling groups scale on CPU, memory, requests per pod, queue depth, or custom metrics.
+- Scale **out fast, in slowly**; set min/max bounds; pre-warm for known peaks (premieres, sales).
+- Pitfalls: slow startup (JVM warm-up), downstream DB limits (more pods = more connections), thundering herds on scale-out.
+- Queue-driven workloads scale on **consumer lag**.
+
+### 12.4 Scaling the Data Tier
+
+Typical progression: **tune queries and indexes → cache → read replicas → partitioning → vertical upsizing → sharding / purpose-built stores.** (Details in §8, §9.)
+
+### 12.5 Scaling Summary Checklist
+
+| Tier | Techniques |
+|---|---|
+| Static content | CDN, long TTLs, versioned URLs |
+| API | Stateless instances, load balancer, autoscaling |
+| Reads | Cache, read replicas, denormalization |
+| Writes | Queue + batch, partitioning, sharding, CQRS |
+| Heavy work | Async workers, message queues |
+
+**Use case: scale the API for the movie site** from 230 RPS to 1,150 RPS peak. Run 4-6 stateless Spring Boot pods behind an LB (each ~300 RPS with headroom), cache hot movies in Redis, and put posters on a CDN. Autoscale on CPU 60% and p95 latency.
+
+---
+
+## 13. Reliability & Availability
+
+### 13.1 Core Concepts
+
+| Term | Meaning |
+|---|---|
+| **High availability (HA)** | Minimal downtime via redundancy and automatic failover |
+| **Fault tolerance** | The system continues operating correctly despite component failure |
+| **Disaster recovery (DR)** | Restoring service after a major loss (region outage, data corruption) |
+| **Backup / restore** | Periodic copies + point-in-time recovery (PITR); **test restores regularly** |
+| **Multi-AZ** | Redundancy across data centres in one region (protects from a data-centre failure) |
+| **Multi-region** | Redundancy across regions (protects from a regional outage; adds cost and data-consistency complexity) |
+| **Health checks** | Liveness (restart if dead), readiness (remove from LB if not ready), startup |
+| **Failover** | Automatically switching traffic to a standby |
+| **Graceful degradation** | Reduced functionality instead of total failure |
+
+### 13.2 SLA, SLO, SLI
+
+| Term | Definition | Example |
+|---|---|---|
+| **SLI** (indicator) | The measured metric | % of requests with status < 500 and latency < 200 ms |
+| **SLO** (objective) | Internal target for the SLI | 99.9% over 30 days |
+| **SLA** (agreement) | Contractual promise, with penalties | 99.5% or service credits |
+| **Error budget** | `1 − SLO` allowed failure | 0.1% ≈ 43 minutes/month; spend it on releases and experiments |
+
+**Availability "nines"**
+
+| Availability | Downtime / year | Downtime / month |
+|---|---|---|
+| 99% | 3.65 days | ~7.3 h |
+| 99.9% | 8.76 h | ~43.8 min |
+| 99.99% | 52.6 min | ~4.4 min |
+| 99.999% | 5.26 min | ~26 s |
+
+**Composite availability:** serial dependencies multiply. Three components at 99.9% each give ~99.7%. Redundant parallel components improve it: two 99.9% replicas ≈ 99.9999% (if failures are independent).
+
+### 13.3 RTO and RPO
+
+```
+ last good backup        disaster          service restored
+        │◄──── RPO ────────►│◄───── RTO ───────►│
+```
+
+- **RPO (Recovery Point Objective):** maximum acceptable **data loss**. *RPO = 5 minutes* means you may lose at most the last 5 minutes of data, so you need continuous replication or WAL archiving at least that frequent.
+- **RTO (Recovery Time Objective):** maximum acceptable **downtime**. *RTO = 1 hour* means after a disaster, service must be back within an hour.
+
+| DR strategy | RTO | RPO | Cost |
+|---|---|---|---|
+| Backup & restore | Hours | Hours | $ |
+| Pilot light | Tens of minutes | Minutes | $$ |
+| Warm standby | Minutes | Seconds-minutes | $$$ |
+| Active-active multi-region | ~Zero | ~Zero | $$$$ |
+
+### 13.4 Reliability Practices
+
+- Eliminate single points of failure (SPOF): multiple LBs, instances, AZs, DB replicas.
+- Automated failover, regularly **tested** (game days, chaos engineering).
+- Timeouts, retries, circuit breakers (§11.5), rate limiting and load shedding.
+- Safe deployments: canary, blue-green, feature flags, quick rollback (§16).
+- Runbooks, on-call, blameless post-mortems.
+
+---
+
+## 14. Observability
+
+### 14.1 Three Pillars
+
+```
+              Observability
+            /       |        \
+         Logs     Metrics    Traces
+```
+
+| Pillar | Answers | Tools |
+|---|---|---|
+| **Logs** | *What happened?* (discrete events) | ELK/EFK (Elasticsearch, Logstash/Fluentd, Kibana), Loki, Splunk |
+| **Metrics** | *How is it behaving over time?* (numeric time series) | Prometheus + Grafana, Datadog, New Relic |
+| **Traces** | *Where did time go across services?* (request path) | OpenTelemetry, Jaeger, Zipkin, Tempo, Datadog APM |
+| **Alerts** | *Who should act now?* | Alertmanager, PagerDuty, Opsgenie |
+
+**OpenTelemetry (OTel)** is the vendor-neutral standard for generating and exporting all three signals; instrument once, send to any backend.
+
+### 14.2 What to Measure
+
+- **RED** (for services): **R**ate, **E**rrors, **D**uration.
+- **USE** (for resources): **U**tilisation, **S**aturation, **E**rrors.
+- **Four golden signals:** latency, traffic, errors, saturation.
+- Business metrics: signups, orders/min, payment success rate.
+
+### 14.3 Spring Boot Setup
+
+```yaml
+management:
+  endpoints.web.exposure.include: health,prometheus,info
+  endpoint.health.probes.enabled: true      # /actuator/health/liveness & readiness
+  tracing.sampling.probability: 0.1          # sample 10% of traces
+logging.pattern.level: "%5p [${spring.application.name},%X{traceId},%X{spanId}]"
+```
+
+Use **structured JSON logs** with `traceId`, `userId` (not PII), `requestId`; Micrometer for metrics; propagate trace context (W3C `traceparent`) across HTTP and Kafka.
+
+### 14.4 Use Case: Diagnosing "The movie page is slow"
+
+1. **Alert** fires: p95 latency of `GET /movies/{id}` > 500 ms (SLO burn).
+2. **Metrics dashboard:** latency spike started at 14:05 and DB connection pool usage is at 100%.
+3. **Trace:** most of the time is spent in `SELECT ... FROM reviews` (800 ms) inside Movie Service.
+4. **Logs** (filter by `traceId`): a new release started loading all reviews without pagination.
+5. **Fix:** add pagination and an index, roll back or hot-fix; verify recovery via the same dashboard.
+
+### 14.5 Alerting Principles
+
+Alert on **symptoms** (user impact, SLO burn rate), not every cause; make each alert actionable with a runbook link; avoid alert fatigue; use multi-window burn-rate alerts; page for urgent, ticket for non-urgent.
+
+---
+
+## 15. Security (System-Level)
+
+### 15.1 Authentication ≠ Authorization
+
+| | Authentication (AuthN) | Authorization (AuthZ) |
+|---|---|---|
+| Question | **Who are you?** | **What are you allowed to do?** |
+| Mechanisms | Passwords + MFA, OIDC, API keys, mTLS | RBAC, ABAC, scopes, policies |
+| Failure code | `401 Unauthorized` | `403 Forbidden` |
+
+**Use case:** a logged-in user (authenticated) requests `GET /orders/999`, which belongs to someone else. Authentication passes; authorization must still reject (this class of bug is **BOLA/IDOR**, the most common API vulnerability). Always check ownership in the service layer.
+
+### 15.2 OAuth 2.0, OIDC, JWT
+
+| Standard | Purpose |
+|---|---|
+| **OAuth 2.0** | *Delegated authorization*: issues **access tokens** with scopes |
+| **OpenID Connect (OIDC)** | Identity layer on OAuth 2.0: adds the **ID token** and `/userinfo` (authentication) |
+| **JWT** | Compact signed token format (`header.payload.signature`) used for access/ID tokens |
+
+**Recommended flows:** Authorization Code + **PKCE** for web/mobile apps; Client Credentials for service-to-service; avoid the Implicit and Password flows.
+
+```
+User ─► App ─► Authorization Server (Keycloak/Auth0/Entra ID) ─► code ─► App exchanges code (+PKCE) ─► access token + refresh token
+App ─► API Gateway (validates JWT signature, expiry, audience, scopes) ─► services
+```
+
+**JWT best practices:** short-lived access tokens (5-15 min), rotating refresh tokens, verify `iss`, `aud`, `exp`, and signature with the JWKS; never put secrets/PII in the payload (it's only encoded, not encrypted); have a revocation strategy (short TTL, deny-list, token introspection).
+
+```java
+@Bean
+SecurityFilterChain api(HttpSecurity http) throws Exception {
+    return http
+        .authorizeHttpRequests(a -> a
+            .requestMatchers("/actuator/health/**").permitAll()
+            .requestMatchers(HttpMethod.POST, "/reviews/*/approve").hasRole("ADMIN")
+            .anyRequest().authenticated())
+        .oauth2ResourceServer(o -> o.jwt(Customizer.withDefaults()))
+        .build();
+}
+```
+
+### 15.3 RBAC vs ABAC
+
+| | RBAC | ABAC |
+|---|---|---|
+| Decision based on | User's **role** (`ADMIN`, `EDITOR`) | **Attributes** of user, resource, action, environment |
+| Example | Admins can approve reviews | An editor can approve reviews **only** for their region, during business hours, if the review is `PENDING` |
+| Pros / cons | Simple, can cause role explosion | Fine-grained, flexible; more complex (use a policy engine like OPA/Cedar) |
+
+### 15.4 Transport, Data & Secrets
+
+- **TLS** everywhere (1.2+/1.3); **mTLS** between services in a mesh; HSTS; managed certificates with auto-renewal.
+- **Encryption at rest** (disk/DB/object store, KMS-managed keys) and **field-level encryption** for sensitive columns; hash passwords with **bcrypt / Argon2** (never reversible encryption).
+- **Secrets management:** Vault, AWS Secrets Manager, Azure Key Vault, Kubernetes secrets with external-secrets; never in Git or images; rotate regularly; least-privilege IAM.
+
+### 15.5 API & Application Security
+
+- **OWASP Top 10 / API Top 10:** broken access control (BOLA), injection (use parameterised queries), cryptographic failures, insecure design, misconfiguration, vulnerable dependencies (SCA scanning), SSRF, mass assignment, excessive data exposure.
+- Input validation and output encoding; CORS allow-lists; CSRF protection for cookie sessions; security headers (CSP, X-Content-Type-Options).
+- **Rate limiting** and bot protection (§3.1) to stop brute force and scraping.
+- Audit logging, anomaly detection, dependency/container image scanning in CI.
+
+### 15.6 Zero Trust
+
+"Never trust, always verify": no implicit trust from network location. Authenticate and authorize **every** request (user and service identity), enforce least privilege, segment networks, use short-lived credentials, and continuously monitor.
+
+---
+
+## 16. Infrastructure, Deployment & Cost
+
+### 16.1 Containers and Orchestration
+
+- **Docker:** package the app and dependencies as an immutable image (use multi-stage builds, a slim JRE base, non-root user, and Spring Boot layered jars).
+- **Kubernetes:** schedules containers, self-heals, scales, and rolls out. Key objects: **Deployment**, **Service**, **Ingress**, **ConfigMap/Secret**, **HPA**, **PodDisruptionBudget**; configure resource requests/limits and readiness/liveness probes.
+
+```yaml
+readinessProbe: { httpGet: { path: /actuator/health/readiness, port: 8080 }, periodSeconds: 5 }
+livenessProbe:  { httpGet: { path: /actuator/health/liveness,  port: 8080 }, periodSeconds: 10 }
+resources: { requests: { cpu: "500m", memory: "768Mi" }, limits: { memory: "1Gi" } }
+```
+
+### 16.2 Cloud Building Blocks
+
+| Need | AWS | Azure | GCP |
+|---|---|---|---|
+| Compute | EC2, ECS/EKS, Lambda | VMs, AKS, Functions | GCE, GKE, Cloud Run |
+| Managed DB | RDS/Aurora, DynamoDB | Azure SQL/PostgreSQL, Cosmos DB | Cloud SQL, Spanner |
+| Cache | ElastiCache | Azure Cache for Redis | Memorystore |
+| Messaging | MSK, SQS/SNS | Service Bus, Event Hubs | Pub/Sub |
+| Object storage / CDN | S3 / CloudFront | Blob / Front Door | GCS / Cloud CDN |
+
+Infrastructure as Code (**Terraform**, CloudFormation, Bicep) keeps environments reproducible and reviewable.
+
+### 16.3 CI/CD
+
+```
+Commit ─► Build & unit test ─► Static analysis / SCA / secret scan ─► Container image ─► Integration tests
+      ─► Deploy to staging ─► Smoke/E2E ─► Progressive production rollout ─► Monitor ─► Auto-rollback
+```
+
+GitOps (Argo CD/Flux) makes Git the source of truth for deployments.
+
+### 16.4 Use Case: Deploying Without Downtime
+
+| Strategy | How | Pros | Cons |
+|---|---|---|---|
+| **Rolling update** | Replace pods gradually | Default, cheap | Old and new versions coexist; slow rollback |
+| **Blue-green** | Run full new stack (green), switch traffic from blue | Instant rollback | 2× capacity during cutover |
+| **Canary** | Send 1% → 10% → 100% of traffic to the new version, watching metrics | Limits blast radius | Needs good metrics and routing |
+| **Feature flags** | Deploy dark, enable per cohort | Decouples deploy from release | Flag hygiene |
+
+**Zero-downtime requirements:** readiness probes, graceful shutdown (`server.shutdown=graceful`, drain connections, `preStop` hook), backward-compatible APIs and events, and **expand/contract database migrations**:
+
+1. *Expand:* add the new nullable column (old code still works).
+2. Deploy code that writes both and reads the new one.
+3. Backfill data.
+4. *Contract:* drop the old column in a later release.
+
+### 16.5 Cost Optimization
+
+| Lever | Example |
+|---|---|
+| Right-size | Match instance size to real CPU/memory usage (most are over-provisioned) |
+| Commitments | Reserved Instances / Savings Plans for steady load; Spot instances for stateless/batch work |
+| Autoscale | Scale in at night; scale to zero for dev environments |
+| Data tiering | Lifecycle policies to cold storage (§9.2); compress and expire logs |
+| CDN & caching | Offload origin bandwidth and DB reads |
+| Egress and cross-AZ traffic | Keep chatty services in the same zone; egress is often the hidden cost |
+| Observability cost | Sample traces, set log retention, drop high-cardinality metrics |
+| Managed vs self-hosted | Count engineering time, not only the cloud bill |
+
+**Cost estimate habit:** compute `unit cost × quantity` per component (compute, DB, cache, CDN egress, storage, messaging, observability) and calculate **cost per 1,000 requests / per active user**. Treat cost as a non-functional requirement.
+
+---
+
+## 17. Worked Example: Movie Website for 1M Users
+
+### 17.1 Requirements Recap
+
+- **Functional:** search, view movie, read/submit reviews, admin approval, notifications.
+- **Non-functional:** 1M users, 99.9% availability, p95 < 200 ms, secure, cost-aware.
+- **Estimates:** ~1,150 RPS peak, ~2 TB/day image bandwidth (§0.3).
+
+### 17.2 Architecture
+
+```
+Users ─► DNS ─► CDN (posters, JS/CSS, trailers)
+                  │ (dynamic)
+                  ▼
+        WAF / Load Balancer (multi-AZ) ─► API Gateway (AuthN, rate limit, routing)
+                  │
+     ┌────────────┼──────────────┬───────────────┐
+     ▼            ▼              ▼               ▼
+ Movie Svc    Review Svc     User Svc       Search Svc ─► Elasticsearch
+     │            │              │
+   Redis      PostgreSQL      PostgreSQL
+     │         (primary + 2 replicas, Multi-AZ)
+     ▼
+ PostgreSQL            Review Svc ─► Outbox ─► Kafka ─► Notification / Analytics / Search-indexer workers
+```
+
+### 17.3 Failure Analysis: "What Happens When Each Component Fails?"
+
+| Component fails | Impact | Mitigation |
+|---|---|---|
+| **CDN edge node** | Slower image loads | Multi-edge/multi-CDN; origin fallback |
+| **Load balancer node** | None if multi-node | Active-active LBs, health checks |
+| **An API instance** | Some in-flight requests fail | Stateless pods, readiness probes, retries on idempotent calls, autoscaling |
+| **Redis** | Cache misses; DB load jumps | Redis replicas + auto-failover; **circuit breaker + request coalescing** so the DB is protected; local Caffeine fallback |
+| **PostgreSQL primary** | Writes fail during failover | Multi-AZ auto-failover (<2 min), read-only degraded mode, queue writes via Kafka, PITR for corruption |
+| **PostgreSQL replica** | Reduced read capacity | Route to other replicas/primary, rebuild replica |
+| **Kafka** | Async features delayed | Outbox keeps events; 3-broker multi-AZ cluster; lag alerts |
+| **A consumer (worker)** | Lag grows | Consumer group rebalances; autoscale on lag; idempotent processing |
+| **Search (Elasticsearch)** | Search unavailable | Fall back to basic DB `LIKE`/trigram search or cached popular results; replicas and shards |
+| **Auth server** | New logins fail | Already-issued JWTs still validate (JWKS cached); HA deployment |
+| **Entire AZ** | One third of capacity lost | Spread across 3 AZs; N+1 capacity |
+| **Entire region** | Total outage | DR plan matching RTO/RPO; warm standby or multi-region for stricter SLOs |
+| **Third-party (email, payment)** | Degraded feature | Timeouts, circuit breakers, retries via queue, idempotent charge calls |
+
+### 17.4 Use Case: "Design Netflix" Practice Walk-Through
+
+Apply the checklist from §0.4:
+
+1. **Requirements:** browse catalogue, play video with adaptive quality, personalised home page, resume playback, multi-device; 99.99% availability; global.
+2. **APIs:** `GET /v1/titles`, `GET /v1/titles/{id}`, `POST /v1/playback/sessions`, `PUT /v1/profiles/{id}/progress` (idempotent).
+3. **Data:** catalogue (document/relational + cache), user profiles/billing (relational), viewing history (Cassandra, write-heavy and partitioned by `userId`), video files (object storage).
+4. **Scale:** video served from **CDN edge appliances inside ISPs** (Open Connect style); encode each title into many bitrates/codecs, chunk it, and use ABR (HLS/DASH).
+5. **Cache:** metadata in Redis/EVCache; CDN for video chunks and images.
+6. **Async:** upload → object storage → queue → transcoding workers (see §9.3); playback events → Kafka → analytics, recommendations.
+7. **Reliability:** multi-region active-active, graceful degradation (fall back to a non-personalised list when the recommender fails), chaos testing.
+8. **Security:** DRM (Widevine/FairPlay), signed URLs, token-based auth, device limits.
+9. **Observability:** distributed tracing, QoE metrics (rebuffer rate, startup time), SLO dashboards.
+10. **Cost:** CDN egress dominates, so optimise encoding efficiency, edge caching, and storage tiering.
+
+Then, for every box in your diagram, ask: **"What happens when this fails?"**
+
 ---
 
 ## Appendix: End-to-End Request Flow & Quick Reference
@@ -706,3 +1673,57 @@ Event ─► Pub/Sub Queue ───┼─► Search Service (indexing)
 | **SSE** | Server-Sent Events |
 | **TTL** | Time-To-Live |
 | **WAF** | Web Application Firewall |
+
+### E. Study Roadmap (Non-AI System Design)
+
+| Phase | Duration | Focus |
+|---|---|---|
+| **1. Fundamentals** | ~4 weeks | Scalability, availability, load balancing, caching, database scaling, CAP, consistency, distributed-systems basics (§0, §3-§9, §11-§13) |
+| **2. Advanced backend architecture** | ~4 weeks | Kafka, Redis, API gateway, resilience patterns, distributed transactions, event-driven architecture, observability, security (§10.3, §11, §14, §15) |
+| **3. Infrastructure** | Ongoing | Docker, Kubernetes, cloud, CI/CD, cost (§16) |
+| **4. Practice** | Ongoing | Design real systems end to end (movie site, Netflix, URL shortener, chat, payments), then for every component ask *"what happens when it fails?"* (§17) |
+
+**Tip:** don't just watch videos; draw the design, justify each component with numbers, and walk through failure scenarios.
+
+### F. Problem → Section Index
+
+| Problem / Question | Where answered |
+|---|---|
+| Junior vs system designer view of a movie site | §0.1, §17 |
+| Capacity estimate for 1M users | §0.3 |
+| Duplicate payments on retry (idempotency) | §1.4, §10.3 |
+| 100,000 users request the same movie | §8.3 |
+| Cache stampede / hot key | §8.1, §8.3 |
+| Where should the cache live? | §8.3 |
+| Why PostgreSQL instead of Cassandra? | §9.4 |
+| Last ticket sold twice (race condition) | §9.4, §11.6 |
+| Too many DB connections | §9.4 |
+| Replica lag / read-your-writes | §9.4 |
+| What if PostgreSQL goes down? | §9.4, §17.3 |
+| What if Kafka is unavailable? | §10.3, §17.3 |
+| Duplicate message processing | §10.3 |
+| Dual-write problem (DB + Kafka) | §10.3 (Outbox) |
+| Distributed transaction across services | §11.3 |
+| Service A → B → C with C taking 30 s | §11.5 |
+| Scaling the API | §12, §17.2 |
+| RTO / RPO / SLA / SLO | §13 |
+| Slow page debugging | §14.4 |
+| AuthN vs AuthZ, OAuth2/OIDC/JWT, RBAC/ABAC | §15 |
+| Deploy without downtime | §16.4 |
+| Cost estimation | §16.5 |
+| Design Netflix | §17.4 |
+
+### G. Extended Layer Cheat Sheet
+
+| Area | Key Concepts | Key Metrics |
+|---|---|---|
+| Requirements | Functional vs non-functional, estimation | n/a |
+| API design | REST, idempotency, pagination, versioning | Error rate, p95 latency |
+| Databases | Indexes, isolation levels, pooling, replicas, sharding | Slow queries, replication lag, connection usage |
+| Messaging | Partitions, offsets, consumer groups, DLQ, outbox | Consumer lag, DLQ size |
+| Distributed systems | CAP, sagas, consensus, circuit breaker, bulkhead | Retry rate, breaker state |
+| Scalability | Stateless, autoscaling, horizontal scaling | RPS per instance, saturation |
+| Reliability | HA, DR, RTO/RPO, SLO | Availability %, error budget |
+| Observability | Logs, metrics, traces, alerts | MTTD, MTTR |
+| Security | OAuth2/OIDC, JWT, RBAC/ABAC, TLS, zero trust | Auth failures, vulnerabilities open |
+| Infra & cost | Docker, K8s, CI/CD, canary, FinOps | Deployment frequency, cost per 1K requests |
