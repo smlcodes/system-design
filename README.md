@@ -10,7 +10,4 @@ System Design Interview by Alex Xu web
 
 https://github.com/liquidslr/system-design-notes
 
-https://pagefy-blush.vercel.app/system-design/system-design-interview-by-alex-xu
 
-Vol1, Vol2 Notes
-https://github.com/presmihaylov/booknotes/tree/master/system-design
