@@ -194,6 +194,9 @@ Load balancing is the process of distributing incoming network or application tr
 
 
 
+
+  
+
 2\. Caching
 -----------
 
