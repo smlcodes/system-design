@@ -29,6 +29,60 @@
 
 ---
 
+System Design is the process of designing a system’s architecture, components, and interfaces to meet functional and non-functional requirements while ensuring scalability, reliability, and maintainability.
+Importance of System Design
+- Scalability and Reliability: Handle growing traffic and prevent failures.
+- Performance and Efficiency: Optimize resources and response times.
+- Maintainability: Adapt to changing business requirements.
+- Architecture: Understand monolithic and microservices architectures.
+
+- 
+System Design Fundamentals
+- High-Level Design (HLD): Overall architecture, major components, and communication between them.
+- Low-Level Design (LLD): Classes, interfaces, methods, and detailed implementation.
+- Functional and non-functional requirements.
+- Architectural Styles: Monolithic, microservices, event-driven, and serverless architectures.
+
+High-Level Design (HLD)
+-----------------------
+
+High-level design (HLD) defines the overall architecture of a system and how the main components interact with each other. It provides a big-picture view of the system structure, services, and data flow.
+
+-   Identifies major modules, services, and their interactions.
+-   Focuses on system architecture and high-level decisions.
+-   Usually created by architects, stakeholders, and senior developers.
+
+### Topics Covered in HLD
+
+Focuses on system architecture, modules, and their interactions.
+
+-   **System architecture overview**: Defines the major components, modules, and how they interact (e.g., services, queues, databases) .
+-   **Data flow and component interaction**: Illustrates how data moves between modules, along with key integrations and interfaces.
+-   **Technology stack and infrastructure**: High-level decisions on frameworks, platforms, hardware, databases, and hosting setups.
+-   **Module responsibilities**: Describes what each module does and how they relate to one another .
+-   **Performance & trade-offs**: Includes design trade-offs, performance considerations, scalability, security, cost and other non-functional factors .
+-   **Artifacts**: Commonly includes architecture diagrams, component and deployment diagrams, data flow diagrams, and possibly ER/DB schematic overviews.
+
+Low-Level Design (LLD)
+----------------------
+
+Low-Level Design (LLD) focuses on the internal implementation details of each component in the system. It provides developers with a clear and detailed blueprint for how modules, classes, and functions should be built.
+
+-   Describes the internal logic, classes, methods, and data structures of each module.
+-   Converts the High-Level Design into detailed implementation plans.
+-   Usually created by senior developers or designers before coding begins
+
+Covers how each component is implemented, including classes, methods, and logic.
+
+-   **Component/module breakdown**: Detailed internal logic for each module---with class responsibilities, methods, attributes, interactions
+-   **Database schema & structure**: Designing tables, keys, indexes, relationships with SQL/NoSQL refinements
+-   **API & interface definitions**: Precise request/response formats, error codes, methods, endpoints, and internal interfacing
+-   **Error handling & validation logic**: Define how each module manages invalid inputs, failures, edge cases, and logging
+-   **Design patterns & SOLID**: Implement design patterns and solid principles to ensure clean, extensible, maintainable code
+-   **UML and pseudocode artifacts**: Class diagrams, sequence diagrams, pseudocode or flowcharts to clarify logic paths and method calls
+
+
+
 ## The Big Picture
 
 ```
