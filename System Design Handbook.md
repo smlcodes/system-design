@@ -175,20 +175,20 @@ They should be expressed using measurable targets wherever possible so that they
 Components of System Design
 ===========================
 
-# 1. Load Balancer 
+## 1. Load Balancer 
 ---------------------
 Load balancing is the process of distributing incoming network or application traffic across multiple backend servers or resources. Its main purpose is to prevent a single server from becoming overloaded while improving performance, scalability, and availability. 
 **Example:** A company may use NGINX, HAProxy, or AWS Elastic Load Balancing to distribute incoming requests across multiple backend servers.
 
-## Types of Load Balancers
+### Types of Load Balancers
 
-### 1. Based on Deployment
+#### 1. Based on Deployment
 
 - Hardware Load Balancer: A dedicated physical device for distributing traffic. Example: F5.
 - Software Load Balancer: Software that distributes traffic across servers. Examples: NGINX, HAProxy.
 - Cloud Load Balancer: A managed service provided by cloud platforms. Example: AWS Elastic Load Balancing.
 
-### 2. Based on OSI Model
+#### 2. Based on OSI Model
 
 - Layer 4 Load Balancer: Routes traffic using IP addresses, TCP/UDP protocols, and port numbers.
 - Layer 7 Load Balancer: Routes HTTP/HTTPS traffic using URLs, headers, hostnames, cookies, and request methods.
@@ -198,7 +198,7 @@ Load balancing is the process of distributing incoming network or application tr
 
   
 
-# 2.Caching
+## 2.Caching
 -----------
 
 A technique for temporarily storing frequently requested data that speeds up its retrieval when needed again called [caching](https://www.geeksforgeeks.org/system-design/caching-system-design-concept-for-beginners/). The main database or data source is less burdened when caching is included in system architecture, which enhances performance and efficiency.
@@ -210,33 +210,33 @@ Here's how caching works and why it's beneficial:
 -   **Improves User Experience**: Faster data access means faster response times for users, which improves the overall experience on websites or apps.
 
 
-## Types of Cache
+### Types of Cache
 
-### 1. Application Server Cache
+#### 1. Application Server Cache
 
 Stores frequently accessed data within an application server to reduce database queries and improve response times.
 
 Drawback: Each server maintains its own cache, causing cache misses and inconsistent data across multiple servers.
 
-### 2. Distributed Cache
+#### 2. Distributed Cache
 
 Distributes cached data across multiple nodes. Consistent hashing helps locate the node containing the required data.
 
 Example: Redis Cluster.
 
-### 3. Global Cache
+#### 3. Global Cache
 
 Provides a shared cache accessible to all application servers. If data is unavailable, it can be fetched from the database or underlying data source.
 
 Example: A shared Redis instance.
 
-### 4. CDN / Edge Cache
+#### 4. CDN / Edge Cache
 
 Stores static content on geographically distributed servers to deliver it faster to users.
 
 Examples: Images, CSS, JavaScript, and videos.
 
-## Applications of Caching
+### Applications of Caching
 
 - Web Page Caching: Stores web resources to speed up page loading.
 - Database Caching: Reduces repeated database queries.
@@ -244,14 +244,14 @@ Examples: Images, CSS, JavaScript, and videos.
 - Session Caching: Stores user session information.
 - API Response Caching: Reuses responses to reduce processing time.
 
-## Cache Invalidation Strategies
+### Cache Invalidation Strategies
 
 Cache invalidation ensures cached data remains up to date when the original data changes.
 
 - Time-Based (TTL): Expires data after a specified duration.
 - Event-Based: Updates or removes cached data when the source changes.
 
-## Cache Eviction Policies
+### Cache Eviction Policies
 
 Eviction policies determine which items to remove when the cache is full.
 
@@ -259,14 +259,14 @@ Eviction policies determine which items to remove when the cache is full.
 - LFU (Least Frequently Used): Removes the least frequently accessed item.
 - FIFO (First In, First Out): Removes the oldest cached item.
 
-## Pros
+### Pros
 
 - Improved Performance: Reduces data access time and response latency.
 - Reduced Server Load: Minimizes repeated database queries.
 - Cost Savings: Improves resource utilization and reduces infrastructure costs.
 - Better Scalability: Helps handle more requests efficiently.
 
-## Cons
+### Cons
 
 - Data Inconsistency: Cached data may become outdated.
 - Eviction Overhead: Poor policies can reduce cache hit rates.
@@ -274,14 +274,14 @@ Eviction policies determine which items to remove when the cache is full.
 
 
 
-# 3. Content Delivery Network (CDN)
+## 3. Content Delivery Network (CDN)
 ----------------------------------
-## CDN (Content Delivery Network)
+### CDN (Content Delivery Network)
 
 A CDN is a geographically distributed network of servers that caches and delivers website content from locations closer to users, reducing latency and improving performance.
 when a user requests content (like a video or an image), instead of retrieving it from the main server, the request is handled by a nearby CDN server, which has a cached copy of the content. This reduces the distance the data has to travel, making it load faster for the user.
 
-## Without CDN vs With CDN
+### Without CDN vs With CDN
 **Without CDN:** Requests go directly to the origin server, increasing latency for distant users and potentially overloading the server during traffic spikes.  
 
 <img width="738" height="350" alt="image" src="https://github.com/user-attachments/assets/da7a3080-cdc3-4798-9240-9bac2c2db923" />
@@ -291,13 +291,13 @@ when a user requests content (like a video or an image), instead of retrieving i
 <img width="758" height="370" alt="image" src="https://github.com/user-attachments/assets/57d34409-86b4-4645-bd4b-ba1633a29c55" />
 
 
-## Real-World Applications
+### Real-World Applications
 
 - Streaming: Netflix, YouTube — smoother video playback.
 - E-commerce: Amazon — faster product pages and images.
 - Software Distribution: Faster downloads of updates and applications.
 
-## Types of CDN
+### Types of CDN
 
 - Public CDN: Shared CDN services available to many customers. Example: Cloudflare.
 - Private CDN: Dedicated content delivery infrastructure for an organization.
@@ -306,7 +306,7 @@ when a user requests content (like a video or an image), instead of retrieving i
 - Push CDN: Content is uploaded to CDN servers in advance.
 - Pull CDN: Content is fetched from the origin when requested and cached.
 
-## Components of a CDN
+### Components of a CDN
 
 - Edge Servers: Cache and deliver content near users.
 - Origin Server: Stores the original content.
@@ -317,12 +317,12 @@ when a user requests content (like a video or an image), instead of retrieving i
 
 
 
-## Types of Content Delivered
+### Types of Content Delivered
 
 - Static Content: Images, CSS, JavaScript, logos, and videos. Easily cached.
 - Dynamic Content: Personalized pages, feeds, and live data. Usually generated on demand and cached selectively.
 
-## Importance of CDN
+### Importance of CDN
 
 - Faster Delivery: Reduces latency and page load times.
 - Scalability: Handles traffic spikes efficiently.
@@ -330,7 +330,7 @@ when a user requests content (like a video or an image), instead of retrieving i
 - Cost Savings: Reduces origin bandwidth and server load.
 - Security: Can provide DDoS protection, SSL/TLS, and web application firewall (WAF) features.
 
-## Challenges
+### Challenges
 
 - Cost: Adds service and bandwidth expenses.
 - Complexity: Requires cache and routing configuration.
@@ -340,7 +340,7 @@ when a user requests content (like a video or an image), instead of retrieving i
 
 
 
-# 4. API Gateways
+## 4. API Gateways
 ----------------
 <img width="726" height="559" alt="image" src="https://github.com/user-attachments/assets/8aaa94b3-7744-4955-b307-64c014f473f9" />
 
@@ -350,7 +350,7 @@ Example: In an e-commerce application, the API Gateway routes product, order, an
 <img width="726" height="280" alt="image" src="https://github.com/user-attachments/assets/15cb61b0-b9ad-4ebc-a5b2-360823b56128" />
 
 
-## Key Responsibilities
+### Key Responsibilities
 
 - **Request Routing:** Routes requests based on URLs, HTTP methods, or headers.
 - **Authentication & Authorization:** Verifies identity and permissions.
@@ -364,13 +364,13 @@ Example: In an e-commerce application, the API Gateway routes product, order, an
 An API Gateway is optional for a monolith but especially useful in microservices architectures.
  
 
-## Challenges
+### Challenges
 
 - Can become a bottleneck or single point of failure if poorly designed.
 - Adds latency through routing and security checks.
 - Requires careful configuration, security, and scaling.
 
-## Popular API Gateway Solutions
+### Popular API Gateway Solutions
 
 - **Amazon API Gateway** — Managed API service on AWS.
 - **Google Apigee** — API management and analytics.
@@ -381,7 +381,7 @@ An API Gateway is optional for a monolith but especially useful in microservices
 
 
 
-# 5. Key-value stores
+## 5. Key-value stores
 ------------------------
 
 One kind of NoSQL database that is meant for storing data as a collection of key-value pairs is called a key-value store. Every piece of data is kept in a key-value store under a distinct key, and the data itself serves as the value. Since key-value stores allow for quick access to data by key, they are typically used to store data that is accessed frequently.
@@ -389,7 +389,7 @@ One kind of NoSQL database that is meant for storing data as a collection of key
 -   Key-value stores come in a variety of forms, such as persistent key-value stores, which store data on disk or in a distributed file system for durability, and in-memory key-value stores, which store data in memory for quick access.
 -   Key-value stores are generally simpler to use and more scalable than other types of databases, such as RDBMS. However, they are not as well-suited for storing complex structured data that requires advanced querying capabilities.
 
-# 6.Blob storage & Databases 
+## 6.Blob storage & Databases 
 --------------------------------
 
 Blob storage and database systems are two different types of storage systems that can be used to store and manage data.
@@ -398,33 +398,30 @@ Large volumes of unstructured data, including documents, photos, videos, and aud
 
 On the other hand, database systems are made to hold structured data that has been arranged in a particular manner. RDBMSs, NoSQL databases, and in-memory databases are among the several kinds of database systems. Database systems are typically used to store data that needs to be queried and accessed in a structured way, such as customer records or financial transactions.
 
-# 7.Rate limiters
+## 7.Rate limiters
 ---------------------
-
-# Rate Limiting in System Design
-
 Rate Limiting is a technique used to control the number of requests a client can make within a specified time. It prevents system overload, reduces abuse, and ensures fair resource usage.
 
 Example: An API allows 100 requests per minute per user. Additional requests may be rejected with HTTP `429 Too Many Requests`.
 
-## Use Cases
+### Use Cases
 
 - API Rate Limiting: Controls requests to APIs.
 - Web Server: Prevents excessive traffic and overload.
 - Database: Limits queries to protect database resources.
 - Login: Prevents brute-force password attacks.
 
-## Common Rate Limiting Strategies
+### Common Rate Limiting Strategies
 
 - IP-Based: Limits requests from a specific IP address.
 - Server-Based: Limits the total requests a server processes.
 - Geography-Based: Applies different limits based on the client's estimated location.
 
-## How Rate Limiting Works
+### How Rate Limiting Works
  <img width="712" height="255" alt="image" src="https://github.com/user-attachments/assets/849df95c-d746-4d98-ac29-7b27bddbc23b" />
 
 
-## Rate Limiting Algorithms
+### Rate Limiting Algorithms
 
 - **Token Bucket:** Requests consume tokens added at a fixed rate, allowing bursts. Example: 5 available tokens allow 5 immediate requests.
 - **Leaky Bucket:** Processes queued requests at a constant rate. Example: Processes 1 request per second with a queue capacity of 5.
@@ -433,7 +430,7 @@ Example: An API allows 100 requests per minute per user. Additional requests may
 Example: Allows 5 requests in any 60-second period.
 
 
-## Challenges
+### Challenges
 
 - Latency: Rate-limit checks can add processing overhead.
 - False Positives: Strict limits may block legitimate users.
@@ -442,25 +439,24 @@ Example: Allows 5 requests in any 60-second period.
 
   
 
-# 9. Monitoring System
--------------------------
-# Types of Monitoring in System Design
+## 9. Monitoring System
+------------------------
 
 Monitoring continuously collects and analyzes system data to ensure application health, performance, security, and reliability. It helps detect issues, troubleshoot failures, and prevent downtime.
 
-## Three Pillars of Monitoring
+### Three Pillars of Monitoring
 
 - **Metrics:** Numerical measurements that show system health and performance. Example: CPU usage, request latency, error rate. Tools: Prometheus, Grafana.
 - **Logs:** Timestamped records of events used to investigate errors and troubleshoot issues. Example: Payment failed due to a database timeout. Tools: ELK Stack, Splunk.
 - **Traces:** Track a request across multiple services to identify bottlenecks. Example: An order request takes 500 ms, with 300 ms spent in the Order Service. Tools: Jaeger, Zipkin, OpenTelemetry.
 
-## Monitoring Philosophies
+### Monitoring Philosophies
 
 - **Reactive Monitoring:** Detects and alerts teams after an issue occurs. Example: CPU reaches 100%, triggering an alert.
 - **Proactive Monitoring:** Identifies warning signs before a failure occurs. Example: Predicting disk space exhaustion and alerting the team in advance.
 
 
-## Key Monitoring Domains
+### Key Monitoring Domains
 
 - **Infrastructure Monitoring:** Tracks CPU, memory, disk, and network health. Tools: Prometheus, Nagios.
 - **Application Performance Monitoring (APM):** Monitors latency, throughput, errors, and database queries. Tools: New Relic, Dynatrace.
@@ -469,7 +465,7 @@ Monitoring continuously collects and analyzes system data to ensure application 
 - **User Experience Monitoring:** Measures real-user performance (RUM) and simulates user journeys (synthetic monitoring).
 - **Business Monitoring:** Tracks business KPIs such as signups, sales, and cart abandonment.
 
-## Effective Monitoring Practices
+### Effective Monitoring Practices
 
 - SLI (Service Level Indicator): What you measure. **Example**: Login success rate.
 - SLO (Service Level Objective): Your target. **Example**: 99.9% login success rate.
@@ -483,7 +479,7 @@ Monitoring continuously collects and analyzes system data to ensure application 
 
 
 
-**9\. Distributes system messaging queue**
+ ## 9. Distributes system messaging queue 
 ------------------------------------------
 
 A distributed system [messaging queue](https://www.geeksforgeeks.org/system-design/message-queues-system-design/) is a system that enables the exchange of messages between different nodes in a distributed system. Messaging queues allow nodes to communicate asynchronously, decoupling the sender and receiver of a message and enabling each node to operate independently.
@@ -496,7 +492,7 @@ There are several different types of messaging queues, including:
 
 Distributed system messaging queues can be used to enable communication between different components of a distributed system, such as microservices or distributed applications. They can also be used to decouple different parts of the system, allowing each component to operate independently and improving the system's resilience and scalability.
 
-**10\. Distributed unique id generator**
+ ## 10. Distributed unique id generator 
 ----------------------------------------
 
 A distributed unique ID generator is a system that generates unique identifiers (IDs) that can be used to identify objects or entities in a distributed system. These IDs are typically used to uniquely identify items in a database or to provide a stable identifier for a resource that is accessed over the network.
@@ -507,7 +503,7 @@ There are several approaches to generating distributed unique IDs:
 -   Using a [distributed consensus algorithm](https://www.geeksforgeeks.org/computer-organization-architecture/distributed-consensus-in-distributed-systems/)
 -   Using timestamps
 
-**11\. Distributes search**
+ ## 11. Distributes search 
 ---------------------------
 
 Distributed search refers to the practice of using multiple nodes or servers to index and search large datasets in a distributed system. Distributed search can be used to improve the performance and [scalability](https://www.geeksforgeeks.org/system-design/what-is-scalability/) of search operations, as it allows for parallel processing of search queries and the distribution of data across multiple nodes.
@@ -518,7 +514,7 @@ There are several approaches to implementing distributed search, including:
 -   **Using a database with search capabilities:** Some databases, such as MongoDB and Cassandra, have built-in search capabilities that allow for the indexing and searching of data stored in the database.
 -   **Using a cloud-based search service:** Cloud-based search services, such as Amazon Elastic search Service and Google Cloud Search, can be used to implement distributed search in a distributed system. These services are typically highly scalable and fault-tolerant.
 
-**12\. Distributed logging services**
+ ## 12. Distributed logging services
 -------------------------------------
 
 [Distributed logging](https://www.geeksforgeeks.org/system-design/distributed-logging-for-microservices/) refers to the practice of collecting, storing, and analyzing log data from multiple sources in a [distributed system](https://www.geeksforgeeks.org/computer-networks/what-is-a-distributed-system/). This can be useful for tracking the health and performance of a distributed system, as well as for debugging issues that may arise.
@@ -529,7 +525,9 @@ There are several approaches to implementing distributed logging, including:
 -   Using a distributed logging system
 -   Using a cloud-based logging service
 
-**13\. Distributes task scheduler**
+  
+
+ ## 13. Distributes task scheduler
 -----------------------------------
 
 A distributed task scheduler is a system that is responsible for scheduling and executing tasks in a distributed system. A task scheduler can be used to automate the execution of tasks at regular intervals, on a specific schedule, or in response to certain events.
@@ -545,7 +543,7 @@ There are several approaches to implementing a distributed task scheduler, inclu
 
 
 
-## The Big Picture
+# The Big Picture
 
 ```
 Client ─► DNS ─► CDN/Edge ─► API Gateway ─► Load Balancer ─► Frontend Servers
