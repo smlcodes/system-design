@@ -174,7 +174,8 @@ They should be expressed using measurable targets wherever possible so that they
 
 Components of System Design
 ===========================
-**1\. Load Balancer**
+
+# 1. Load Balancer**
 ---------------------
 Load balancing is the process of distributing incoming network or application traffic across multiple backend servers or resources. Its main purpose is to prevent a single server from becoming overloaded while improving performance, scalability, and availability. 
 **Example:** A company may use NGINX, HAProxy, or AWS Elastic Load Balancing to distribute incoming requests across multiple backend servers.
@@ -197,7 +198,7 @@ Load balancing is the process of distributing incoming network or application tr
 
   
 
-2\. Caching
+# 2. Caching
 -----------
 
 A technique for temporarily storing frequently requested data that speeds up its retrieval when needed again called [caching](https://www.geeksforgeeks.org/system-design/caching-system-design-concept-for-beginners/). The main database or data source is less burdened when caching is included in system architecture, which enhances performance and efficiency.
