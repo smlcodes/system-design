@@ -198,7 +198,7 @@ Load balancing is the process of distributing incoming network or application tr
 
   
 
-# 2. Caching
+# 2.Caching
 -----------
 
 A technique for temporarily storing frequently requested data that speeds up its retrieval when needed again called [caching](https://www.geeksforgeeks.org/system-design/caching-system-design-concept-for-beginners/). The main database or data source is less burdened when caching is included in system architecture, which enhances performance and efficiency.
@@ -282,11 +282,12 @@ A CDN is a geographically distributed network of servers that caches and deliver
 when a user requests content (like a video or an image), instead of retrieving it from the main server, the request is handled by a nearby CDN server, which has a cached copy of the content. This reduces the distance the data has to travel, making it load faster for the user.
 
 ## Without CDN vs With CDN
-**Without CDN:** Requests go directly to the origin server, increasing latency for distant users and potentially overloading the server during traffic spikes.
+**Without CDN:** Requests go directly to the origin server, increasing latency for distant users and potentially overloading the server during traffic spikes.  
+
 <img width="738" height="350" alt="image" src="https://github.com/user-attachments/assets/da7a3080-cdc3-4798-9240-9bac2c2db923" />
 
 
-**With CDN:** Requests are served from nearby edge servers, reducing latency, improving load times, and lowering the origin server's workload.
+**With CDN:** Requests are served from nearby edge servers, reducing latency, improving load times, and lowering the origin server's workload.  
 <img width="758" height="370" alt="image" src="https://github.com/user-attachments/assets/57d34409-86b4-4645-bd4b-ba1633a29c55" />
 
 
@@ -339,7 +340,7 @@ when a user requests content (like a video or an image), instead of retrieving i
 
 
 
-4\. API Gateways
+# 4. API Gateways
 ----------------
 <img width="726" height="559" alt="image" src="https://github.com/user-attachments/assets/8aaa94b3-7744-4955-b307-64c014f473f9" />
 
@@ -380,7 +381,7 @@ An API Gateway is optional for a monolith but especially useful in microservices
 
 
 
-**5\. Key-value stores**
+# 5. Key-value stores
 ------------------------
 
 One kind of NoSQL database that is meant for storing data as a collection of key-value pairs is called a key-value store. Every piece of data is kept in a key-value store under a distinct key, and the data itself serves as the value. Since key-value stores allow for quick access to data by key, they are typically used to store data that is accessed frequently.
@@ -388,7 +389,7 @@ One kind of NoSQL database that is meant for storing data as a collection of key
 -   Key-value stores come in a variety of forms, such as persistent key-value stores, which store data on disk or in a distributed file system for durability, and in-memory key-value stores, which store data in memory for quick access.
 -   Key-value stores are generally simpler to use and more scalable than other types of databases, such as RDBMS. However, they are not as well-suited for storing complex structured data that requires advanced querying capabilities.
 
-**6\. Blob storage & Databases**
+# 6.Blob storage & Databases 
 --------------------------------
 
 Blob storage and database systems are two different types of storage systems that can be used to store and manage data.
@@ -397,18 +398,51 @@ Large volumes of unstructured data, including documents, photos, videos, and aud
 
 On the other hand, database systems are made to hold structured data that has been arranged in a particular manner. RDBMSs, NoSQL databases, and in-memory databases are among the several kinds of database systems. Database systems are typically used to store data that needs to be queried and accessed in a structured way, such as customer records or financial transactions.
 
-**7\. Rate limiters**
+# 7.Rate limiters
 ---------------------
 
-System design components known as [rate limiters](https://www.geeksforgeeks.org/system-design/rate-limiting-in-system-design/) are used to restrict the rate at which a system or application responds to requests or carries out specific tasks. This can be helpful in a variety of situations, such as when a system has to guard against receiving too many requests or when a company want to stop a particular user or group of users from submitting excessive requests that can affect the system's performance.
+# Rate Limiting in System Design
 
-Some common types of rate limiters include:
+Rate Limiting is a technique used to control the number of requests a client can make within a specified time. It prevents system overload, reduces abuse, and ensures fair resource usage.
 
--   **Request rate limiters** are used to limit the number of requests that a system or application processes within a given time period.
--   **User rate limiters** are used to limit the rate at which a specific user or group of users can make requests to a system or application.
--   **Token bucket rate limiters** are used to limit the rate at which requests are processed by a system by allowing a certain number of requests to be processed in each time period, with any excess requests being held in a "bucket" until the next time period.
+Example: An API allows 100 requests per minute per user. Additional requests may be rejected with HTTP `429 Too Many Requests`.
 
-**8\. Monitoring System**
+## Use Cases
+
+- API Rate Limiting: Controls requests to APIs.
+- Web Server: Prevents excessive traffic and overload.
+- Database: Limits queries to protect database resources.
+- Login: Prevents brute-force password attacks.
+
+## Common Rate Limiting Strategies
+
+- IP-Based: Limits requests from a specific IP address.
+- Server-Based: Limits the total requests a server processes.
+- Geography-Based: Applies different limits based on the client's estimated location.
+
+## How Rate Limiting Works
+ <img width="712" height="255" alt="image" src="https://github.com/user-attachments/assets/849df95c-d746-4d98-ac29-7b27bddbc23b" />
+
+
+## Rate Limiting Algorithms
+
+- **Token Bucket:** Requests consume tokens added at a fixed rate, allowing bursts. Example: 5 available tokens allow 5 immediate requests.
+- **Leaky Bucket:** Processes queued requests at a constant rate. Example: Processes 1 request per second with a queue capacity of 5.
+- **Fixed Window Counter:** Limits requests within a fixed time interval and resets the counter afterward. Example: 5 requests per minute.
+- **Sliding Window Log:** Tracks request timestamps over a rolling time window. Example: Allows 5 requests in any 60-second period.
+Example: Allows 5 requests in any 60-second period.
+
+
+## Challenges
+
+- Latency: Rate-limit checks can add processing overhead.
+- False Positives: Strict limits may block legitimate users.
+- Configuration: Different APIs need appropriate limits.
+- Scalability: Distributed systems need efficient, coordinated rate limiting.
+
+  
+
+# 9. Monitoring System**
 -------------------------
 
 A [monitoring system](https://www.geeksforgeeks.org/system-design/types-of-monitoring-in-system-design/) is a system design component that is used to collect, analyze, and report on various metrics and performance data related to a system or application. This can be useful in a number of different scenarios, such as when a system needs to track its own performance and availability, or when an organization needs to monitor the performance of its systems and applications to ensure that they are meeting their desired service levels.
