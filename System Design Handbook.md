@@ -281,9 +281,13 @@ Eviction policies determine which items to remove when the cache is full.
 A CDN is a geographically distributed network of servers that caches and delivers website content from locations closer to users, reducing latency and improving performance.
 
 ## Without CDN vs With CDN
+**Without CDN:** Requests go directly to the origin server, increasing latency for distant users and potentially overloading the server during traffic spikes.
+<img width="738" height="350" alt="image" src="https://github.com/user-attachments/assets/da7a3080-cdc3-4798-9240-9bac2c2db923" />
 
-- Without CDN: Requests go directly to the origin server, increasing latency for distant users and potentially overloading the server during traffic spikes.
-- With CDN: Requests are served from nearby edge servers, reducing latency, improving load times, and lowering the origin server's workload.
+
+**With CDN:** Requests are served from nearby edge servers, reducing latency, improving load times, and lowering the origin server's workload.
+<img width="758" height="370" alt="image" src="https://github.com/user-attachments/assets/57d34409-86b4-4645-bd4b-ba1633a29c55" />
+
 
 ## Real-World Applications
 
