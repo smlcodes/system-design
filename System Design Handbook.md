@@ -442,16 +442,46 @@ Example: Allows 5 requests in any 60-second period.
 
   
 
-# 9. Monitoring System**
+# 9. Monitoring System
 -------------------------
+# Types of Monitoring in System Design
 
-A [monitoring system](https://www.geeksforgeeks.org/system-design/types-of-monitoring-in-system-design/) is a system design component that is used to collect, analyze, and report on various metrics and performance data related to a system or application. This can be useful in a number of different scenarios, such as when a system needs to track its own performance and availability, or when an organization needs to monitor the performance of its systems and applications to ensure that they are meeting their desired service levels.
+Monitoring continuously collects and analyzes system data to ensure application health, performance, security, and reliability. It helps detect issues, troubleshoot failures, and prevent downtime.
 
-Some common types of monitoring systems include:
+## Three Pillars of Monitoring
 
--   **Network monitoring systems,** are used to monitor the performance of a network and its various components, such as routers, switches, and servers.
--   **System monitoring systems,** are used to monitor the performance of a computer system and its various components, such as the CPU, memory, and disk usage.
--   **Application monitoring systems**, are used to monitor the performance of specific applications or services, such as web servers or databases.
+- **Metrics:** Numerical measurements that show system health and performance. Example: CPU usage, request latency, error rate. Tools: Prometheus, Grafana.
+- **Logs:** Timestamped records of events used to investigate errors and troubleshoot issues. Example: Payment failed due to a database timeout. Tools: ELK Stack, Splunk.
+- **Traces:** Track a request across multiple services to identify bottlenecks. Example: An order request takes 500 ms, with 300 ms spent in the Order Service. Tools: Jaeger, Zipkin, OpenTelemetry.
+
+## Monitoring Philosophies
+
+- **Reactive Monitoring:** Detects and alerts teams after an issue occurs. Example: CPU reaches 100%, triggering an alert.
+- **Proactive Monitoring:** Identifies warning signs before a failure occurs. Example: Predicting disk space exhaustion and alerting the team in advance.
+
+
+## Key Monitoring Domains
+
+- **Infrastructure Monitoring:** Tracks CPU, memory, disk, and network health. Tools: Prometheus, Nagios.
+- **Application Performance Monitoring (APM):** Monitors latency, throughput, errors, and database queries. Tools: New Relic, Dynatrace.
+- **Log Monitoring:** Collects and analyzes application and system logs. Tools: ELK Stack, Loki.
+- **Security Monitoring:** Detects suspicious activities, attacks, and unauthorized access. Tools: Wazuh, SIEM platforms.
+- **User Experience Monitoring:** Measures real-user performance (RUM) and simulates user journeys (synthetic monitoring).
+- **Business Monitoring:** Tracks business KPIs such as signups, sales, and cart abandonment.
+
+## Effective Monitoring Practices
+
+- SLI (Service Level Indicator): What you measure. **Example**: Login success rate.
+- SLO (Service Level Objective): Your target. **Example**: 99.9% login success rate.
+- SLA (Service Level Agreement): A formal commitment to customers, potentially including penalties.
+- Actionable Alerts: Alert on user-impacting symptoms, such as high API latency.
+- Avoid Alert Fatigue: Configure meaningful alerts that require action.
+- Role-Based Dashboards: Provide business KPIs for executives, service metrics for engineers, and detailed diagnostics for debugging.
+
+
+
+
+
 
 **9\. Distributes system messaging queue**
 ------------------------------------------
