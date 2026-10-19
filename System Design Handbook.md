@@ -175,7 +175,7 @@ They should be expressed using measurable targets wherever possible so that they
 Components of System Design
 ===========================
 
-# 1. Load Balancer**
+# 1. Load Balancer 
 ---------------------
 Load balancing is the process of distributing incoming network or application traffic across multiple backend servers or resources. Its main purpose is to prevent a single server from becoming overloaded while improving performance, scalability, and availability. 
 **Example:** A company may use NGINX, HAProxy, or AWS Elastic Load Balancing to distribute incoming requests across multiple backend servers.
@@ -194,7 +194,7 @@ Load balancing is the process of distributing incoming network or application tr
 - Layer 7 Load Balancer: Routes HTTP/HTTPS traffic using URLs, headers, hostnames, cookies, and request methods.
 
 
-
+<br>
 
   
 
@@ -208,6 +208,71 @@ Here's how caching works and why it's beneficial:
 -   **Quick Access**: When data is cached, it's stored in a faster, temporary storage (like memory) instead of being fetched repeatedly from a slower storage source. This makes retrieving information faster.
 -   **Reduces Database Load**: The system can process more requests without experiencing any lag by keeping frequently used or popular data in the cache instead of constantly querying the main database.
 -   **Improves User Experience**: Faster data access means faster response times for users, which improves the overall experience on websites or apps.
+
+
+## Types of Cache
+
+### 1. Application Server Cache
+
+Stores frequently accessed data within an application server to reduce database queries and improve response times.
+
+Drawback: Each server maintains its own cache, causing cache misses and inconsistent data across multiple servers.
+
+### 2. Distributed Cache
+
+Distributes cached data across multiple nodes. Consistent hashing helps locate the node containing the required data.
+
+Example: Redis Cluster.
+
+### 3. Global Cache
+
+Provides a shared cache accessible to all application servers. If data is unavailable, it can be fetched from the database or underlying data source.
+
+Example: A shared Redis instance.
+
+### 4. CDN / Edge Cache
+
+Stores static content on geographically distributed servers to deliver it faster to users.
+
+Examples: Images, CSS, JavaScript, and videos.
+
+## Applications of Caching
+
+- Web Page Caching: Stores web resources to speed up page loading.
+- Database Caching: Reduces repeated database queries.
+- CDN Caching: Delivers content from nearby servers.
+- Session Caching: Stores user session information.
+- API Response Caching: Reuses responses to reduce processing time.
+
+## Cache Invalidation Strategies
+
+Cache invalidation ensures cached data remains up to date when the original data changes.
+
+- Time-Based (TTL): Expires data after a specified duration.
+- Event-Based: Updates or removes cached data when the source changes.
+
+## Cache Eviction Policies
+
+Eviction policies determine which items to remove when the cache is full.
+
+- LRU (Least Recently Used): Removes the item not accessed for the longest time.
+- LFU (Least Frequently Used): Removes the least frequently accessed item.
+- FIFO (First In, First Out): Removes the oldest cached item.
+
+## Pros
+
+- Improved Performance: Reduces data access time and response latency.
+- Reduced Server Load: Minimizes repeated database queries.
+- Cost Savings: Improves resource utilization and reduces infrastructure costs.
+- Better Scalability: Helps handle more requests efficiently.
+
+## Cons
+
+- Data Inconsistency: Cached data may become outdated.
+- Eviction Overhead: Poor policies can reduce cache hit rates.
+- Additional Complexity: Requires managing expiration, invalidation, and consistency.
+
+
 
 3\. Content Delivery Network (CDN)
 ----------------------------------
