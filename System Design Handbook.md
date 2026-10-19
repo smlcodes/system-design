@@ -166,21 +166,33 @@ They should be expressed using measurable targets wherever possible so that they
 -   **Portability:** Defines supported environments, platforms, or deployment targets.
 
 
-components of System Design
-===========================
-components of System Design
+
+
+
+
+
+
+Components of System Design
 ===========================
 **1\. Load Balancer**
 ---------------------
+Load balancing is the process of distributing incoming network or application traffic across multiple backend servers or resources. Its main purpose is to prevent a single server from becoming overloaded while improving performance, scalability, and availability. 
+**Example:** A company may use NGINX, HAProxy, or AWS Elastic Load Balancing to distribute incoming requests across multiple backend servers.
 
-Incoming requests or workloads are divided across several distinct resources or servers using a [load balancer](https://www.geeksforgeeks.org/system-design/what-is-load-balancer-system-design/), a component of system design. When a system has many servers and has to divide requests evenly among them, or when a system receives a large number of requests and wants to split them up across multiple servers to prevent overloading any one of them, this can be useful.
+## Types of Load Balancers
 
-Some common [types of load balancers](https://www.geeksforgeeks.org/system-design/types-of-load-balancer/) include:
+### 1. Based on Deployment
 
--   **Layer 4 load balancers:** It functions at the **OSI model's Transport layer**, allocating requests according to their **TCP/UDP port numbers** and **source and destination IP addresses**.
--   **Layer 7 load balancers:** Distributing requests according to their content, including the URL or HTTP method type, it functions at the OSI model's application layer.
--   **Global load balancers** are used in distributed systems to distribute requests among multiple servers located in different geographic regions.
--   **Application load balancers** are specialized load balancers that are designed to work with specific types of applications or protocols, such as HTTP or HTTPS.
+- Hardware Load Balancer: A dedicated physical device for distributing traffic. Example: F5.
+- Software Load Balancer: Software that distributes traffic across servers. Examples: NGINX, HAProxy.
+- Cloud Load Balancer: A managed service provided by cloud platforms. Example: AWS Elastic Load Balancing.
+
+### 2. Based on OSI Model
+
+- Layer 4 Load Balancer: Routes traffic using IP addresses, TCP/UDP protocols, and port numbers.
+- Layer 7 Load Balancer: Routes HTTP/HTTPS traffic using URLs, headers, hostnames, cookies, and request methods.
+
+
 
 2\. Caching
 -----------
