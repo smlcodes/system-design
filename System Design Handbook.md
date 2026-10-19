@@ -5,6 +5,8 @@
 
 
 # The Big Picture
+<img width="1536" height="1024" alt="Modern Web System Architecture Flow" src="https://github.com/user-attachments/assets/009cdb25-577f-4ece-b33d-5d35e9564a88" />
+
 
 ```
 Client ─► DNS ─► CDN/Edge ─► API Gateway ─► Load Balancer ─► Frontend Servers
@@ -23,8 +25,7 @@ Client ─► DNS ─► CDN/Edge ─► API Gateway ─► Load Balancer ─►
 ## 0. Foundations: Requirements, Estimation & Thinking Framework
 
 ### 0.1 What Is System Design?
-
-> Given a business problem and an expected scale, how do you design the complete software system so that it is **scalable, reliable, secure, maintainable, and cost-effective**?
+Given a business problem and an expected scale, how do you design the complete software system so that it is **scalable, reliable, secure, maintainable, and cost-effective**?
 
 **Use case: "Build a movie website that can handle 1 million users."**
 
@@ -55,18 +56,7 @@ Users ──► Load Balancer ──► API Gateway
                      Kafka ──► Background Workers ──► Notifications / Analytics / Search
 ```
 
-…and then asks the hard questions (answered in [Section 17](#17-worked-example-movie-website-for-1m-users)):
 
-- What happens if PostgreSQL goes down?
-- What happens if 100,000 users request the same movie?
-- Should we cache movie data, and where should the cache live?
-- What happens if Kafka is unavailable?
-- How do we prevent duplicate processing?
-- How do we scale the API?
-- How do we authenticate users?
-- How do we monitor the system?
-- How do we deploy without downtime?
-- How much will it cost?
 
 ### 0.2 Requirements
 
