@@ -274,14 +274,65 @@ Eviction policies determine which items to remove when the cache is full.
 
 
 
-3\. Content Delivery Network (CDN)
+# 3. Content Delivery Network (CDN)
 ----------------------------------
+## CDN (Content Delivery Network)
 
-A [Content Delivery Network (CDN)](https://www.geeksforgeeks.org/system-design/what-is-content-delivery-networkcdn-in-system-design/) is a network of servers spread across different regions that enables faster delivery of content to users, such as webpages, movies, and photos. A CDN is utilized in most system designs to increase the speed and dependability of content delivery to consumers, particularly when they are dispersed across many geographical locations.
+A CDN is a geographically distributed network of servers that caches and delivers website content from locations closer to users, reducing latency and improving performance.
 
-### **How a CDN works?**
+## Without CDN vs With CDN
 
-> when a user requests content (like a video or an image), instead of retrieving it from the main server, the request is handled by a nearby CDN server, which has a cached copy of the content. This reduces the distance the data has to travel, making it load faster for the user.
+- Without CDN: Requests go directly to the origin server, increasing latency for distant users and potentially overloading the server during traffic spikes.
+- With CDN: Requests are served from nearby edge servers, reducing latency, improving load times, and lowering the origin server's workload.
+
+## Real-World Applications
+
+- Streaming: Netflix, YouTube — smoother video playback.
+- E-commerce: Amazon — faster product pages and images.
+- Software Distribution: Faster downloads of updates and applications.
+
+## Types of CDN
+
+- Public CDN: Shared CDN services available to many customers. Example: Cloudflare.
+- Private CDN: Dedicated content delivery infrastructure for an organization.
+- Peer-to-Peer (P2P) CDN: Distributes content between users. Example: WebTorrent.
+- Hybrid CDN: Combines public and private delivery infrastructure.
+- Push CDN: Content is uploaded to CDN servers in advance.
+- Pull CDN: Content is fetched from the origin when requested and cached.
+
+## Components of a CDN
+
+- Edge Servers: Cache and deliver content near users.
+- Origin Server: Stores the original content.
+- Distribution Nodes: Help route traffic and distribute content.
+- Control Plane: Manages routing, caching, and traffic distribution.
+<img width="828" height="340" alt="image" src="https://github.com/user-attachments/assets/eeaf2863-1f10-4e47-8c6c-a7bc28c63c7e" />
+
+
+
+
+## Types of Content Delivered
+
+- Static Content: Images, CSS, JavaScript, logos, and videos. Easily cached.
+- Dynamic Content: Personalized pages, feeds, and live data. Usually generated on demand and cached selectively.
+
+## Importance of CDN
+
+- Faster Delivery: Reduces latency and page load times.
+- Scalability: Handles traffic spikes efficiently.
+- Reliability: Provides redundancy across multiple servers.
+- Cost Savings: Reduces origin bandwidth and server load.
+- Security: Can provide DDoS protection, SSL/TLS, and web application firewall (WAF) features.
+
+## Challenges
+
+- Cost: Adds service and bandwidth expenses.
+- Complexity: Requires cache and routing configuration.
+- Security: Requires proper access controls and cache rules.
+
+
+
+
 
 4\. API Gateways
 ----------------
