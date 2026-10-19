@@ -135,6 +135,38 @@ Designing a software system requires balancing performance, scalability, and mai
 -   **Cost-effectiveness:** The system should be designed to be cost-effective, with a focus on minimizing development and operational costs while still meeting the requirements.
 
 
+Functional Requirements
+-----------------------
+
+Functional requirements describe the features, behaviors, and operations that a system must provide.
+
+They specify how the system should respond to user actions, inputs, or events.
+
+-   **User Authentication:** Users can register, log in, and log out.
+-   **Search:** Users can search for products or information.
+-   **Payment Processing:** Users can complete payments.
+-   **Order Management:** Users can create, view, or cancel orders.
+-   **Notifications:** The system can notify users about relevant events.
+-   **Report Generation:** The system can generate required reports.
+
+Non-Functional Requirements
+---------------------------
+
+Non-functional requirements (NFRs) define the quality attributes and constraints of a system.
+
+They should be expressed using measurable targets wherever possible so that they can be validated.
+
+-   **Performance:** Defines response-time, latency, or throughput targets.
+-   **Availability:** Defines how often the system should remain accessible.
+-   **Reliability:** Defines expected behavior during failures and recovery.
+-   **Scalability:** Defines how the system should handle increasing traffic, users, or data.
+-   **Security:** Defines requirements for authentication, authorization, encryption, and data protection.
+-   **Maintainability:** Defines expectations for updating, testing, debugging, and modifying the system.
+-   **Usability:** Defines usability or accessibility expectations.
+-   **Portability:** Defines supported environments, platforms, or deployment targets.
+
+
+
 ## The Big Picture
 
 ```
