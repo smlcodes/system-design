@@ -56,7 +56,19 @@ Users ──► Load Balancer ──► API Gateway
                      Kafka ──► Background Workers ──► Notifications / Analytics / Search
 ```
 
+###  Mental Model
+A Mental Model is a simple way of understanding how something works in the real world. It helps you think clearly, solve problems, and make better decisions without needing to understand every technical detail.In short: A mental model is like a map for your mind — it doesn't give you the answer, but it helps you find the right direction.
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/223985c6-6d5d-4da5-8b22-e3804e913b2b" />
 
+
+
+**1. Load Balancer = Traffic Controller** :  Just as a traffic controller distributes vehicles across different lanes, a load balancer distributes incoming requests across multiple servers to prevent any one server from becoming overloaded.
+
+**2. Message Queue = Waiting Line** : Like customers waiting in a queue at a supermarket, messages wait until a worker is ready to process them. This helps handle traffic spikes without overwhelming the system.
+
+**3. Cache = Frequently Used Bookshelf** : Instead of retrieving a book from a distant storage room every time, you keep frequently used books nearby. Similarly, caching stores frequently accessed data for faster retrieval.
+
+**4. API Gateway = Restaurant Reception** : Like a receptionist directing customers to the right department, an API Gateway acts as a single entry point and routes requests to the appropriate backend service.
 
 ### 0.2 Requirements
 
