@@ -279,6 +279,7 @@ Eviction policies determine which items to remove when the cache is full.
 ## CDN (Content Delivery Network)
 
 A CDN is a geographically distributed network of servers that caches and delivers website content from locations closer to users, reducing latency and improving performance.
+when a user requests content (like a video or an image), instead of retrieving it from the main server, the request is handled by a nearby CDN server, which has a cached copy of the content. This reduces the distance the data has to travel, making it load faster for the user.
 
 ## Without CDN vs With CDN
 **Without CDN:** Requests go directly to the origin server, increasing latency for distant users and potentially overloading the server during traffic spikes.
@@ -340,15 +341,44 @@ A CDN is a geographically distributed network of servers that caches and deliver
 
 4\. API Gateways
 ----------------
+<img width="726" height="559" alt="image" src="https://github.com/user-attachments/assets/8aaa94b3-7744-4955-b307-64c014f473f9" />
 
-An [API Gateway](https://www.geeksforgeeks.org/system-design/what-is-api-gateway-system-design/) is like a central doorway or "traffic controller" for requests coming into a system. In system design, it acts as a single entry point for clients (such as apps or websites) to access multiple backend services in an organized and secure way.
+ An API Gateway is a centralized entry point that receives client requests and routes them to the appropriate backend services. It simplifies client communication and handles common tasks such as authentication, rate limiting, and monitoring.
 
-Let's see how it works:
+Example: In an e-commerce application, the API Gateway routes product, order, and payment requests to their respective services.
+<img width="726" height="280" alt="image" src="https://github.com/user-attachments/assets/15cb61b0-b9ad-4ebc-a5b2-360823b56128" />
 
--   **Request Routing**: A client submits a request to the API Gateway when it wants information or actions from several services. After forwarding the request to the appropriate services, the gateway compiles their answers and provides the client with a single, unified response.
--   **Simplifies Client Interaction**: Without an API Gateway, clients might need to connect directly to each service individually, which can be complex. The API Gateway simplifies this by hiding the backend details from clients.
--   **Security and Monitoring**: The gateway can handle security features like authentication (checking user identities) and authorization (checking what they're allowed to do). It also helps monitor traffic, so you can track and log usage, spot issues, or prevent attacks.
--   **Load Management**: In busy systems, the gateway can help balance and control the flow of requests to prevent overload, ensuring smoother performance.
+
+## Key Responsibilities
+
+- **Request Routing:** Routes requests based on URLs, HTTP methods, or headers.
+- **Authentication & Authorization:** Verifies identity and permissions.
+- **Rate Limiting:** Controls request frequency to prevent abuse.
+- **Protocol Translation:** Converts between supported protocols, such as HTTP and gRPC.
+- **Request Aggregation:** Combines responses from multiple services.
+- **Load Balancing:** Distributes traffic across service instances when supported or integrated.
+- **Caching:** Stores frequently requested responses.
+- **Monitoring & Logging:** Tracks requests, errors, and performance.
+ 
+An API Gateway is optional for a monolith but especially useful in microservices architectures.
+ 
+
+## Challenges
+
+- Can become a bottleneck or single point of failure if poorly designed.
+- Adds latency through routing and security checks.
+- Requires careful configuration, security, and scaling.
+
+## Popular API Gateway Solutions
+
+- **Amazon API Gateway** — Managed API service on AWS.
+- **Google Apigee** — API management and analytics.
+- **Kong** — Extensible API gateway with plugins.
+- **Azure API Management** — API publishing, security, and management.
+- **Apache APISIX** — High-performance, cloud-native API gateway.
+
+
+
 
 **5\. Key-value stores**
 ------------------------
