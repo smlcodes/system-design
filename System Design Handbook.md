@@ -81,6 +81,58 @@ Covers how each component is implemented, including classes, methods, and logic.
 -   **Design patterns & SOLID**: Implement design patterns and solid principles to ensure clean, extensible, maintainable code
 -   **UML and pseudocode artifacts**: Class diagrams, sequence diagrams, pseudocode or flowcharts to clarify logic paths and method calls
 
+| HIGH-LEVEL DESIGN (HLD) | LOW-LEVEL DESIGN (LLD) |
+| --- | --- |
+| Defines the overall system architecture | Focuses on detailed component-level design |
+| Describes modules and their interactions | Describes internal logic of each module |
+| Also known as macro-level/system design | Also known as micro-level/detailed design |
+| Created by solution architects | Created by developers/designers |
+| Based on SRS (Software Requirement Specification) | Based on reviewed HLD |
+
+> HLD = What components does the system need and how do they interact?\
+> LLD = How will each component be implemented?
+
+Steps for getting started with System Design
+--------------------------------------------
+
+Here are some steps to get started with system design:
+
+![system_design](https://media.geeksforgeeks.org/wp-content/uploads/20260410124919776366/system_design.webp "Click to enlarge")
+
+-   **Understand Requirements:** Gather and analyze business needs to clearly define system functionality and avoid issues.\
+    **Example:** For a food delivery app, requirements may include user login, restaurant listing, order placement, and online payment.
+
+-   **Define Architecture:** Plan overall system structure, components, and their interactions.\
+    **Example:** In an e-commerce system, the architecture may include services like user service, product service, order service, and payment service.
+
+-   **Choose Tech Stack:** Select suitable technologies, frameworks, and databases based on requirements and scalability.\
+    **Example:** A web application might use React for frontend, Node.js for backend, and MongoDB as the database.
+
+-   **Design Modules:** Divide the system into smaller components with specific responsibilities.\
+    **Example:** In a banking system, modules may include account management, transaction processing, and customer management.
+
+-   **Plan for Scalability:** Design the system to handle growth using scalable solutions and identifying bottlenecks.\
+    **Example:** A video streaming platform may use multiple servers and caching to handle millions of users at the same time.
+
+-   **Ensure Security & Privacy:** Apply security measures like authentication, encryption, and secure communication.\
+    **Example:** An online banking system uses secure login, encrypted transactions, and multi-factor authentication.
+
+-   **Test & Validate:** Test the system to ensure it meets functional and performance requirements.\
+    **Example:** Testing a ride-hailing app to ensure booking, driver matching, and payment processing work correctly.
+
+Important points to consider when designing a software system
+-------------------------------------------------------------
+
+Designing a software system requires balancing performance, scalability, and maintainability to meet both current and future business needs.
+
+-   **Scalability:** The system should be designed to handle increased loads and be able to scale horizontally or vertically as needed.
+-   **Performance:** The system should be designed to perform efficiently and effectively, with minimal latency and response time.
+-   **Reliability:** The system should be reliable and available, with minimal downtime or system failures.
+-   **Security:** The system should be designed with security in mind, including measures to prevent unauthorized access and protect sensitive data.
+-   **Maintainability:** The system should be designed to be easy to maintain and update, with clear documentation and well-organized code.
+-   **Interoperability:** The system should be designed to work seamlessly with other systems and components, with clear and well-defined interfaces.
+-   **Usability:** The system should be designed to be user-friendly and intuitive, with a clear and consistent user interface.
+-   **Cost-effectiveness:** The system should be designed to be cost-effective, with a focus on minimizing development and operational costs while still meeting the requirements.
 
 
 ## The Big Picture
