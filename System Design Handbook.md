@@ -31,15 +31,15 @@
 
 System Design is the process of designing a system’s architecture, components, and interfaces to meet functional and non-functional requirements while ensuring scalability, reliability, and maintainability.
 Importance of System Design
-- Scalability and Reliability: Handle growing traffic and prevent failures.
-- Performance and Efficiency: Optimize resources and response times.
-- Maintainability: Adapt to changing business requirements.
-- Architecture: Understand monolithic and microservices architectures.
+- **Scalability and Reliability:** Handle growing traffic and prevent failures.
+- **Performance and Efficiency:** Optimize resources and response times.
+- **Maintainability:** Adapt to changing business requirements.
+- **Architecture:** Understand monolithic and microservices architectures.
 
-- 
+
 System Design Fundamentals
-- High-Level Design (HLD): Overall architecture, major components, and communication between them.
-- Low-Level Design (LLD): Classes, interfaces, methods, and detailed implementation.
+- **High-Level Design (HLD):** Overall architecture, major components, and communication between them.
+- **Low-Level Design (LLD):** Classes, interfaces, methods, and detailed implementation.
 - Functional and non-functional requirements.
 - Architectural Styles: Monolithic, microservices, event-driven, and serverless architectures.
 
