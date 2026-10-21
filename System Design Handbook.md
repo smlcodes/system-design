@@ -127,7 +127,7 @@ Requirements ─► APIs ─► Data ─► Scale ─► Cache ─► Async ─�
 
 ### 1.1 Client Device & Request Parameters
 
-The journey starts on a **mobile or web client** (for example, a login screen on a phone). The client builds an HTTP request and needs to resolve the server's IP before sending it.
+The journey starts on a **mobile or web client** . The client builds an HTTP request and needs to resolve the server's IP before sending it.
 
 **Request anatomy**
 
@@ -191,15 +191,8 @@ The journey starts on a **mobile or web client** (for example, a login screen on
 DNS translates a human-readable domain such as `google.com` into an IP address.
 
 **Resolution flow**
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/c3859f6f-2883-4b61-8249-b13e25c5da6d" />
 
-```
-Client ─► ISP / Recursive Resolver
-              │ 1. Where is google.com?
-              ├──────────────► Root Nameserver        ─► "Ask the .com TLD server"
-              ├──────────────► TLD Nameserver (.com)  ─► "Ask google.com's authoritative NS"
-              └──────────────► Authoritative NS       ─► "google.com = 12.34.56.78"
-         ◄─── IP cached (per TTL) and returned to client
-```
 
 | Component | Role |
 |---|---|
