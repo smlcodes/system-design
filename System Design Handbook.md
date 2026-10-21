@@ -333,6 +333,9 @@ A **CDN** places servers close to users so static and streaming content is serve
 
 **Security considerations:** signed URLs/cookies for private content, WAF, DDoS absorption, hotlink protection.
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0fc8d24e-3bf2-4631-8d1f-6bf4513bb5e3" />
+
+
 ---
 
 ## 3. API Gateway & Security Layer
