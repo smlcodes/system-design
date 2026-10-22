@@ -299,6 +299,10 @@ Rate limiting algorithms are in §3.1. Remember to return `429 Too Many Requests
 
 ## 2. Edge & Content Delivery Network (CDN) Layer
 
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0fc8d24e-3bf2-4631-8d1f-6bf4513bb5e3" />
+
+
 ### 2.1 CDN / Edge Infrastructure
 
 A **CDN** places servers close to users so static and streaming content is served from the edge instead of the origin.
@@ -333,12 +337,14 @@ A **CDN** places servers close to users so static and streaming content is serve
 
 **Security considerations:** signed URLs/cookies for private content, WAF, DDoS absorption, hotlink protection.
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0fc8d24e-3bf2-4631-8d1f-6bf4513bb5e3" />
 
 
 ---
 
 ## 3. API Gateway & Security Layer
+
+<img width="1376" height="768" alt="Gemini_Generated_Image_j1uf2dj1uf2dj1uf" src="https://github.com/user-attachments/assets/b7fe755d-80e4-4edb-91ed-55ca46cd2572" />
+
 
 ### 3.1 API Gateway Controls
 
