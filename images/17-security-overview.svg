@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 651" width="1400" height="651"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Security: Authentication, Authorization &amp; Data Protection</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">Who are you, what may you do, and how is data protected</text>
+<text x="30.0" y="110.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#718096" text-anchor="start">COMPONENT INTERACTION &amp; DATA FLOW</text>
+<text x="30.0" y="156.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">OAuth 2.0 + OIDC</text>
+<rect x="180.0" y="122.0" width="147.7" height="66" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="253.9" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">User</text>
+<line x1="329.7" y1="155.0" x2="350.7" y2="155.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="353.7" y="122.0" width="147.7" height="66" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="427.6" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Client app</text>
+<line x1="503.4" y1="155.0" x2="524.4" y2="155.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="527.4" y="122.0" width="147.7" height="66" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="601.3" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Authorization</text>
+<text x="601.3" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">server (login +</text>
+<text x="601.3" y="176.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">consent)</text>
+<line x1="677.1" y1="155.0" x2="698.1" y2="155.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="701.1" y="122.0" width="147.7" height="66" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="775.0" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Auth code + PKCE</text>
+<line x1="850.9" y1="155.0" x2="871.9" y2="155.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="874.9" y="122.0" width="147.7" height="66" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="948.7" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Access + ID +</text>
+<text x="948.7" y="168.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">refresh tokens</text>
+<line x1="1024.6" y1="155.0" x2="1045.6" y2="155.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1048.6" y="122.0" width="147.7" height="66" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1122.4" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">API gateway</text>
+<text x="1122.4" y="168.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">validates JWT</text>
+<line x1="1198.3" y1="155.0" x2="1219.3" y2="155.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1222.3" y="122.0" width="147.7" height="66" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1296.1" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Service checks</text>
+<text x="1296.1" y="168.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">ownership</text>
+<rect x="30" y="210" width="434" height="157" rx="12" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<rect x="30" y="210" width="434" height="30" rx="12" fill="#2B6CB0"/>
+<rect x="30" y="228" width="434" height="12" fill="#2B6CB0"/>
+<text x="44.0" y="231.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">AuthN vs AuthZ</text>
+<circle cx="46" cy="249.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="254.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Authentication: who are you? → 401</text>
+<circle cx="46" cy="272.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="277.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Authorization: what can you do? → 403</text>
+<circle cx="46" cy="295.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="300.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Always check resource ownership (BOLA/IDOR)</text>
+<circle cx="46" cy="318.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="323.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">MFA for users; mTLS for services</text>
+<rect x="482" y="210" width="434" height="157" rx="12" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<rect x="482" y="210" width="434" height="30" rx="12" fill="#2F855A"/>
+<rect x="482" y="228" width="434" height="12" fill="#2F855A"/>
+<text x="496.0" y="231.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Session vs token</text>
+<circle cx="498" cy="249.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="254.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Session: server stores state, cookie holds session ID</text>
+<circle cx="498" cy="272.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="277.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Token (JWT): self-contained, signed, stateless</text>
+<circle cx="498" cy="295.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="300.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Cookie flags: HttpOnly, Secure, SameSite</text>
+<circle cx="498" cy="318.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="323.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">SSO: one login across many apps (SAML / OIDC)</text>
+<rect x="934" y="210" width="434" height="157" rx="12" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<rect x="934" y="210" width="434" height="30" rx="12" fill="#6B46C1"/>
+<rect x="934" y="228" width="434" height="12" fill="#6B46C1"/>
+<text x="948.0" y="231.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">OAuth 2.0 / OIDC / JWT</text>
+<circle cx="950" cy="249.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="254.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">OAuth 2.0 = delegated authorization (access token)</text>
+<circle cx="950" cy="272.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="277.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">OIDC = identity layer (ID token)</text>
+<circle cx="950" cy="295.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="300.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">JWT = header.payload.signature (encoded, NOT</text>
+<text x="960.0" y="317.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">encrypted)</text>
+<circle cx="950" cy="335.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="340.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Short-lived access tokens, rotating refresh tokens</text>
+<rect x="30" y="385" width="434" height="140" rx="12" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<rect x="30" y="385" width="434" height="30" rx="12" fill="#C05621"/>
+<rect x="30" y="403" width="434" height="12" fill="#C05621"/>
+<text x="44.0" y="406.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Access control</text>
+<circle cx="46" cy="424.5" r="3" fill="#C05621"/>
+<text x="56.0" y="429.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">RBAC: permissions by role</text>
+<circle cx="46" cy="447.5" r="3" fill="#C05621"/>
+<text x="56.0" y="452.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">ABAC: by user/resource/environment attributes</text>
+<circle cx="46" cy="470.5" r="3" fill="#C05621"/>
+<text x="56.0" y="475.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Least privilege everywhere</text>
+<circle cx="46" cy="493.5" r="3" fill="#C05621"/>
+<text x="56.0" y="498.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Policy engines: OPA, Cedar</text>
+<rect x="482" y="385" width="434" height="140" rx="12" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<rect x="482" y="385" width="434" height="30" rx="12" fill="#C53030"/>
+<rect x="482" y="403" width="434" height="12" fill="#C53030"/>
+<text x="496.0" y="406.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Data protection</text>
+<circle cx="498" cy="424.5" r="3" fill="#C53030"/>
+<text x="508.0" y="429.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">TLS 1.2+/1.3 in transit, mTLS inside</text>
+<circle cx="498" cy="447.5" r="3" fill="#C53030"/>
+<text x="508.0" y="452.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Encryption at rest with KMS keys</text>
+<circle cx="498" cy="470.5" r="3" fill="#C53030"/>
+<text x="508.0" y="475.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Hash passwords with bcrypt / Argon2</text>
+<circle cx="498" cy="493.5" r="3" fill="#C53030"/>
+<text x="508.0" y="498.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Secrets in Vault / Key Vault, never in Git</text>
+<rect x="934" y="385" width="434" height="140" rx="12" fill="#E6F7F7" stroke="#2C7A7B" stroke-width="1.6"/>
+<rect x="934" y="385" width="434" height="30" rx="12" fill="#2C7A7B"/>
+<rect x="934" y="403" width="434" height="12" fill="#2C7A7B"/>
+<text x="948.0" y="406.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Application security</text>
+<circle cx="950" cy="424.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="429.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">OWASP Top 10 &amp; API Top 10</text>
+<circle cx="950" cy="447.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="452.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Validate input, parameterised queries</text>
+<circle cx="950" cy="470.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="475.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Rate limiting, WAF, bot protection</text>
+<circle cx="950" cy="493.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="498.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">SCA / SAST / image scanning in CI; zero trust</text>
+<rect x="30" y="543" width="1340" height="78" rx="12" fill="#1A365D"/>
+<text x="50.0" y="569.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#90CDF4" text-anchor="start">ARCHITECTURE SUMMARY</text>
+<text x="50.0" y="591.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">Authenticate every caller, authorise every action on every resource, encrypt data in transit and at rest, keep secrets out of code, and assume no network is</text>
+<text x="50.0" y="610.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">trusted (zero trust).</text></svg>

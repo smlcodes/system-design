@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 774" width="1400" height="774"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Edge Layer: CDN, Proxy &amp; Reverse Proxy</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">Serving content close to users and shielding origin servers</text>
+<text x="30.0" y="110.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#718096" text-anchor="start">COMPONENT INTERACTION &amp; DATA FLOW</text>
+<text x="30.0" y="156.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Cache hit</text>
+<rect x="180.0" y="122.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="319.0" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">User</text>
+<line x1="460.0" y1="146.0" x2="481.0" y2="146.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="484.0" y="122.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="623.0" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">DNS / Anycast → nearest edge</text>
+<line x1="764.0" y1="146.0" x2="785.0" y2="146.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="122.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="927.0" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">CDN edge server (HIT)</text>
+<line x1="1068.0" y1="146.0" x2="1089.0" y2="146.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1092.0" y="122.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1231.0" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Content returned in ms</text>
+<text x="30.0" y="220.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Cache miss</text>
+<rect x="180.0" y="186.0" width="217.2" height="50" rx="9" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<text x="288.6" y="216.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">User</text>
+<line x1="399.2" y1="211.0" x2="420.2" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="423.2" y="186.0" width="217.2" height="50" rx="9" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<text x="531.8" y="216.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">CDN edge (MISS)</text>
+<line x1="642.4" y1="211.0" x2="663.4" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="666.4" y="186.0" width="217.2" height="50" rx="9" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<text x="775.0" y="216.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">Origin shield (mid-tier)</text>
+<line x1="885.6" y1="211.0" x2="906.6" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="909.6" y="186.0" width="217.2" height="50" rx="9" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<text x="1018.2" y="208.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">Origin server / object</text>
+<text x="1018.2" y="224.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">storage</text>
+<line x1="1128.8" y1="211.0" x2="1149.8" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1152.8" y="186.0" width="217.2" height="50" rx="9" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<text x="1261.4" y="216.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">Edge caches copy (TTL)</text>
+<text x="30.0" y="286.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Reverse proxy</text>
+<rect x="180.0" y="252.0" width="278.0" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="319.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Clients</text>
+<line x1="460.0" y1="276.0" x2="481.0" y2="276.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="484.0" y="252.0" width="278.0" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="623.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Reverse proxy (Nginx)</text>
+<line x1="764.0" y1="276.0" x2="785.0" y2="276.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="252.0" width="278.0" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="927.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">TLS, cache, compression, LB</text>
+<line x1="1068.0" y1="276.0" x2="1089.0" y2="276.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1092.0" y="252.0" width="278.0" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1231.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">App servers (hidden)</text>
+<rect x="30" y="322" width="434" height="140" rx="12" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<rect x="30" y="322" width="434" height="30" rx="12" fill="#2B6CB0"/>
+<rect x="30" y="340" width="434" height="12" fill="#2B6CB0"/>
+<text x="44.0" y="343.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">CDN responsibilities</text>
+<circle cx="46" cy="361.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="366.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Cache static assets: images, JS, CSS, video</text>
+<circle cx="46" cy="384.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="389.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Reduce latency &amp; origin bandwidth</text>
+<circle cx="46" cy="407.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="412.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Absorb traffic spikes and DDoS</text>
+<circle cx="46" cy="430.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="435.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">TLS termination at the edge</text>
+<rect x="482" y="322" width="434" height="140" rx="12" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<rect x="482" y="322" width="434" height="30" rx="12" fill="#2F855A"/>
+<rect x="482" y="340" width="434" height="12" fill="#2F855A"/>
+<text x="496.0" y="343.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">CDN components</text>
+<circle cx="498" cy="361.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="366.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Edge servers / PoPs near users</text>
+<circle cx="498" cy="384.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="389.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Origin server holding source content</text>
+<circle cx="498" cy="407.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="412.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Origin shield / regional tier</text>
+<circle cx="498" cy="430.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="435.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Control plane: routing, purge, config</text>
+<rect x="934" y="322" width="434" height="140" rx="12" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<rect x="934" y="322" width="434" height="30" rx="12" fill="#6B46C1"/>
+<rect x="934" y="340" width="434" height="12" fill="#6B46C1"/>
+<text x="948.0" y="343.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Population strategies</text>
+<circle cx="950" cy="361.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="366.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Pull: edge fetches on first miss (long-tail)</text>
+<circle cx="950" cy="384.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="389.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Push: origin uploads ahead (hot content)</text>
+<circle cx="950" cy="407.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="412.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Hybrid: push hot, pull the rest</text>
+<circle cx="950" cy="430.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="435.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Invalidate by TTL, purge, or versioned URLs</text>
+<rect x="30" y="480" width="434" height="168" rx="12" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<rect x="30" y="480" width="434" height="30" rx="12" fill="#C05621"/>
+<rect x="30" y="498" width="434" height="12" fill="#C05621"/>
+<text x="44.0" y="501.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Forward vs reverse proxy</text>
+<circle cx="46" cy="519.5" r="3" fill="#C05621"/>
+<text x="56.0" y="524.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Forward proxy sits with CLIENTS: hides client,</text>
+<text x="56.0" y="541.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">filters, bypasses blocks</text>
+<circle cx="46" cy="559.5" r="3" fill="#C05621"/>
+<text x="56.0" y="564.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Reverse proxy sits with SERVERS: hides servers, load</text>
+<text x="56.0" y="581.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">balances, caches, terminates TLS</text>
+<circle cx="46" cy="599.5" r="3" fill="#C05621"/>
+<text x="56.0" y="604.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Examples: Squid (forward), Nginx, HAProxy, Envoy</text>
+<text x="56.0" y="621.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">(reverse)</text>
+<rect x="482" y="480" width="434" height="168" rx="12" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<rect x="482" y="480" width="434" height="30" rx="12" fill="#C53030"/>
+<rect x="482" y="498" width="434" height="12" fill="#C53030"/>
+<text x="496.0" y="501.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Video delivery</text>
+<circle cx="498" cy="519.5" r="3" fill="#C53030"/>
+<text x="508.0" y="524.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Encode into many bitrates</text>
+<circle cx="498" cy="542.5" r="3" fill="#C53030"/>
+<text x="508.0" y="547.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Split into segments (HLS / MPEG-DASH)</text>
+<circle cx="498" cy="565.5" r="3" fill="#C53030"/>
+<text x="508.0" y="570.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Adaptive bitrate (ABR) player switches quality</text>
+<circle cx="498" cy="588.5" r="3" fill="#C53030"/>
+<text x="508.0" y="593.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Prefetch next segments at the edge</text>
+<rect x="934" y="480" width="434" height="168" rx="12" fill="#E6F7F7" stroke="#2C7A7B" stroke-width="1.6"/>
+<rect x="934" y="480" width="434" height="30" rx="12" fill="#2C7A7B"/>
+<rect x="934" y="498" width="434" height="12" fill="#2C7A7B"/>
+<text x="948.0" y="501.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Metrics &amp; security</text>
+<circle cx="950" cy="519.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="524.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Cache hit ratio, origin offload %, TTFB</text>
+<circle cx="950" cy="542.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="547.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Edge bandwidth, cache miss count</text>
+<circle cx="950" cy="565.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="570.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Signed URLs/cookies, WAF, hotlink protection</text>
+<circle cx="950" cy="588.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="593.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Static vs dynamic content caching rules</text>
+<rect x="30" y="666" width="1340" height="78" rx="12" fill="#1A365D"/>
+<text x="50.0" y="692.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#90CDF4" text-anchor="start">ARCHITECTURE SUMMARY</text>
+<text x="50.0" y="714.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">Put cacheable content on the CDN, keep the origin behind a reverse proxy, and use immutable, versioned asset URLs with long TTLs so the edge serves most traffic</text>
+<text x="50.0" y="733.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">and the origin only handles real misses.</text></svg>

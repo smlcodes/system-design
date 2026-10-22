@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 684" width="1400" height="684"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Client, DNS &amp; the Request Lifecycle</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">What happens between typing a URL and receiving a response</text>
+<text x="30.0" y="110.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#718096" text-anchor="start">COMPONENT INTERACTION &amp; DATA FLOW</text>
+<text x="30.0" y="156.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">DNS lookup</text>
+<rect x="180.0" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="268.3" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Browser / OS cache</text>
+<line x1="358.7" y1="147.0" x2="379.7" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="382.7" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="471.0" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Recursive resolver</text>
+<text x="471.0" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">(ISP)</text>
+<line x1="561.3" y1="147.0" x2="582.3" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="585.3" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="673.7" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Root server</text>
+<line x1="764.0" y1="147.0" x2="785.0" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="876.3" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">TLD server (.com)</text>
+<line x1="966.7" y1="147.0" x2="987.7" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="990.7" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1079.0" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Authoritative server</text>
+<line x1="1169.3" y1="147.0" x2="1190.3" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1193.3" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1281.7" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">IP address returned</text>
+<text x="30.0" y="222.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Request</text>
+<rect x="180.0" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="268.3" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">TCP handshake</text>
+<line x1="358.7" y1="213.0" x2="379.7" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="382.7" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="471.0" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">TLS handshake</text>
+<line x1="561.3" y1="213.0" x2="582.3" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="585.3" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="673.7" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">HTTP request</text>
+<line x1="764.0" y1="213.0" x2="785.0" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="876.3" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">CDN / LB / Gateway</text>
+<line x1="966.7" y1="213.0" x2="987.7" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="990.7" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1079.0" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">App + data stores</text>
+<line x1="1169.3" y1="213.0" x2="1190.3" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1193.3" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1281.7" y="210.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">HTTP response +</text>
+<text x="1281.7" y="226.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">render</text>
+<rect x="30" y="260" width="434" height="140" rx="12" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<rect x="30" y="260" width="434" height="30" rx="12" fill="#2B6CB0"/>
+<rect x="30" y="278" width="434" height="12" fill="#2B6CB0"/>
+<text x="44.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Client responsibilities</text>
+<circle cx="46" cy="299.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="304.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Build request: method, URL, headers, body</text>
+<circle cx="46" cy="322.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="327.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Attach auth token, request ID, idempotency key</text>
+<circle cx="46" cy="345.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="350.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Retry with exponential backoff + jitter</text>
+<circle cx="46" cy="368.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="373.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Cache responses (Cache-Control, ETag)</text>
+<rect x="482" y="260" width="434" height="140" rx="12" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<rect x="482" y="260" width="434" height="30" rx="12" fill="#2F855A"/>
+<rect x="482" y="278" width="434" height="12" fill="#2F855A"/>
+<text x="496.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">DNS components</text>
+<circle cx="498" cy="299.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="304.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Recursive resolver walks the hierarchy &amp; caches</text>
+<circle cx="498" cy="322.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="327.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Root → TLD → authoritative name servers</text>
+<circle cx="498" cy="345.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="350.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Records: A, AAAA, CNAME, MX, TXT, NS</text>
+<circle cx="498" cy="368.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="373.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">TTL controls how long answers are cached</text>
+<rect x="934" y="260" width="434" height="140" rx="12" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<rect x="934" y="260" width="434" height="30" rx="12" fill="#6B46C1"/>
+<rect x="934" y="278" width="434" height="12" fill="#6B46C1"/>
+<text x="948.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">DNS strategies</text>
+<circle cx="950" cy="299.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="304.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Round-robin, weighted, latency / geo routing</text>
+<circle cx="950" cy="322.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="327.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Anycast for global edge</text>
+<circle cx="950" cy="345.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="350.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Low TTL = fast failover; high TTL = fewer lookups</text>
+<circle cx="950" cy="368.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="373.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Security: DNSSEC, DNS over HTTPS/TLS</text>
+<rect x="30" y="418" width="434" height="140" rx="12" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<rect x="30" y="418" width="434" height="30" rx="12" fill="#C05621"/>
+<rect x="30" y="436" width="434" height="12" fill="#C05621"/>
+<text x="44.0" y="439.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">HTTP status codes</text>
+<circle cx="46" cy="457.5" r="3" fill="#C05621"/>
+<text x="56.0" y="462.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">2xx success: 200, 201, 202, 204</text>
+<circle cx="46" cy="480.5" r="3" fill="#C05621"/>
+<text x="56.0" y="485.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">3xx redirect / cache: 301, 302, 304</text>
+<circle cx="46" cy="503.5" r="3" fill="#C05621"/>
+<text x="56.0" y="508.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">4xx client: 400, 401, 403, 404, 409, 429</text>
+<circle cx="46" cy="526.5" r="3" fill="#C05621"/>
+<text x="56.0" y="531.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">5xx server: 500, 502, 503, 504</text>
+<rect x="482" y="418" width="434" height="140" rx="12" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<rect x="482" y="418" width="434" height="30" rx="12" fill="#C53030"/>
+<rect x="482" y="436" width="434" height="12" fill="#C53030"/>
+<text x="496.0" y="439.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Protocols</text>
+<circle cx="498" cy="457.5" r="3" fill="#C53030"/>
+<text x="508.0" y="462.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">HTTP/1.1: one request at a time per connection</text>
+<circle cx="498" cy="480.5" r="3" fill="#C53030"/>
+<text x="508.0" y="485.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">HTTP/2: multiplexing, header compression</text>
+<circle cx="498" cy="503.5" r="3" fill="#C53030"/>
+<text x="508.0" y="508.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">HTTP/3: runs on QUIC (UDP), faster setup</text>
+<circle cx="498" cy="526.5" r="3" fill="#C53030"/>
+<text x="508.0" y="531.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">TCP reliable &amp; ordered; UDP fast, no guarantees</text>
+<rect x="934" y="418" width="434" height="140" rx="12" fill="#E6F7F7" stroke="#2C7A7B" stroke-width="1.6"/>
+<rect x="934" y="418" width="434" height="30" rx="12" fill="#2C7A7B"/>
+<rect x="934" y="436" width="434" height="12" fill="#2C7A7B"/>
+<text x="948.0" y="439.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Key metrics</text>
+<circle cx="950" cy="457.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="462.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">DNS resolution time, TLS handshake time</text>
+<circle cx="950" cy="480.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="485.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Time to first byte (TTFB)</text>
+<circle cx="950" cy="503.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="508.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">p50 / p95 / p99 latency</text>
+<circle cx="950" cy="526.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="531.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Error rate per status family</text>
+<rect x="30" y="576" width="1340" height="78" rx="12" fill="#1A365D"/>
+<text x="50.0" y="602.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#90CDF4" text-anchor="start">ARCHITECTURE SUMMARY</text>
+<text x="50.0" y="624.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">Every request pays for DNS, TCP, TLS and network round trips before your code runs. Caching DNS answers, reusing connections (keep-alive, HTTP/2), and serving</text>
+<text x="50.0" y="643.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">content from the edge remove most of that cost.</text></svg>

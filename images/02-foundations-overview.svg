@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 682" width="1400" height="682"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Foundations: From Requirements to Architecture</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">A repeatable framework for any system design problem</text>
+<text x="30.0" y="110.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#718096" text-anchor="start">COMPONENT INTERACTION &amp; DATA FLOW</text>
+<text x="30.0" y="156.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Design process</text>
+<rect x="180.0" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="253.9" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Clarify</text>
+<text x="253.9" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">requirements</text>
+<line x1="329.7" y1="147.0" x2="350.7" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="353.7" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="427.6" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Estimate scale</text>
+<line x1="503.4" y1="147.0" x2="524.4" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="527.4" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="601.3" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Define APIs</text>
+<line x1="677.1" y1="147.0" x2="698.1" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="701.1" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="775.0" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Model data</text>
+<line x1="850.9" y1="147.0" x2="871.9" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="874.9" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="948.7" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">High-level design</text>
+<line x1="1024.6" y1="147.0" x2="1045.6" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1048.6" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1122.4" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Deep dives &amp;</text>
+<text x="1122.4" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">bottlenecks</text>
+<line x1="1198.3" y1="147.0" x2="1219.3" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1222.3" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1296.1" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Failure &amp;</text>
+<text x="1296.1" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">trade-off review</text>
+<text x="30.0" y="222.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Design levels</text>
+<rect x="180.0" y="188.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="319.0" y="217.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Business problem</text>
+<line x1="460.0" y1="212.0" x2="481.0" y2="212.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="484.0" y="188.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="623.0" y="217.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">HLD: components &amp; interactions</text>
+<line x1="764.0" y1="212.0" x2="785.0" y2="212.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="188.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="927.0" y="217.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">LLD: classes, schemas, APIs</text>
+<line x1="1068.0" y1="212.0" x2="1089.0" y2="212.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1092.0" y="188.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1231.0" y="217.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Code, tests, deployment</text>
+<rect x="30" y="258" width="434" height="140" rx="12" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<rect x="30" y="258" width="434" height="30" rx="12" fill="#2B6CB0"/>
+<rect x="30" y="276" width="434" height="12" fill="#2B6CB0"/>
+<text x="44.0" y="279.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Functional requirements</text>
+<circle cx="46" cy="297.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="302.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">What the system must DO</text>
+<circle cx="46" cy="320.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="325.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Features: login, search, order, pay, notify</text>
+<circle cx="46" cy="343.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="348.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Turn each feature into an API + data model</text>
+<rect x="482" y="258" width="434" height="140" rx="12" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<rect x="482" y="258" width="434" height="30" rx="12" fill="#2F855A"/>
+<rect x="482" y="276" width="434" height="12" fill="#2F855A"/>
+<text x="496.0" y="279.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Non-functional requirements</text>
+<circle cx="498" cy="297.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="302.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">How well it must behave</text>
+<circle cx="498" cy="320.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="325.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Availability (e.g. 99.9%), latency (p95 &lt; 200 ms)</text>
+<circle cx="498" cy="343.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="348.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Scalability, consistency, durability, security, cost,</text>
+<text x="508.0" y="365.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">compliance</text>
+<rect x="934" y="258" width="434" height="140" rx="12" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<rect x="934" y="258" width="434" height="30" rx="12" fill="#6B46C1"/>
+<rect x="934" y="276" width="434" height="12" fill="#6B46C1"/>
+<text x="948.0" y="279.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Back-of-envelope estimation</text>
+<circle cx="950" cy="297.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="302.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">DAU x requests/user = requests/day</text>
+<circle cx="950" cy="320.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="325.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">RPS = per-day / 86,400; peak = 2-5x average</text>
+<circle cx="950" cy="343.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="348.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Storage = items x size x retention</text>
+<circle cx="950" cy="366.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="371.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Bandwidth = requests x payload size</text>
+<rect x="30" y="416" width="434" height="140" rx="12" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<rect x="30" y="416" width="434" height="30" rx="12" fill="#C05621"/>
+<rect x="30" y="434" width="434" height="12" fill="#C05621"/>
+<text x="44.0" y="437.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">HLD vs LLD</text>
+<circle cx="46" cy="455.5" r="3" fill="#C05621"/>
+<text x="56.0" y="460.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">HLD: services, queues, DBs, data flow, tech stack</text>
+<circle cx="46" cy="478.5" r="3" fill="#C05621"/>
+<text x="56.0" y="483.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">LLD: classes, methods, DB schema, API contracts,</text>
+<text x="56.0" y="500.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">error handling</text>
+<circle cx="46" cy="518.5" r="3" fill="#C05621"/>
+<text x="56.0" y="523.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">HLD answers WHAT; LLD answers HOW</text>
+<rect x="482" y="416" width="434" height="140" rx="12" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<rect x="482" y="416" width="434" height="30" rx="12" fill="#C53030"/>
+<rect x="482" y="434" width="434" height="12" fill="#C53030"/>
+<text x="496.0" y="437.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Quality attributes</text>
+<circle cx="498" cy="455.5" r="3" fill="#C53030"/>
+<text x="508.0" y="460.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Scalability, performance, reliability</text>
+<circle cx="498" cy="478.5" r="3" fill="#C53030"/>
+<text x="508.0" y="483.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Security, maintainability, interoperability</text>
+<circle cx="498" cy="501.5" r="3" fill="#C53030"/>
+<text x="508.0" y="506.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Usability, portability, cost-effectiveness</text>
+<rect x="934" y="416" width="434" height="140" rx="12" fill="#E6F7F7" stroke="#2C7A7B" stroke-width="1.6"/>
+<rect x="934" y="416" width="434" height="30" rx="12" fill="#2C7A7B"/>
+<rect x="934" y="434" width="434" height="12" fill="#2C7A7B"/>
+<text x="948.0" y="437.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Interview habits</text>
+<circle cx="950" cy="455.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="460.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Ask questions before drawing boxes</text>
+<circle cx="950" cy="478.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="483.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Justify every component with numbers</text>
+<circle cx="950" cy="501.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="506.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">For each box ask: what if it fails?</text>
+<circle cx="950" cy="524.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="529.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">State trade-offs explicitly</text>
+<rect x="30" y="574" width="1340" height="78" rx="12" fill="#1A365D"/>
+<text x="50.0" y="600.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#90CDF4" text-anchor="start">ARCHITECTURE SUMMARY</text>
+<text x="50.0" y="622.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">Requirements drive numbers, numbers drive components. A design is only as good as the requirements and estimates that justify it — start simple and add caches,</text>
+<text x="50.0" y="641.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">replicas, queues and shards only when the numbers demand them.</text></svg>

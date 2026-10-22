@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 580" width="1400" height="580"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Consistent Hashing</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">Place keys and nodes on a ring; a key belongs to the next node clockwise</text>
+<circle cx="330" cy="350" r="190" fill="none" stroke="#A0AEC0" stroke-width="3"/>
+<circle cx="395.0" cy="171.5" r="16" fill="#2B6CB0"/>
+<text x="412.8" y="138.9" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#1A365D" text-anchor="middle">Node A</text>
+<circle cx="475.5" cy="472.1" r="16" fill="#2F855A"/>
+<text x="515.4" y="502.8" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#1C4532" text-anchor="middle">Node B</text>
+<circle cx="184.5" cy="472.1" r="16" fill="#6B46C1"/>
+<text x="144.6" y="502.8" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#322659" text-anchor="middle">Node C</text>
+<circle cx="165.5" cy="255.0" r="16" fill="#C05621"/>
+<text x="120.4" y="240.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#652B19" text-anchor="middle">Node D (new)</text>
+<rect x="485.5" y="246.0" width="18" height="18" fill="#FFFFFF" stroke="#2D3748" stroke-width="2"/>
+<text x="465.1" y="277.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#2D3748" text-anchor="middle">k1</text>
+<rect x="510.3" y="357.6" width="18" height="18" fill="#FFFFFF" stroke="#2D3748" stroke-width="2"/>
+<text x="485.4" y="368.6" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#2D3748" text-anchor="middle">k2</text>
+<rect x="321.0" y="531.0" width="18" height="18" fill="#FFFFFF" stroke="#2D3748" stroke-width="2"/>
+<text x="330.0" y="511.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#2D3748" text-anchor="middle">k3</text>
+<rect x="131.0" y="341.0" width="18" height="18" fill="#FFFFFF" stroke="#2D3748" stroke-width="2"/>
+<text x="174.0" y="355.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#2D3748" text-anchor="middle">k4</text>
+<rect x="256.0" y="162.5" width="18" height="18" fill="#FFFFFF" stroke="#2D3748" stroke-width="2"/>
+<text x="276.6" y="208.4" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#2D3748" text-anchor="middle">k5</text>
+<text x="330.0" y="344.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="600" fill="#4A5568" text-anchor="middle">hash(key) and hash(node)</text>
+<text x="330.0" y="364.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#4A5568" text-anchor="middle">on a 0 .. 2^32 ring</text>
+<text x="640.0" y="130.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="17" font-weight="bold" fill="#1A365D" text-anchor="start">How it works</text>
+<text x="640.0" y="154.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#2D3748" text-anchor="start">k1, k2 → Node B; k3 → Node C; k4 → Node D; k5 → Node A (clockwise).</text>
+<text x="640.0" y="189.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="17" font-weight="bold" fill="#1A365D" text-anchor="start">Adding a node</text>
+<text x="640.0" y="213.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#2D3748" text-anchor="start">Node D only takes keys between Node C and itself (k4). Every other key stays put -</text>
+<text x="640.0" y="234.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#2D3748" text-anchor="start">about 1/N of keys move, not all of them as with hash(key) mod N.</text>
+<text x="640.0" y="269.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="17" font-weight="bold" fill="#1A365D" text-anchor="start">Virtual nodes</text>
+<text x="640.0" y="293.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#2D3748" text-anchor="start">Each physical node is placed many times on the ring to spread load evenly and avoid</text>
+<text x="640.0" y="314.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#2D3748" text-anchor="start">hotspots.</text>
+<text x="640.0" y="349.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="17" font-weight="bold" fill="#1A365D" text-anchor="start">Used by</text>
+<text x="640.0" y="373.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#2D3748" text-anchor="start">Cassandra, DynamoDB, Amazon Dynamo-style stores, CDNs, distributed caches, load</text>
+<text x="640.0" y="394.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#2D3748" text-anchor="start">balancers with affinity.</text></svg>

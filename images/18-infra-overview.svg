@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 707" width="1400" height="707"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Infrastructure, DevOps &amp; Cost</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">Build, ship and run systems safely and economically</text>
+<text x="30.0" y="110.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#718096" text-anchor="start">COMPONENT INTERACTION &amp; DATA FLOW</text>
+<text x="30.0" y="156.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">CI/CD pipeline</text>
+<rect x="180.0" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="253.9" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Commit</text>
+<line x1="329.7" y1="147.0" x2="350.7" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="353.7" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="427.6" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Build &amp; unit test</text>
+<line x1="503.4" y1="147.0" x2="524.4" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="527.4" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="601.3" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">SAST / SCA /</text>
+<text x="601.3" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">secret scan</text>
+<line x1="677.1" y1="147.0" x2="698.1" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="701.1" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="775.0" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Container image</text>
+<line x1="850.9" y1="147.0" x2="871.9" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="874.9" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="948.7" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Integration tests</text>
+<line x1="1024.6" y1="147.0" x2="1045.6" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1048.6" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1122.4" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Deploy staging</text>
+<line x1="1198.3" y1="147.0" x2="1219.3" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1222.3" y="122.0" width="147.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1296.1" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Progressive prod</text>
+<text x="1296.1" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">rollout</text>
+<text x="30.0" y="222.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Runtime</text>
+<rect x="180.0" y="188.0" width="217.2" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="288.6" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Docker image</text>
+<line x1="399.2" y1="213.0" x2="420.2" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="423.2" y="188.0" width="217.2" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="531.8" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Registry</text>
+<line x1="642.4" y1="213.0" x2="663.4" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="666.4" y="188.0" width="217.2" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="775.0" y="210.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Kubernetes (Deployment,</text>
+<text x="775.0" y="226.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Service, Ingress, HPA)</text>
+<line x1="885.6" y1="213.0" x2="906.6" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="909.6" y="188.0" width="217.2" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1018.2" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Cloud services</text>
+<line x1="1128.8" y1="213.0" x2="1149.8" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1152.8" y="188.0" width="217.2" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1261.4" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Monitoring &amp; auto-rollback</text>
+<rect x="30" y="260" width="434" height="163" rx="12" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<rect x="30" y="260" width="434" height="30" rx="12" fill="#2B6CB0"/>
+<rect x="30" y="278" width="434" height="12" fill="#2B6CB0"/>
+<text x="44.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Containers</text>
+<circle cx="46" cy="299.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="304.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Docker: build → image → container</text>
+<circle cx="46" cy="322.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="327.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Dockerfile, layers, registry</text>
+<circle cx="46" cy="345.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="350.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Multi-stage builds, slim base, non-root</text>
+<circle cx="46" cy="368.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="373.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Same image across every environment</text>
+<rect x="482" y="260" width="434" height="163" rx="12" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<rect x="482" y="260" width="434" height="30" rx="12" fill="#2F855A"/>
+<rect x="482" y="278" width="434" height="12" fill="#2F855A"/>
+<text x="496.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Orchestration</text>
+<circle cx="498" cy="299.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="304.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Kubernetes schedules &amp; self-heals pods</text>
+<circle cx="498" cy="322.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="327.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Readiness / liveness probes</text>
+<circle cx="498" cy="345.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="350.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Resource requests &amp; limits</text>
+<circle cx="498" cy="368.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="373.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">HPA autoscaling, PodDisruptionBudget</text>
+<rect x="934" y="260" width="434" height="163" rx="12" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<rect x="934" y="260" width="434" height="30" rx="12" fill="#6B46C1"/>
+<rect x="934" y="278" width="434" height="12" fill="#6B46C1"/>
+<text x="948.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Deployment strategies</text>
+<circle cx="950" cy="299.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="304.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Big bang / recreate: simple, downtime</text>
+<circle cx="950" cy="322.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="327.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Rolling: gradual replace</text>
+<circle cx="950" cy="345.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="350.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Blue-green: instant switch &amp; rollback</text>
+<circle cx="950" cy="368.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="373.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Canary: 1% → 10% → 100%</text>
+<circle cx="950" cy="391.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="396.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Feature toggles, A/B testing</text>
+<rect x="30" y="441" width="434" height="140" rx="12" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<rect x="30" y="441" width="434" height="30" rx="12" fill="#C05621"/>
+<rect x="30" y="459" width="434" height="12" fill="#C05621"/>
+<text x="44.0" y="462.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Cloud &amp; IaC</text>
+<circle cx="46" cy="480.5" r="3" fill="#C05621"/>
+<text x="56.0" y="485.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Compute, managed DB, cache, messaging, storage, CDN</text>
+<circle cx="46" cy="503.5" r="3" fill="#C05621"/>
+<text x="56.0" y="508.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">AWS / Azure / GCP equivalents</text>
+<circle cx="46" cy="526.5" r="3" fill="#C05621"/>
+<text x="56.0" y="531.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Terraform, Bicep, CloudFormation</text>
+<circle cx="46" cy="549.5" r="3" fill="#C05621"/>
+<text x="56.0" y="554.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">GitOps: Argo CD, Flux</text>
+<rect x="482" y="441" width="434" height="140" rx="12" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<rect x="482" y="441" width="434" height="30" rx="12" fill="#C53030"/>
+<rect x="482" y="459" width="434" height="12" fill="#C53030"/>
+<text x="496.0" y="462.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Zero-downtime rules</text>
+<circle cx="498" cy="480.5" r="3" fill="#C53030"/>
+<text x="508.0" y="485.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Graceful shutdown &amp; connection draining</text>
+<circle cx="498" cy="503.5" r="3" fill="#C53030"/>
+<text x="508.0" y="508.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Backward-compatible APIs and events</text>
+<circle cx="498" cy="526.5" r="3" fill="#C53030"/>
+<text x="508.0" y="531.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Expand → migrate → contract DB changes</text>
+<circle cx="498" cy="549.5" r="3" fill="#C53030"/>
+<text x="508.0" y="554.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Automated rollback on SLO breach</text>
+<rect x="934" y="441" width="434" height="140" rx="12" fill="#E6F7F7" stroke="#2C7A7B" stroke-width="1.6"/>
+<rect x="934" y="441" width="434" height="30" rx="12" fill="#2C7A7B"/>
+<rect x="934" y="459" width="434" height="12" fill="#2C7A7B"/>
+<text x="948.0" y="462.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Cost optimisation</text>
+<circle cx="950" cy="480.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="485.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Right-size, reserved / savings plans, spot</text>
+<circle cx="950" cy="503.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="508.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Scale in at night, scale dev to zero</text>
+<circle cx="950" cy="526.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="531.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Storage lifecycle tiers, log retention</text>
+<circle cx="950" cy="549.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="554.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Watch egress &amp; cross-AZ traffic</text>
+<rect x="30" y="599" width="1340" height="78" rx="12" fill="#1A365D"/>
+<text x="50.0" y="625.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#90CDF4" text-anchor="start">ARCHITECTURE SUMMARY</text>
+<text x="50.0" y="647.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">Package once (containers), describe infrastructure as code, deploy progressively with automatic rollback, and treat cost as a non-functional requirement</text>
+<text x="50.0" y="666.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">measured per request or per user.</text></svg>

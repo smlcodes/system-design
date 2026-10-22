@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 430" width="1400" height="430"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Reliable Messaging: Outbox, Retry &amp; Dead-Letter Queue</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">Solving the dual-write problem and handling failed messages</text>
+<text x="30.0" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Outbox (write)</text>
+<rect x="180.0" y="110.0" width="278.0" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="319.0" y="139.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">BEGIN tx</text>
+<line x1="460.0" y1="134.0" x2="481.0" y2="134.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="484.0" y="110.0" width="278.0" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="623.0" y="139.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">INSERT order</text>
+<line x1="764.0" y1="134.0" x2="785.0" y2="134.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="110.0" width="278.0" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="927.0" y="139.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">INSERT outbox event</text>
+<line x1="1068.0" y1="134.0" x2="1089.0" y2="134.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1092.0" y="110.0" width="278.0" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1231.0" y="139.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">COMMIT (atomic)</text>
+<text x="30.0" y="210.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Outbox (publish)</text>
+<rect x="180.0" y="176.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="319.0" y="205.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Relay / CDC (Debezium)</text>
+<line x1="460.0" y1="200.0" x2="481.0" y2="200.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="484.0" y="176.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="623.0" y="205.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Read new outbox rows</text>
+<line x1="764.0" y1="200.0" x2="785.0" y2="200.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="176.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="927.0" y="205.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Publish to Kafka</text>
+<line x1="1068.0" y1="200.0" x2="1089.0" y2="200.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1092.0" y="176.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1231.0" y="205.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Mark as sent</text>
+<text x="30.0" y="276.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Consume</text>
+<rect x="180.0" y="242.0" width="217.2" height="50" rx="9" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<text x="288.6" y="272.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">Consumer receives event</text>
+<line x1="399.2" y1="267.0" x2="420.2" y2="267.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="423.2" y="242.0" width="217.2" height="50" rx="9" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<text x="531.8" y="264.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">Check processed_events</text>
+<text x="531.8" y="280.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">(unique ID)</text>
+<line x1="642.4" y1="267.0" x2="663.4" y2="267.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="666.4" y="242.0" width="217.2" height="50" rx="9" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<text x="775.0" y="272.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">Duplicate? skip</text>
+<line x1="885.6" y1="267.0" x2="906.6" y2="267.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="909.6" y="242.0" width="217.2" height="50" rx="9" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<text x="1018.2" y="272.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">Process + record ID</text>
+<line x1="1128.8" y1="267.0" x2="1149.8" y2="267.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1152.8" y="242.0" width="217.2" height="50" rx="9" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<text x="1261.4" y="272.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">Commit offset</text>
+<text x="30.0" y="344.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Failure path</text>
+<rect x="180.0" y="310.0" width="217.2" height="48" rx="9" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<text x="288.6" y="339.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#63171B" text-anchor="middle">Processing fails</text>
+<line x1="399.2" y1="334.0" x2="420.2" y2="334.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="423.2" y="310.0" width="217.2" height="48" rx="9" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<text x="531.8" y="339.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#63171B" text-anchor="middle">orders.retry.5s</text>
+<line x1="642.4" y1="334.0" x2="663.4" y2="334.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="666.4" y="310.0" width="217.2" height="48" rx="9" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<text x="775.0" y="339.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#63171B" text-anchor="middle">orders.retry.1m</text>
+<line x1="885.6" y1="334.0" x2="906.6" y2="334.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="909.6" y="310.0" width="217.2" height="48" rx="9" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<text x="1018.2" y="339.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#63171B" text-anchor="middle">orders.DLQ + alert</text>
+<line x1="1128.8" y1="334.0" x2="1149.8" y2="334.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1152.8" y="310.0" width="217.2" height="48" rx="9" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<text x="1261.4" y="339.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#63171B" text-anchor="middle">Fix &amp; replay</text>
+<text x="30.0" y="386.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#2D3748" text-anchor="start">Atomicity comes from the database transaction; delivery is at-least-once, so consumers must be idempotent. Never block a whole partition on one poison message.</text></svg>

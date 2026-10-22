@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 751" width="1400" height="751"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Architecture Styles &amp; Microservices</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">How a system is split into deployable parts and how those parts talk</text>
+<text x="30.0" y="110.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#718096" text-anchor="start">COMPONENT INTERACTION &amp; DATA FLOW</text>
+<text x="30.0" y="156.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Evolution</text>
+<rect x="180.0" y="122.0" width="217.2" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="288.6" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Monolith</text>
+<line x1="399.2" y1="146.0" x2="420.2" y2="146.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="423.2" y="122.0" width="217.2" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="531.8" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Modular monolith</text>
+<line x1="642.4" y1="146.0" x2="663.4" y2="146.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="666.4" y="122.0" width="217.2" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="775.0" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Microservices</text>
+<line x1="885.6" y1="146.0" x2="906.6" y2="146.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="909.6" y="122.0" width="217.2" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1018.2" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Event-driven services</text>
+<line x1="1128.8" y1="146.0" x2="1149.8" y2="146.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1152.8" y="122.0" width="217.2" height="48" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1261.4" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Serverless functions</text>
+<text x="30.0" y="220.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Production microservice</text>
+<rect x="180.0" y="186.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="268.3" y="216.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Client</text>
+<line x1="358.7" y1="211.0" x2="379.7" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="382.7" y="186.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="471.0" y="216.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">API Gateway</text>
+<line x1="561.3" y1="211.0" x2="582.3" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="585.3" y="186.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="673.7" y="208.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Service discovery +</text>
+<text x="673.7" y="224.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">LB</text>
+<line x1="764.0" y1="211.0" x2="785.0" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="186.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="876.3" y="208.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Services (own DB</text>
+<text x="876.3" y="224.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">each)</text>
+<line x1="966.7" y1="211.0" x2="987.7" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="990.7" y="186.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1079.0" y="216.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Message broker</text>
+<line x1="1169.3" y1="211.0" x2="1190.3" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1193.3" y="186.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1281.7" y="216.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Observability + CI/CD</text>
+<rect x="30" y="258" width="434" height="186" rx="12" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<rect x="30" y="258" width="434" height="30" rx="12" fill="#2B6CB0"/>
+<rect x="30" y="276" width="434" height="12" fill="#2B6CB0"/>
+<text x="44.0" y="279.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Architectural patterns</text>
+<circle cx="46" cy="297.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="302.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Layered (n-tier): UI → business → data</text>
+<circle cx="46" cy="320.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="325.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Client-server, MVC</text>
+<circle cx="46" cy="343.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="348.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Microservices: small, independently deployable</text>
+<circle cx="46" cy="366.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="371.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Event-driven: producers emit, consumers react</text>
+<circle cx="46" cy="389.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="394.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Serverless / FaaS: run code per event</text>
+<circle cx="46" cy="412.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="417.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Hexagonal / clean: core isolated from adapters</text>
+<rect x="482" y="258" width="434" height="186" rx="12" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<rect x="482" y="258" width="434" height="30" rx="12" fill="#2F855A"/>
+<rect x="482" y="276" width="434" height="12" fill="#2F855A"/>
+<text x="496.0" y="279.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Microservice building blocks</text>
+<circle cx="498" cy="297.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="302.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">API gateway, service registry &amp; discovery</text>
+<circle cx="498" cy="320.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="325.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Config server, secrets store</text>
+<circle cx="498" cy="343.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="348.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Database per service</text>
+<circle cx="498" cy="366.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="371.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Message broker (Kafka, RabbitMQ)</text>
+<circle cx="498" cy="389.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="394.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Centralised logging, metrics, tracing</text>
+<circle cx="498" cy="412.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="417.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Container platform (Docker + Kubernetes)</text>
+<rect x="934" y="258" width="434" height="186" rx="12" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<rect x="934" y="258" width="434" height="30" rx="12" fill="#6B46C1"/>
+<rect x="934" y="276" width="434" height="12" fill="#6B46C1"/>
+<text x="948.0" y="279.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Communication</text>
+<circle cx="950" cy="297.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="302.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Synchronous: REST, gRPC, GraphQL</text>
+<circle cx="950" cy="320.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="325.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Asynchronous: queues, pub/sub, events</text>
+<circle cx="950" cy="343.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="348.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Service mesh / sidecar for mTLS, retries, telemetry</text>
+<circle cx="950" cy="366.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="371.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Prefer async for non-blocking side effects</text>
+<rect x="30" y="462" width="434" height="163" rx="12" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<rect x="30" y="462" width="434" height="30" rx="12" fill="#C05621"/>
+<rect x="30" y="480" width="434" height="12" fill="#C05621"/>
+<text x="44.0" y="483.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Data patterns</text>
+<circle cx="46" cy="501.5" r="3" fill="#C05621"/>
+<text x="56.0" y="506.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Database per service (no shared tables)</text>
+<circle cx="46" cy="524.5" r="3" fill="#C05621"/>
+<text x="56.0" y="529.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Saga for cross-service transactions</text>
+<circle cx="46" cy="547.5" r="3" fill="#C05621"/>
+<text x="56.0" y="552.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Transactional outbox for reliable events</text>
+<circle cx="46" cy="570.5" r="3" fill="#C05621"/>
+<text x="56.0" y="575.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">CQRS: separate read and write models</text>
+<circle cx="46" cy="593.5" r="3" fill="#C05621"/>
+<text x="56.0" y="598.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Event sourcing: store events, derive state</text>
+<rect x="482" y="462" width="434" height="163" rx="12" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<rect x="482" y="462" width="434" height="30" rx="12" fill="#C53030"/>
+<rect x="482" y="480" width="434" height="12" fill="#C53030"/>
+<text x="496.0" y="483.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Best practices</text>
+<circle cx="498" cy="501.5" r="3" fill="#C53030"/>
+<text x="508.0" y="506.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Single responsibility &amp; clear bounded contexts</text>
+<circle cx="498" cy="524.5" r="3" fill="#C53030"/>
+<text x="508.0" y="529.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Independent deploys, versioned APIs</text>
+<circle cx="498" cy="547.5" r="3" fill="#C53030"/>
+<text x="508.0" y="552.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Stateless services, externalised config</text>
+<circle cx="498" cy="570.5" r="3" fill="#C53030"/>
+<text x="508.0" y="575.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Resilience: timeouts, retries, circuit breakers</text>
+<circle cx="498" cy="593.5" r="3" fill="#C53030"/>
+<text x="508.0" y="598.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Automate everything: CI/CD, IaC, tests</text>
+<rect x="934" y="462" width="434" height="163" rx="12" fill="#E6F7F7" stroke="#2C7A7B" stroke-width="1.6"/>
+<rect x="934" y="462" width="434" height="30" rx="12" fill="#2C7A7B"/>
+<rect x="934" y="480" width="434" height="12" fill="#2C7A7B"/>
+<text x="948.0" y="483.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Trade-offs</text>
+<circle cx="950" cy="501.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="506.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Monolith: simple, fast to start, hard to scale teams</text>
+<circle cx="950" cy="524.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="529.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Microservices: independent scaling, high ops cost</text>
+<circle cx="950" cy="547.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="552.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Distributed failures, eventual consistency</text>
+<circle cx="950" cy="570.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="575.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Start monolith; split when team or scale needs it</text>
+<rect x="30" y="643" width="1340" height="78" rx="12" fill="#1A365D"/>
+<text x="50.0" y="669.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#90CDF4" text-anchor="start">ARCHITECTURE SUMMARY</text>
+<text x="50.0" y="691.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">Pick the simplest style that meets requirements. Microservices trade code simplicity for operational complexity, so they need a gateway, discovery, async</text>
+<text x="50.0" y="710.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">messaging, per-service data, and strong observability to work in production.</text></svg>

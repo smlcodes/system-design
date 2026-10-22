@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 590" width="1400" height="590"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Worked Example: Movie Website for 1M Users</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">~230 RPS average, ~1,150 RPS peak, 99.9% availability, p95 &lt; 200 ms</text>
+<text x="30.0" y="110.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#718096" text-anchor="start">COMPONENT INTERACTION &amp; DATA FLOW</text>
+<text x="30.0" y="156.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Static</text>
+<rect x="180.0" y="122.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="319.0" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Users</text>
+<line x1="460.0" y1="146.0" x2="481.0" y2="146.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="484.0" y="122.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="623.0" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">DNS</text>
+<line x1="764.0" y1="146.0" x2="785.0" y2="146.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="122.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="927.0" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">CDN (posters, JS/CSS, trailers)</text>
+<line x1="1068.0" y1="146.0" x2="1089.0" y2="146.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1092.0" y="122.0" width="278.0" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1231.0" y="151.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Object storage (origin)</text>
+<text x="30.0" y="220.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Dynamic</text>
+<rect x="180.0" y="186.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="268.3" y="216.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Users</text>
+<line x1="358.7" y1="211.0" x2="379.7" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="382.7" y="186.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="471.0" y="208.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">WAF + load balancer</text>
+<text x="471.0" y="224.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">(multi-AZ)</text>
+<line x1="561.3" y1="211.0" x2="582.3" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="585.3" y="186.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="673.7" y="208.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">API gateway (auth,</text>
+<text x="673.7" y="224.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">rate limit)</text>
+<line x1="764.0" y1="211.0" x2="785.0" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="186.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="876.3" y="208.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Movie / Review / User</text>
+<text x="876.3" y="224.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">/ Search services</text>
+<line x1="966.7" y1="211.0" x2="987.7" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="990.7" y="186.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1079.0" y="216.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Redis cache</text>
+<line x1="1169.3" y1="211.0" x2="1190.3" y2="211.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1193.3" y="186.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1281.7" y="208.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">PostgreSQL primary +</text>
+<text x="1281.7" y="224.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">2 replicas</text>
+<text x="30.0" y="286.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Async</text>
+<rect x="180.0" y="252.0" width="217.2" height="50" rx="9" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<text x="288.6" y="282.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">Review service</text>
+<line x1="399.2" y1="277.0" x2="420.2" y2="277.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="423.2" y="252.0" width="217.2" height="50" rx="9" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<text x="531.8" y="282.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">Outbox table</text>
+<line x1="642.4" y1="277.0" x2="663.4" y2="277.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="666.4" y="252.0" width="217.2" height="50" rx="9" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<text x="775.0" y="282.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">Kafka</text>
+<line x1="885.6" y1="277.0" x2="906.6" y2="277.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="909.6" y="252.0" width="217.2" height="50" rx="9" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<text x="1018.2" y="274.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">Notification, analytics,</text>
+<text x="1018.2" y="290.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">search-indexer workers</text>
+<line x1="1128.8" y1="277.0" x2="1149.8" y2="277.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1152.8" y="252.0" width="217.2" height="50" rx="9" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<text x="1261.4" y="282.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#322659" text-anchor="middle">Elasticsearch</text>
+<rect x="30" y="324" width="434" height="140" rx="12" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<rect x="30" y="324" width="434" height="30" rx="12" fill="#2B6CB0"/>
+<rect x="30" y="342" width="434" height="12" fill="#2B6CB0"/>
+<text x="44.0" y="345.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Estimates</text>
+<circle cx="46" cy="363.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="368.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">1M DAU x 20 req = 20M req/day</text>
+<circle cx="46" cy="386.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="391.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">~230 RPS avg, ~1,150 RPS peak</text>
+<circle cx="46" cy="409.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="414.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Metadata ~500 MB (fits in memory)</text>
+<circle cx="46" cy="432.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="437.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Images ~2 TB/day → CDN mandatory</text>
+<rect x="482" y="324" width="434" height="140" rx="12" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<rect x="482" y="324" width="434" height="30" rx="12" fill="#2F855A"/>
+<rect x="482" y="342" width="434" height="12" fill="#2F855A"/>
+<text x="496.0" y="345.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Key decisions</text>
+<circle cx="498" cy="363.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="368.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Stateless Spring Boot pods behind LB</text>
+<circle cx="498" cy="386.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="391.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Cache-aside in Redis for hot movies</text>
+<circle cx="498" cy="409.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="414.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">PostgreSQL for users &amp; reviews</text>
+<circle cx="498" cy="432.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="437.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Elasticsearch for search, Kafka for events</text>
+<rect x="934" y="324" width="434" height="140" rx="12" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<rect x="934" y="324" width="434" height="30" rx="12" fill="#6B46C1"/>
+<rect x="934" y="342" width="434" height="12" fill="#6B46C1"/>
+<text x="948.0" y="345.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Failure handling</text>
+<circle cx="950" cy="363.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="368.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Redis down → coalescing + circuit breaker</text>
+<circle cx="950" cy="386.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="391.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">DB primary down → auto failover, read-only mode</text>
+<circle cx="950" cy="409.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="414.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Kafka down → outbox buffers events</text>
+<circle cx="950" cy="432.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="437.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">AZ down → spread across 3 AZs</text>
+<rect x="30" y="482" width="1340" height="78" rx="12" fill="#1A365D"/>
+<text x="50.0" y="508.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#90CDF4" text-anchor="start">ARCHITECTURE SUMMARY</text>
+<text x="50.0" y="530.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">Numbers justify the design: a tiny hot dataset means cache everything; read-heavy traffic means replicas; image bandwidth means CDN. Every component has a</text>
+<text x="50.0" y="549.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">documented failure mode and mitigation.</text></svg>

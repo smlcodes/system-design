@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 635" width="1400" height="635"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Load Balancing</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">Spreading traffic across healthy servers for throughput and availability</text>
+<text x="30.0" y="110.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#718096" text-anchor="start">COMPONENT INTERACTION &amp; DATA FLOW</text>
+<text x="30.0" y="156.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Traffic flow</text>
+<rect x="180.0" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="268.3" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Clients</text>
+<line x1="358.7" y1="147.0" x2="379.7" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="382.7" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="471.0" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">DNS / Anycast</text>
+<line x1="561.3" y1="147.0" x2="582.3" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="585.3" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="673.7" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Load balancers</text>
+<text x="673.7" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">(active-active)</text>
+<line x1="764.0" y1="147.0" x2="785.0" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="876.3" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Health checks</text>
+<line x1="966.7" y1="147.0" x2="987.7" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="990.7" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1079.0" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Server pool</text>
+<text x="1079.0" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">(stateless)</text>
+<line x1="1169.3" y1="147.0" x2="1190.3" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1193.3" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1281.7" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Response</text>
+<rect x="30" y="194" width="434" height="157" rx="12" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<rect x="30" y="194" width="434" height="30" rx="12" fill="#2B6CB0"/>
+<rect x="30" y="212" width="434" height="12" fill="#2B6CB0"/>
+<text x="44.0" y="215.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Responsibilities</text>
+<circle cx="46" cy="233.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="238.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Distribute requests evenly</text>
+<circle cx="46" cy="256.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="261.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Remove unhealthy servers automatically</text>
+<circle cx="46" cy="279.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="284.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Enable horizontal scaling &amp; zero-downtime deploys</text>
+<circle cx="46" cy="302.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="307.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Optional: TLS termination, sticky sessions</text>
+<rect x="482" y="194" width="434" height="157" rx="12" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<rect x="482" y="194" width="434" height="30" rx="12" fill="#2F855A"/>
+<rect x="482" y="212" width="434" height="12" fill="#2F855A"/>
+<text x="496.0" y="215.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Types by deployment</text>
+<circle cx="498" cy="233.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="238.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Hardware: F5, Citrix ADC</text>
+<circle cx="498" cy="256.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="261.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Software: Nginx, HAProxy, Envoy</text>
+<circle cx="498" cy="279.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="284.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Cloud managed: AWS ALB/NLB, Azure Load Balancer / App</text>
+<text x="508.0" y="301.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Gateway, GCP LB</text>
+<circle cx="498" cy="319.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="324.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">DNS / global server load balancing</text>
+<rect x="934" y="194" width="434" height="157" rx="12" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<rect x="934" y="194" width="434" height="30" rx="12" fill="#6B46C1"/>
+<rect x="934" y="212" width="434" height="12" fill="#6B46C1"/>
+<text x="948.0" y="215.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Layer 4 vs Layer 7</text>
+<circle cx="950" cy="233.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="238.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">L4: routes on IP, port, TCP/UDP - very fast</text>
+<circle cx="950" cy="256.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="261.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">L7: routes on URL, headers, cookies, method</text>
+<circle cx="950" cy="279.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="284.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">L7 enables path routing, retries, TLS offload</text>
+<circle cx="950" cy="302.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="307.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">L7 costs more CPU per request</text>
+<rect x="30" y="369" width="434" height="140" rx="12" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<rect x="30" y="369" width="434" height="30" rx="12" fill="#C05621"/>
+<rect x="30" y="387" width="434" height="12" fill="#C05621"/>
+<text x="44.0" y="390.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Algorithms</text>
+<circle cx="46" cy="408.5" r="3" fill="#C05621"/>
+<text x="56.0" y="413.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Static: round robin, weighted RR, IP/URL hash</text>
+<circle cx="46" cy="431.5" r="3" fill="#C05621"/>
+<text x="56.0" y="436.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Dynamic: least connections, least response time</text>
+<circle cx="46" cy="454.5" r="3" fill="#C05621"/>
+<text x="56.0" y="459.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Consistent hashing for cache/sticky affinity</text>
+<circle cx="46" cy="477.5" r="3" fill="#C05621"/>
+<text x="56.0" y="482.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Power of two choices: sample 2, pick lighter</text>
+<rect x="482" y="369" width="434" height="140" rx="12" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<rect x="482" y="369" width="434" height="30" rx="12" fill="#C53030"/>
+<rect x="482" y="387" width="434" height="12" fill="#C53030"/>
+<text x="496.0" y="390.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Health &amp; resilience</text>
+<circle cx="498" cy="408.5" r="3" fill="#C53030"/>
+<text x="508.0" y="413.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Active probes (/health) + passive error tracking</text>
+<circle cx="498" cy="431.5" r="3" fill="#C53030"/>
+<text x="508.0" y="436.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Connection draining &amp; slow start</text>
+<circle cx="498" cy="454.5" r="3" fill="#C53030"/>
+<text x="508.0" y="459.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Multiple LB nodes, no single point of failure</text>
+<circle cx="498" cy="477.5" r="3" fill="#C53030"/>
+<text x="508.0" y="482.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Cross-zone balancing</text>
+<rect x="934" y="369" width="434" height="140" rx="12" fill="#E6F7F7" stroke="#2C7A7B" stroke-width="1.6"/>
+<rect x="934" y="369" width="434" height="30" rx="12" fill="#2C7A7B"/>
+<rect x="934" y="387" width="434" height="12" fill="#2C7A7B"/>
+<text x="948.0" y="390.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Key metrics</text>
+<circle cx="950" cy="408.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="413.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Request count, active connections</text>
+<circle cx="950" cy="431.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="436.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Status codes (4xx / 5xx), access logs</text>
+<circle cx="950" cy="454.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="459.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Backend latency, unhealthy host count</text>
+<circle cx="950" cy="477.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="482.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Connection errors, surge queue</text>
+<rect x="30" y="527" width="1340" height="78" rx="12" fill="#1A365D"/>
+<text x="50.0" y="553.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#90CDF4" text-anchor="start">ARCHITECTURE SUMMARY</text>
+<text x="50.0" y="575.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">A load balancer turns many identical, stateless servers into one reliable service. Choose L4 for raw speed, L7 for smart routing, and always run it redundantly</text>
+<text x="50.0" y="594.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">with health checks.</text></svg>

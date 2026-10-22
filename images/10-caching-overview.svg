@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 787" width="1400" height="787"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Caching</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">Keep hot data close to the reader to cut latency and database load</text>
+<text x="30.0" y="110.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#718096" text-anchor="start">COMPONENT INTERACTION &amp; DATA FLOW</text>
+<text x="30.0" y="156.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Cache layers</text>
+<rect x="180.0" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="268.3" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Browser cache</text>
+<line x1="358.7" y1="147.0" x2="379.7" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="382.7" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="471.0" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">CDN / edge</text>
+<line x1="561.3" y1="147.0" x2="582.3" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="585.3" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="673.7" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Load balancer /</text>
+<text x="673.7" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">gateway cache</text>
+<line x1="764.0" y1="147.0" x2="785.0" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="876.3" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">App local cache</text>
+<text x="876.3" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">(Caffeine)</text>
+<line x1="966.7" y1="147.0" x2="987.7" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="990.7" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1079.0" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Distributed cache</text>
+<text x="1079.0" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">(Redis)</text>
+<line x1="1169.3" y1="147.0" x2="1190.3" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1193.3" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1281.7" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Database buffer cache</text>
+<text x="30.0" y="222.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Cache-aside read</text>
+<rect x="180.0" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="268.3" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">App</text>
+<line x1="358.7" y1="213.0" x2="379.7" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="382.7" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="471.0" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Check Redis</text>
+<line x1="561.3" y1="213.0" x2="582.3" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="585.3" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="673.7" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">HIT: return data</text>
+<line x1="764.0" y1="213.0" x2="785.0" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="876.3" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">MISS: query DB</text>
+<line x1="966.7" y1="213.0" x2="987.7" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="990.7" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1079.0" y="210.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Store in cache with</text>
+<text x="1079.0" y="226.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">TTL</text>
+<line x1="1169.3" y1="213.0" x2="1190.3" y2="213.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1193.3" y="188.0" width="176.7" height="50" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1281.7" y="218.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Return data</text>
+<rect x="30" y="260" width="434" height="186" rx="12" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<rect x="30" y="260" width="434" height="30" rx="12" fill="#2B6CB0"/>
+<rect x="30" y="278" width="434" height="12" fill="#2B6CB0"/>
+<text x="44.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Why cache</text>
+<circle cx="46" cy="299.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="304.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Faster reads (memory vs disk/network)</text>
+<circle cx="46" cy="322.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="327.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Less database load, higher throughput</text>
+<circle cx="46" cy="345.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="350.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Lower cost per request</text>
+<circle cx="46" cy="368.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="373.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Survive traffic spikes on hot items</text>
+<rect x="482" y="260" width="434" height="186" rx="12" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<rect x="482" y="260" width="434" height="30" rx="12" fill="#2F855A"/>
+<rect x="482" y="278" width="434" height="12" fill="#2F855A"/>
+<text x="496.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Read / write patterns</text>
+<circle cx="498" cy="299.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="304.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Cache-aside (lazy loading): default</text>
+<circle cx="498" cy="322.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="327.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Read-through: cache loads on miss</text>
+<circle cx="498" cy="345.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="350.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Write-through: write cache + DB together</text>
+<circle cx="498" cy="368.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="373.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Write-around: write DB, skip cache</text>
+<circle cx="498" cy="391.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="396.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Write-back: write cache, flush DB later</text>
+<circle cx="498" cy="414.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="419.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Refresh-ahead: refresh before expiry</text>
+<rect x="934" y="260" width="434" height="186" rx="12" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<rect x="934" y="260" width="434" height="30" rx="12" fill="#6B46C1"/>
+<rect x="934" y="278" width="434" height="12" fill="#6B46C1"/>
+<text x="948.0" y="281.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Eviction policies</text>
+<circle cx="950" cy="299.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="304.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">LRU: least recently used (default)</text>
+<circle cx="950" cy="322.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="327.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">LFU: least frequently used</text>
+<circle cx="950" cy="345.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="350.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">FIFO, MRU, random</text>
+<circle cx="950" cy="368.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="373.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">TTL expiry: lazy on access + active sweep</text>
+<rect x="30" y="464" width="434" height="197" rx="12" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<rect x="30" y="464" width="434" height="30" rx="12" fill="#C05621"/>
+<rect x="30" y="482" width="434" height="12" fill="#C05621"/>
+<text x="44.0" y="485.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Common problems</text>
+<circle cx="46" cy="503.5" r="3" fill="#C05621"/>
+<text x="56.0" y="508.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Stampede / thundering herd → single-flight, lock,</text>
+<text x="56.0" y="525.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">jittered TTL</text>
+<circle cx="46" cy="543.5" r="3" fill="#C05621"/>
+<text x="56.0" y="548.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Penetration (missing keys) → cache nulls, Bloom</text>
+<text x="56.0" y="565.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">filter</text>
+<circle cx="46" cy="583.5" r="3" fill="#C05621"/>
+<text x="56.0" y="588.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Avalanche (mass expiry) → random TTLs</text>
+<circle cx="46" cy="606.5" r="3" fill="#C05621"/>
+<text x="56.0" y="611.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Hot key → local replicas, key splitting</text>
+<circle cx="46" cy="629.5" r="3" fill="#C05621"/>
+<text x="56.0" y="634.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Stale data → event-based invalidation</text>
+<rect x="482" y="464" width="434" height="197" rx="12" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<rect x="482" y="464" width="434" height="30" rx="12" fill="#C53030"/>
+<rect x="482" y="482" width="434" height="12" fill="#C53030"/>
+<text x="496.0" y="485.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Cache types</text>
+<circle cx="498" cy="503.5" r="3" fill="#C53030"/>
+<text x="508.0" y="508.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">In-process / application cache</text>
+<circle cx="498" cy="526.5" r="3" fill="#C53030"/>
+<text x="508.0" y="531.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Distributed cache (Redis Cluster, Memcached)</text>
+<circle cx="498" cy="549.5" r="3" fill="#C53030"/>
+<text x="508.0" y="554.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Global shared cache</text>
+<circle cx="498" cy="572.5" r="3" fill="#C53030"/>
+<text x="508.0" y="577.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">CDN / edge cache for static content</text>
+<rect x="934" y="464" width="434" height="197" rx="12" fill="#E6F7F7" stroke="#2C7A7B" stroke-width="1.6"/>
+<rect x="934" y="464" width="434" height="30" rx="12" fill="#2C7A7B"/>
+<rect x="934" y="482" width="434" height="12" fill="#2C7A7B"/>
+<text x="948.0" y="485.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Key metrics</text>
+<circle cx="950" cy="503.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="508.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Hit ratio (aim &gt; 90% for hot data)</text>
+<circle cx="950" cy="526.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="531.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Evictions, memory usage, item count</text>
+<circle cx="950" cy="549.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="554.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Latency, replication lag</text>
+<circle cx="950" cy="572.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="577.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Miss rate during deploys</text>
+<rect x="30" y="679" width="1340" height="78" rx="12" fill="#1A365D"/>
+<text x="50.0" y="705.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#90CDF4" text-anchor="start">ARCHITECTURE SUMMARY</text>
+<text x="50.0" y="727.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">Cache as close to the user as freshness allows, always set a TTL, invalidate on writes, and protect the database from stampedes. Caches make reads fast but add</text>
+<text x="50.0" y="746.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">consistency problems you must design for.</text></svg>

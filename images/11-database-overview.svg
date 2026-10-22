@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 794" width="1400" height="794"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/></marker></defs><rect width="100%" height="100%" fill="#FFFFFF"/><rect x="0" y="0" width="1400" height="86" fill="#1A365D"/>
+<text x="30.0" y="44.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" text-anchor="start">Databases &amp; Storage</text>
+<text x="30.0" y="70.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" font-weight="normal" fill="#BEE3F8" text-anchor="start">Choosing, modelling, scaling and protecting data</text>
+<text x="30.0" y="110.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#718096" text-anchor="start">COMPONENT INTERACTION &amp; DATA FLOW</text>
+<text x="30.0" y="156.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Write path</text>
+<rect x="180.0" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="268.3" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">App</text>
+<line x1="358.7" y1="147.0" x2="379.7" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="382.7" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="471.0" y="144.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Connection pool /</text>
+<text x="471.0" y="160.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">proxy</text>
+<line x1="561.3" y1="147.0" x2="582.3" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="585.3" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="673.7" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Primary DB (ACID)</text>
+<line x1="764.0" y1="147.0" x2="785.0" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="876.3" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">WAL / replication log</text>
+<line x1="966.7" y1="147.0" x2="987.7" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="990.7" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1079.0" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Read replicas (async)</text>
+<line x1="1169.3" y1="147.0" x2="1190.3" y2="147.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1193.3" y="122.0" width="176.7" height="50" rx="9" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<text x="1281.7" y="152.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1A365D" text-anchor="middle">Backups &amp; archive</text>
+<text x="30.0" y="222.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Read path</text>
+<rect x="180.0" y="188.0" width="217.2" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="288.6" y="217.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">App</text>
+<line x1="399.2" y1="212.0" x2="420.2" y2="212.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="423.2" y="188.0" width="217.2" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="531.8" y="217.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Cache</text>
+<line x1="642.4" y1="212.0" x2="663.4" y2="212.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="666.4" y="188.0" width="217.2" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="775.0" y="217.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Read replica</text>
+<line x1="885.6" y1="212.0" x2="906.6" y2="212.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="909.6" y="188.0" width="217.2" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1018.2" y="217.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Index lookup</text>
+<line x1="1128.8" y1="212.0" x2="1149.8" y2="212.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1152.8" y="188.0" width="217.2" height="48" rx="9" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<text x="1261.4" y="217.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#1C4532" text-anchor="middle">Result</text>
+<text x="30.0" y="286.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#4A5568" text-anchor="start">Media path</text>
+<rect x="180.0" y="252.0" width="176.7" height="50" rx="9" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<text x="268.3" y="282.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">Client chunked upload</text>
+<line x1="358.7" y1="277.0" x2="379.7" y2="277.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="382.7" y="252.0" width="176.7" height="50" rx="9" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<text x="471.0" y="282.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">Object storage (raw)</text>
+<line x1="561.3" y1="277.0" x2="582.3" y2="277.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="585.3" y="252.0" width="176.7" height="50" rx="9" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<text x="673.7" y="282.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">Queue</text>
+<line x1="764.0" y1="277.0" x2="785.0" y2="277.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="788.0" y="252.0" width="176.7" height="50" rx="9" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<text x="876.3" y="274.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">Workers: checksum,</text>
+<text x="876.3" y="290.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">transcode</text>
+<line x1="966.7" y1="277.0" x2="987.7" y2="277.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="990.7" y="252.0" width="176.7" height="50" rx="9" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<text x="1079.0" y="282.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">Processed storage</text>
+<line x1="1169.3" y1="277.0" x2="1190.3" y2="277.0" stroke="#4A5568" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1193.3" y="252.0" width="176.7" height="50" rx="9" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<text x="1281.7" y="282.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="600" fill="#652B19" text-anchor="middle">CDN</text>
+<rect x="30" y="324" width="434" height="186" rx="12" fill="#E8F1FD" stroke="#2B6CB0" stroke-width="1.6"/>
+<rect x="30" y="324" width="434" height="30" rx="12" fill="#2B6CB0"/>
+<rect x="30" y="342" width="434" height="12" fill="#2B6CB0"/>
+<text x="44.0" y="345.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Database types</text>
+<circle cx="46" cy="363.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="368.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Relational: PostgreSQL, MySQL (ACID, joins)</text>
+<circle cx="46" cy="386.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="391.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Document: MongoDB (flexible schema)</text>
+<circle cx="46" cy="409.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="414.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Key-value: Redis, DynamoDB</text>
+<circle cx="46" cy="432.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="437.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Wide-column: Cassandra, HBase (huge writes)</text>
+<circle cx="46" cy="455.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="460.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Graph: Neo4j; time-series: InfluxDB</text>
+<circle cx="46" cy="478.5" r="3" fill="#2B6CB0"/>
+<text x="56.0" y="483.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Search: Elasticsearch; vector: pgvector, Pinecone</text>
+<rect x="482" y="324" width="434" height="186" rx="12" fill="#E6F6EC" stroke="#2F855A" stroke-width="1.6"/>
+<rect x="482" y="324" width="434" height="30" rx="12" fill="#2F855A"/>
+<rect x="482" y="342" width="434" height="12" fill="#2F855A"/>
+<text x="496.0" y="345.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Scaling strategies</text>
+<circle cx="498" cy="363.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="368.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Indexing &amp; query tuning first</text>
+<circle cx="498" cy="386.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="391.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Caching &amp; materialized views</text>
+<circle cx="498" cy="409.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="414.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Read replicas (read scaling)</text>
+<circle cx="498" cy="432.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="437.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Vertical scaling</text>
+<circle cx="498" cy="455.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="460.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Partitioning, then sharding</text>
+<circle cx="498" cy="478.5" r="3" fill="#2F855A"/>
+<text x="508.0" y="483.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Denormalization / CQRS</text>
+<rect x="934" y="324" width="434" height="186" rx="12" fill="#F1EBFB" stroke="#6B46C1" stroke-width="1.6"/>
+<rect x="934" y="324" width="434" height="30" rx="12" fill="#6B46C1"/>
+<rect x="934" y="342" width="434" height="12" fill="#6B46C1"/>
+<text x="948.0" y="345.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Replication</text>
+<circle cx="950" cy="363.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="368.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Single-leader: primary writes, replicas read</text>
+<circle cx="950" cy="386.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="391.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Multi-leader: writes in many places, conflicts</text>
+<circle cx="950" cy="409.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="414.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Leaderless: quorum R + W &gt; N</text>
+<circle cx="950" cy="432.5" r="3" fill="#6B46C1"/>
+<text x="960.0" y="437.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Sync = durable but slower; async = fast, lag</text>
+<rect x="30" y="528" width="434" height="140" rx="12" fill="#FEF3E6" stroke="#C05621" stroke-width="1.6"/>
+<rect x="30" y="528" width="434" height="30" rx="12" fill="#C05621"/>
+<rect x="30" y="546" width="434" height="12" fill="#C05621"/>
+<text x="44.0" y="549.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Sharding</text>
+<circle cx="46" cy="567.5" r="3" fill="#C05621"/>
+<text x="56.0" y="572.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Range, hash, consistent hashing</text>
+<circle cx="46" cy="590.5" r="3" fill="#C05621"/>
+<text x="56.0" y="595.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Geo and directory-based</text>
+<circle cx="46" cy="613.5" r="3" fill="#C05621"/>
+<text x="56.0" y="618.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Problems: hot keys, cross-shard joins</text>
+<circle cx="46" cy="636.5" r="3" fill="#C05621"/>
+<text x="56.0" y="641.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Resharding and rebalancing cost</text>
+<rect x="482" y="528" width="434" height="140" rx="12" fill="#FDECEC" stroke="#C53030" stroke-width="1.6"/>
+<rect x="482" y="528" width="434" height="30" rx="12" fill="#C53030"/>
+<rect x="482" y="546" width="434" height="12" fill="#C53030"/>
+<text x="496.0" y="549.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Transactions &amp; concurrency</text>
+<circle cx="498" cy="567.5" r="3" fill="#C53030"/>
+<text x="508.0" y="572.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">ACID vs BASE</text>
+<circle cx="498" cy="590.5" r="3" fill="#C53030"/>
+<text x="508.0" y="595.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Isolation: read committed → serializable</text>
+<circle cx="498" cy="613.5" r="3" fill="#C53030"/>
+<text x="508.0" y="618.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Pessimistic (FOR UPDATE) vs optimistic (version)</text>
+<circle cx="498" cy="636.5" r="3" fill="#C53030"/>
+<text x="508.0" y="641.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Connection pooling (HikariCP, PgBouncer)</text>
+<rect x="934" y="528" width="434" height="140" rx="12" fill="#E6F7F7" stroke="#2C7A7B" stroke-width="1.6"/>
+<rect x="934" y="528" width="434" height="30" rx="12" fill="#2C7A7B"/>
+<rect x="934" y="546" width="434" height="12" fill="#2C7A7B"/>
+<text x="948.0" y="549.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="start">Storage tiers</text>
+<circle cx="950" cy="567.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="572.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Hot: DB + cache</text>
+<circle cx="950" cy="590.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="595.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Warm: cheaper DB / object tier</text>
+<circle cx="950" cy="613.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="618.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Cold / archive: Glacier, Azure Archive</text>
+<circle cx="950" cy="636.5" r="3" fill="#2C7A7B"/>
+<text x="960.0" y="641.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A202C" text-anchor="start">Blob/object storage for files &amp; media</text>
+<rect x="30" y="686" width="1340" height="78" rx="12" fill="#1A365D"/>
+<text x="50.0" y="712.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#90CDF4" text-anchor="start">ARCHITECTURE SUMMARY</text>
+<text x="50.0" y="734.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">Choose the store by access pattern and consistency needs, then scale in order: optimise queries, cache, replicate, partition, and only then shard. Keep large</text>
+<text x="50.0" y="753.0" font-family="'Segoe UI', Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="14" font-weight="normal" fill="#FFFFFF" text-anchor="start">files in object storage and serve them through a CDN.</text></svg>
