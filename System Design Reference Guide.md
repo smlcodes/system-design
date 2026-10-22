@@ -40,7 +40,7 @@
 
 *The blueprint walks a request through every layer — client, DNS, CDN, API gateway, load balancer, frontend and backend servers, caches, databases, media pipeline and fan-out services — with the options, metrics and security notes for each. Sections 4–12 of this guide follow the same order.*
 
-### Related Images
+
 
 **1. Modern web system architecture flow** — the end-to-end path a request takes through a typical production system.
 
@@ -62,7 +62,7 @@
 
 ![8 Common System Design Problems and Solutions](https://github.com/user-attachments/assets/5eaa755b-d3e1-421b-9f51-1f3c49d61edf)
 
-### Supporting Text
+
 
 **Request path at a glance**
 
@@ -124,7 +124,7 @@ Client ─► DNS ─► CDN/Edge ─► API Gateway ─► Load Balancer ─►
 
 ![Architecture styles and microservices overview](images/03-architecture-overview.svg)
 
-### Related Images
+
 
 **1. 6 software architectural patterns** — layered, client-server, event-driven, microservices, MVC and similar styles, with where each fits.
 
@@ -138,7 +138,7 @@ Client ─► DNS ─► CDN/Edge ─► API Gateway ─► Load Balancer ─►
 
 ![9 Best Practices for Developing Microservices](https://github.com/user-attachments/assets/c5084a64-1069-41ea-8b49-39e8cbc0e216)
 
-### Supporting Text
+
 
 | Style | Idea | Best for | Watch out for |
 |---|---|---|---|
@@ -163,7 +163,7 @@ Client ─► DNS ─► CDN/Edge ─► API Gateway ─► Load Balancer ─►
 
 ![Client, DNS and request lifecycle overview](images/04-networking-overview.svg)
 
-### Related Images
+
 
 **1. What happens when you type google.com into a browser?** — URL parsing, DNS lookup, TCP/TLS handshake, HTTP request, server response and page rendering.
 
@@ -173,7 +173,7 @@ Client ─► DNS ─► CDN/Edge ─► API Gateway ─► Load Balancer ─►
 
 ![DNS resolution flow](https://github.com/user-attachments/assets/c3859f6f-2883-4b61-8249-b13e25c5da6d)
 
-### Supporting Text
+
 
 #### Request anatomy
 
@@ -225,7 +225,7 @@ DNS can also balance traffic (round-robin, weighted, latency-based, geo routing)
 
 ![API design overview](images/05-api-overview.svg)
 
-### Related Images
+
 
 **1. The ultimate API learning roadmap** — API styles, authentication, design rules, documentation, tools, testing and gateways in one map.
 
@@ -247,7 +247,7 @@ DNS can also balance traffic (round-robin, weighted, latency-based, geo routing)
 
 ![Improve API Performance](https://github.com/user-attachments/assets/a7ceed23-c7c4-4261-8a08-0e2b66ab0655)
 
-### Supporting Text
+
 
 #### Choosing an API style
 
@@ -315,7 +315,7 @@ public ResponseEntity<PaymentResponse> create(@RequestHeader("Idempotency-Key") 
 
 ![Edge layer overview](images/06-edge-overview.svg)
 
-### Related Images
+
 
 **1. CDN / edge layer** — the edge tier from your handbook: users served by nearby edge locations in front of the origin.
 
@@ -345,7 +345,7 @@ public ResponseEntity<PaymentResponse> create(@RequestHeader("Idempotency-Key") 
 
 ![Why is Nginx so Popular](https://github.com/user-attachments/assets/243423d7-d4ef-4601-a041-fd95beee7ed5)
 
-### Supporting Text
+
 
 **CDN** = a geographically distributed network of servers that caches content close to users to cut latency and offload the origin. Used by streaming (Netflix, YouTube), e-commerce (product images) and software downloads.
 
@@ -378,7 +378,7 @@ public ResponseEntity<PaymentResponse> create(@RequestHeader("Idempotency-Key") 
 
 ![API gateway overview](images/07-gateway-overview.svg)
 
-### Related Images
+
 
 **1. API gateway controls** — the gateway layer from your handbook with its security and traffic controls.
 
@@ -409,7 +409,7 @@ public ResponseEntity<PaymentResponse> create(@RequestHeader("Idempotency-Key") 
 
 ![How Rate Limiting Works](https://github.com/user-attachments/assets/849df95c-d746-4d98-ac29-7b27bddbc23b)
 
-### Supporting Text
+
 
 **API gateway** = a single entry point that handles cross-cutting concerns so services focus on business logic. Optional for a monolith; essential for microservices.
 
@@ -447,13 +447,13 @@ Rate-limit keys: per user, API key, IP, route or region. Keep counters in a **sh
 
 ![Load balancing overview](images/08-lb-overview.svg)
 
-### Related Images
+
 
 **Load balancing layer** — the load balancer tier from your handbook distributing traffic across a pool of servers.
 
 ![Load balancing layer](https://github.com/user-attachments/assets/7b7b3c78-a824-4186-b72e-55da6683fae7)
 
-### Supporting Text
+
 
 **Load balancer** = distributes incoming traffic across multiple servers to avoid overload and improve performance, scalability and availability.
 
@@ -487,13 +487,13 @@ Rate-limit keys: per user, API key, IP, route or region. Keep counters in a **sh
 
 ![Real-time communication overview](images/09-realtime-overview.svg)
 
-### Related Images
+
 
 **Frontend servers & connection management** — frontend servers holding in-memory user→connection maps and forwarding messages through a dispatcher.
 
 ![Frontend servers and connection management](https://github.com/user-attachments/assets/230ce4c1-ab2a-4231-92ae-4f09e7e540fa)
 
-### Supporting Text
+
 
 Frontend servers keep **long-lived connections** (WebSocket, SSE) and an in-memory map `user → connection`. Because sender and recipient may be on different servers, messages go through a **message dispatcher** that maps `server → topic/user`.
 
@@ -523,7 +523,7 @@ Sender ─► FE Server A ─► Message Dispatcher (lookup user → server) ─
 
 ![Caching overview](images/10-caching-overview.svg)
 
-### Related Images
+
 
 **1. Where data is cached** — cache layers from client and CDN through load balancer, application, distributed cache and database.
 
@@ -533,7 +533,7 @@ Sender ─► FE Server A ─► Message Dispatcher (lookup user → server) ─
 
 ![Cache read and write patterns](images/10a-cache-patterns.svg)
 
-### Supporting Text
+
 
 **Caching** = storing frequently used data in faster storage (usually memory) so repeat reads skip the slow source.
 
@@ -589,7 +589,7 @@ public void updateMovie(Movie movie) { movieRepository.save(movie); }
 
 ![Databases and storage overview](images/11-database-overview.svg)
 
-### Related Images
+
 
 **1. How to choose the right database** — decision chart from data shape and access pattern to relational, document, key-value, wide-column, graph, time-series, search and other stores.
 
@@ -607,7 +607,7 @@ public void updateMovie(Movie movie) { movieRepository.save(movie); }
 
 ![Database scaling companion chart 2](https://github.com/user-attachments/assets/7bb84387-94fa-4100-a429-ae3cf9cbad6a)
 
-### Supporting Text
+
 
 #### Types of databases
 
@@ -737,13 +737,13 @@ Track each chunk (`key, checksum, timestamp`) to verify, resume and deduplicate.
 
 ![Messaging and event-driven overview](images/12-messaging-overview.svg)
 
-### Related Images
+
 
 **Reliable messaging: outbox, retry & DLQ** *(generated)* — the dual-write fix and the failure path for bad messages.
 
 ![Outbox, retry and DLQ](images/12a-outbox-dlq.svg)
 
-### Supporting Text
+
 
 **Message queue** = lets services talk **asynchronously**: the sender doesn't wait for the receiver, so each side can fail, scale and deploy independently.
 
@@ -814,13 +814,13 @@ public void onOrderPlaced(OrderPlaced event) {
 
 ![Distributed systems fundamentals overview](images/13-distributed-overview.svg)
 
-### Related Images
+
 
 **Consistent hashing** *(generated)* — how keys map to nodes on a ring and why adding a node moves only a few keys.
 
 ![Consistent hashing](images/13a-consistent-hashing.svg)
 
-### Supporting Text
+
 
 #### CAP and PACELC
 
@@ -901,13 +901,13 @@ Concurrency strategies: run serially, serially in batches, **pessimistic** locki
 
 ![Scalability overview](images/14-scalability-overview.svg)
 
-### Related Images
+
 
 **8 must-know scalability strategies** — stateless services, horizontal scaling, load balancing, auto-scaling, caching, database replication, sharding and async processing.
 
 ![8 Must-Know Scalability Strategies](https://github.com/user-attachments/assets/a29e7673-096e-4da5-80aa-0cecd4968d1a)
 
-### Supporting Text
+
 
 | | Vertical (scale up) | Horizontal (scale out) |
 |---|---|---|
@@ -937,7 +937,7 @@ Concurrency strategies: run serially, serially in batches, **pessimistic** locki
 
 ![Reliability overview](images/15-reliability-overview.svg)
 
-### Related Images
+
 
 **1. Cheat sheet for designing fault-tolerant systems** — replication, redundancy, load balancing, failover, graceful degradation, monitoring, rate limiting and similar techniques.
 
@@ -947,7 +947,7 @@ Concurrency strategies: run serially, serially in batches, **pessimistic** locki
 
 ![Circuit breaker states](images/15a-circuit-breaker.svg)
 
-### Supporting Text
+
 
 | Term | Meaning |
 |---|---|
@@ -1004,13 +1004,13 @@ public CompletableFuture<Result> call(Request r) { return CompletableFuture.supp
 
 ![Observability overview](images/16-observability-overview.svg)
 
-### Related Images
+
 
 **Website performance metrics** — load time, time to first byte, Core Web Vitals and related user-facing speed metrics.
 
 ![Website Performance Metrics](https://github.com/user-attachments/assets/bad83e83-3213-4585-b670-7b91e12f0572)
 
-### Supporting Text
+
 
 | Pillar | Answers | Tools |
 |---|---|---|
@@ -1044,7 +1044,7 @@ management:
 
 ![Security overview](images/17-security-overview.svg)
 
-### Related Images
+
 
 **1. Session, cookie, JWT, token, SSO and OAuth 2.0** — how each mechanism stores and passes identity between browser and server.
 
@@ -1062,7 +1062,7 @@ management:
 
 ![OAuth 2.0 authorization code flow with PKCE](images/17a-oauth-flow.svg)
 
-### Supporting Text
+
 
 | | Authentication (AuthN) | Authorization (AuthZ) |
 |---|---|---|
@@ -1114,7 +1114,7 @@ SecurityFilterChain api(HttpSecurity http) throws Exception {
 
 ![Infrastructure, DevOps and cost overview](images/18-infra-overview.svg)
 
-### Related Images
+
 
 **1. How does Docker work?** — Docker client, daemon, images, containers and registry: build → push → pull → run.
 
@@ -1132,7 +1132,7 @@ SecurityFilterChain api(HttpSecurity http) throws Exception {
 
 ![Azure Services Cheat Sheet](https://github.com/user-attachments/assets/48368ab5-68c7-4456-be37-c4b16525a48e)
 
-### Supporting Text
+
 
 **Docker:** package app + dependencies into an immutable image (multi-stage build, slim JRE, non-root user, Spring Boot layered jars). **Kubernetes:** Deployment, Service, Ingress, ConfigMap/Secret, HPA, PodDisruptionBudget; always set probes and resource requests/limits.
 
@@ -1184,7 +1184,7 @@ Estimate `unit cost × quantity` per component and track **cost per 1,000 reques
 
 ![Movie website architecture for 1M users](images/19-movie-site-architecture.svg)
 
-### Supporting Text
+
 
 **Failure analysis — what happens when each component fails?**
 
