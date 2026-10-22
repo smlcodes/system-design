@@ -1,3 +1,9 @@
+### System Design Blueprint: The Ultimate Guide
+<img width="3456" height="4608" alt="image" src="https://github.com/user-attachments/assets/bf89aacf-2ef6-4c2a-946b-4c78841497ce" />
+
+### 15 core concepts for system design
+<img width="3000" height="3900" alt="image" src="https://github.com/user-attachments/assets/e7787b3a-a003-4b52-8997-f25579a6f9fa" />
+
 
 
 ### 6 Software Architectural Patterns
@@ -12,6 +18,11 @@
 
 ### 9 Best Practices for Developing Microservices
 <img width="1820" height="2040" alt="image" src="https://github.com/user-attachments/assets/c5084a64-1069-41ea-8b49-39e8cbc0e216" />
+
+
+### Dev Tools
+<img width="3000" height="3667" alt="image" src="https://github.com/user-attachments/assets/cd7d5895-d6ef-424f-b288-12df153b931e" />
+
 
 
 
