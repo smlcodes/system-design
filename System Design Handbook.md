@@ -471,7 +471,7 @@ Sender ─► FE Server A ─► Message Dispatcher ─► FE Server B ─► Re
 
 ---
 
-## 6. Distributed Coordination & Utilities Layer
+## 6. Distributed Coordination Layer - Distributed ID, Distributed Resource 
 
 ### 6.1 Distributed ID Generator
 
