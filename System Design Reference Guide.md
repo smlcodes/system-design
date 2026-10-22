@@ -95,13 +95,12 @@ Client ─► DNS ─► CDN/Edge ─► API Gateway ─► Load Balancer ─►
 
 ![Foundations overview](images/02-foundations-overview.svg)
 
-### Related Images
 
 **Steps to get started with system design** — requirements → architecture → tech stack → modules → scalability → security → testing.
 
 ![Steps for getting started with system design](https://media.geeksforgeeks.org/wp-content/uploads/20260410124919776366/system_design.webp)
 
-### Supporting Text
+
 
 **System design** = defining a system's architecture, components, interfaces and data so that it meets functional and non-functional requirements while staying scalable, reliable, secure, maintainable and cost-effective.
 
@@ -115,47 +114,7 @@ Client ─► DNS ─► CDN/Edge ─► API Gateway ─► Load Balancer ─►
 | Input | Requirements (SRS) | Reviewed HLD |
 | Usually by | Architects, senior engineers | Developers / designers |
 
-#### Requirements
 
-| Type | Question | Movie website example |
-|---|---|---|
-| **Functional** | What should the system *do*? | Search movies, view details, read/submit reviews, admin approval, notifications |
-| **Non-functional** | How well must it *behave*? | 1M users, 99.9% availability, p95 < 200 ms, secure, low cost |
-
-Non-functional checklist: **performance, availability, reliability, scalability, consistency, durability, security, maintainability, usability, portability, compliance (GDPR, PCI), cost**. Express them as measurable targets.
-
-#### Back-of-the-envelope estimation (1M daily active users)
-
-| Quantity | Calculation | Result |
-|---|---|---|
-| Requests/day | 1M × 20 | 20M |
-| Average RPS | 20M ÷ 86,400 | ~230 |
-| Peak RPS (×5) | 230 × 5 | ~1,150 |
-| Metadata | 100K movies × 5 KB | ~500 MB → fits in memory |
-| Reviews | 50K/day × 1 KB | ~50 MB/day, ~18 GB/year |
-| Image bandwidth | 10M views × 200 KB | ~2 TB/day → **CDN mandatory** |
-
-**Latency numbers to remember (approximate orders of magnitude)**
-
-| Operation | Time |
-|---|---|
-| L1 cache / main memory reference | ~1 ns / ~100 ns |
-| Read 1 MB sequentially from memory | ~10–50 µs |
-| SSD random read | ~16–150 µs |
-| Round trip within a data centre | ~0.5 ms |
-| Read 1 MB sequentially from SSD / HDD | ~0.2–1 ms / ~5–20 ms |
-| Round trip across continents | ~100–150 ms |
-
-Powers of two: 2¹⁰ ≈ 1 thousand (KB), 2²⁰ ≈ 1 million (MB), 2³⁰ ≈ 1 billion (GB), 2⁴⁰ ≈ 1 trillion (TB).
-
-#### Repeatable framework
-
-```
-Requirements ─► Estimates ─► APIs ─► Data ─► High-level design ─► Scale ─► Cache ─► Async
-             ─► Reliability ─► Security ─► Observability ─► Cost
-```
-
-**Habit:** after drawing any design, point at each box and ask *"What happens when this fails?"*
 
 ---
 
