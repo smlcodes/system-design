@@ -180,48 +180,7 @@ Client ─► DNS ─► CDN/Edge ─► API Gateway ─► Load Balancer ─►
 
 
 
-#### Request anatomy
-
-| Part | Purpose | Example |
-|---|---|---|
-| Method | Intent | `GET`, `POST`, `PUT`, `PATCH`, `DELETE` |
-| Path | Resource | `/v1/users/42/orders` |
-| Query | Filter, sort, paginate | `?page=2&limit=20&sort=created_at` |
-| Headers | Metadata | `Authorization`, `Content-Type`, `Accept-Encoding`, `X-Request-ID`, `Idempotency-Key` |
-| Body | Payload for writes | JSON, form data, multipart |
-
-Response essentials: status code, `Content-Type` (MIME type), caching headers (`Cache-Control`, `ETag`, `Last-Modified`), `Set-Cookie` (with `HttpOnly`, `Secure`, `SameSite`), pagination info, and a consistent error body:
-
-```json
-{ "error": { "code": "RATE_LIMIT_EXCEEDED", "message": "Retry after 30 seconds.", "request_id": "9f1c2e7a-..." } }
-```
-
-#### Status codes
-
-| Range | Meaning | Common codes |
-|---|---|---|
-| 2xx | Success | 200 OK, 201 Created, 202 Accepted, 204 No Content |
-| 3xx | Redirect / cache | 301, 302, 304 Not Modified |
-| 4xx | Client error | 400, 401 (not authenticated), 403 (not allowed), 404, 409, 422, 429 |
-| 5xx | Server error | 500, 502 Bad Gateway, 503 Unavailable, 504 Gateway Timeout |
-
-#### DNS
-
-| Component | Role |
-|---|---|
-| Recursive resolver (ISP / 8.8.8.8) | Walks the hierarchy for the client and caches answers |
-| Root server | Points to the right TLD servers |
-| TLD server | Manages `.com`, `.org`… and points to the authoritative server |
-| Authoritative server | Holds the records: **A** (IPv4), **AAAA** (IPv6), **CNAME** (alias), **MX** (mail), **TXT**, **NS** |
-
-DNS can also balance traffic (round-robin, weighted, latency-based, geo routing). **Low TTL** = faster failover; **high TTL** = fewer lookups. Secure with DNSSEC and DNS-over-HTTPS/TLS.
-
-#### Network protocols in one line each
-
-- **TCP** — reliable, ordered, connection-oriented (web, databases).
-- **UDP** — fast, no delivery guarantee (video calls, DNS, gaming).
-- **HTTP/1.1** — one in-flight request per connection; **HTTP/2** — multiplexed streams over one connection; **HTTP/3** — HTTP over **QUIC** (UDP), faster handshakes, no head-of-line blocking.
-- **TLS** — encrypts the connection; TLS 1.3 needs only one round trip to set up.
+ 
 
 ---
 ## 5. API Design
