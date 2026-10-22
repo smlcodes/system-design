@@ -1,3 +1,22 @@
+
+
+### 6 Software Architectural Patterns
+<img width="3375" height="4260" alt="image" src="https://github.com/user-attachments/assets/e46dd449-b171-4f78-a245-30f3714df153" />
+
+
+### 8 Common System Design Problems and Solutions
+<img width="3120" height="3900" alt="image" src="https://github.com/user-attachments/assets/5eaa755b-d3e1-421b-9f51-1f3c49d61edf" />
+
+###  Components of a Production Microservice Application
+<img width="3375" height="3900" alt="image" src="https://github.com/user-attachments/assets/6106269b-9f94-444a-a00a-d4d3b74e84ea" />
+
+### 9 Best Practices for Developing Microservices
+<img width="1820" height="2040" alt="image" src="https://github.com/user-attachments/assets/c5084a64-1069-41ea-8b49-39e8cbc0e216" />
+
+
+
+
+
 # 1.API & Load Balance
 ###  The Ultimate API Learning Roadmap
 <img width="2250" height="2752" alt="image" src="https://github.com/user-attachments/assets/a4a11741-288f-4a54-a6c3-2d37cc1534b5" />
@@ -9,6 +28,17 @@
 
 ### 9 Types of API Testing
 <img width="3000" height="3900" alt="image" src="https://github.com/user-attachments/assets/67d9d4f6-0eb9-45f1-9362-b12afaf1608c" />
+
+### Improve API Performance
+<img width="3000" height="3000" alt="image" src="https://github.com/user-attachments/assets/a7ceed23-c7c4-4261-8a08-0e2b66ab0655" />
+
+### Website Performance Metrics 
+<img width="3000" height="3900" alt="image" src="https://github.com/user-attachments/assets/bad83e83-3213-4585-b670-7b91e12f0572" />
+
+
+
+
+
 
 ### API Gateway 
 <img width="3000" height="3900" alt="image" src="https://github.com/user-attachments/assets/b7836e38-bf4a-43b2-9c8d-29e4249246bf" />
@@ -35,6 +65,9 @@ Steps 9-12 - The API gateway can handle errors properly and deals with faults if
 <img width="3687" height="3900" alt="image" src="https://github.com/user-attachments/assets/9e146114-36e6-4e2c-b5eb-a7d42c758adb" />
 
 
+### What Happens When You Type google.com Into a Browser?
+<img width="2360" height="2952" alt="image" src="https://github.com/user-attachments/assets/8bb328f8-0120-4daf-8844-930071926cb5" />
+
 
 
 
@@ -53,6 +86,16 @@ Steps 9-12 - The API gateway can handle errors properly and deals with faults if
 
 ## How to Choose the Right Database
 <img width="3255" height="3900" alt="image" src="https://github.com/user-attachments/assets/bcaceb9d-e261-4fc2-aa21-cc74677816f1" />
+
+
+# Cache Systems
+
+<img width="2064" height="3010" alt="image" src="https://github.com/user-attachments/assets/3c05b988-b038-4ac4-ba95-2a5a7be8853f" />
+
+
+
+
+
 
 
 
