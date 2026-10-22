@@ -378,6 +378,8 @@ Rate-limit state is typically kept in a shared store such as Redis so every gate
 ---
 
 ## 4. Load Balancing Layer
+<img width="1376" height="768" alt="Gemini_Generated_Image_32iq9t32iq9t32iq" src="https://github.com/user-attachments/assets/7b7b3c78-a824-4186-b72e-55da6683fae7" />
+
 
 ### 4.1 Load Balancer Configuration
 
