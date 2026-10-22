@@ -424,6 +424,8 @@ A **load balancer (LB)** distributes traffic across multiple servers to improve 
 ---
 
 ## 5. Frontend Servers & Connection Management Layer
+<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/230ce4c1-ab2a-4231-92ae-4f09e7e540fa" />
+
 
 ### 5.1 Frontend Infrastructure
 
