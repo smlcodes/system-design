@@ -1,8 +1,13 @@
-# System Design Reference Guide
+# System Design in Pictures: A Visual Guide in 60+ Images
 
-> An image-first revision guide. Each section opens with **one overview diagram**, followed by **related diagrams** (with a short note on what each shows), and then **only the essential text** — tables, bullets and a few code snippets.
->
-> Generated overview diagrams live in [`images/`](images/). All other images are the originals from your notes.
+System design is easier to understand through diagrams than through long paragraphs. A single well-drawn image can explain how a request flows, how a cache works, or how services talk to each other more clearly than pages of text.
+
+This post is a visual reference guide. It is intentionally image-heavy, with only short explanations to support each diagram. The goal is simple: to bring the most useful system design visuals together in one place, so you can revise concepts quickly without jumping between dozens of websites.
+
+Use it as a companion for interview preparation, architecture discussions, or a quick refresher. It is not a deep-dive tutorial.
+
+**Credits:**
+Images in this guide belong to their respective owners, as shown by the watermark on each image. They are collected here for learning and reference only.
 
 ---
 
