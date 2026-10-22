@@ -23,7 +23,15 @@
 ### Dev Tools
 <img width="3000" height="3667" alt="image" src="https://github.com/user-attachments/assets/cd7d5895-d6ef-424f-b288-12df153b931e" />
 
+### A Cheat Sheet for Designing Fault-Tolerant Systems
+<img width="3351" height="4337" alt="image" src="https://github.com/user-attachments/assets/73b01e11-20fa-4318-81ea-3f6115da194f" />
 
+
+### Fantastic Four of System Design
+<img width="1674" height="2000" alt="image" src="https://github.com/user-attachments/assets/fe640b00-01da-498d-a6bf-3234c69c3d14" />
+
+### 8 Must-Know Scalability Strategies
+<img width="2961" height="3900" alt="image" src="https://github.com/user-attachments/assets/a29e7673-096e-4da5-80aa-0cecd4968d1a" />
 
 
 
@@ -102,6 +110,10 @@ Steps 9-12 - The API gateway can handle errors properly and deals with faults if
 # Cache Systems
 
 <img width="2064" height="3010" alt="image" src="https://github.com/user-attachments/assets/3c05b988-b038-4ac4-ba95-2a5a7be8853f" />
+
+### Azure Services Cheat Sheet
+<img width="3589" height="3899" alt="image" src="https://github.com/user-attachments/assets/48368ab5-68c7-4456-be37-c4b16525a48e" />
+
 
 
 
