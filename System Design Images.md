@@ -106,6 +106,14 @@ Steps 9-12 - The API gateway can handle errors properly and deals with faults if
 ## How to Choose the Right Database
 <img width="3255" height="3900" alt="image" src="https://github.com/user-attachments/assets/bcaceb9d-e261-4fc2-aa21-cc74677816f1" />
 
+### Session, Cookie, JWT, Token, SSO, and OAuth 2.0
+<img width="3000" height="3900" alt="image" src="https://github.com/user-attachments/assets/39cefb2d-ab45-4575-a0cf-e790d95964c4" />
+<img width="2250" height="2786" alt="image" src="https://github.com/user-attachments/assets/0dfca9ac-c73e-4724-a66b-7293ceda42b6" />
+<img width="3404" height="4522" alt="image" src="https://github.com/user-attachments/assets/8ed50535-b021-4945-95d0-7ef232ceed2a" />
+
+
+
+
 
 # Cache Systems
 
@@ -115,8 +123,15 @@ Steps 9-12 - The API gateway can handle errors properly and deals with faults if
 <img width="3589" height="3899" alt="image" src="https://github.com/user-attachments/assets/48368ab5-68c7-4456-be37-c4b16525a48e" />
 
 
+### How does Docker work?
+<img width="3000" height="3000" alt="image" src="https://github.com/user-attachments/assets/78ab7b8b-66f7-4d21-a2d8-dba9a227a030" />
 
 
+### Top 5 Most-Used Deployment Strategies
+<img width="2925" height="3900" alt="image" src="https://github.com/user-attachments/assets/b4f902ef-656d-4437-a7aa-3112cc1ce4fe" />
+
+### Why is Nginx so Popular?
+<img width="3328" height="3900" alt="image" src="https://github.com/user-attachments/assets/243423d7-d4ef-4601-a041-fd95beee7ed5" />
 
 
 
